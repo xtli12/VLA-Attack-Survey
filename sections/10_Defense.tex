@@ -1,0 +1,26 @@
+\section{Adaptive Attack Evaluation Under Guardrails}
+\label{sec:defense}
+
+This section is not a defense survey. Guardrails matter here because they change attack objectives, capability assumptions, and measurement points. A prompt attack may become a source-confusion attack; a direct physical violation may become near-boundary behavior; a memory poisoning attack may become a persistence test.
+
+\subsection{Guardrail Assumptions as Part of the Threat Model}
+
+Attack success rates are comparable only when guardrail assumptions are comparable. Prompt hierarchy assumes source labels; retrieval filtering assumes memory provenance; tool permissions assume typed schemas and roles; shields assume a specified unsafe set.
+
+Thus, guardrails should be reported as part of the target system: whether the attacker observes them, adapts to them, queries rejection behavior, or acts only through the physical environment.
+
+\subsection{How Guardrails Change Attack Objectives}
+
+Prompt hierarchy turns injection into provenance confusion. Memory hygiene turns retrieval poisoning into persistence. Tool least privilege turns API misuse into argument selection, precondition bypass, or semantic misuse of an authorized skill \cite{greshake2023not,zhan2024injecagent,debenedetti2024agentdojo}.
+
+Control guardrails shift attacks from direct collision or force violation toward near-boundary motion, repeated interventions, semantic misuse inside the encoded safe set, or recovery failure \cite{ames2017control,alshiekh2018shielded,achiam2017constrained,dawson2023safecontrol,zhang2025safevla}. Reporting only direct violation rate understates this residual attack surface.
+
+\subsection{Adaptive Attack Reporting}
+
+Adaptive evaluation should specify what the attacker knows and how the attack changes. Relevant adaptations include source-boundary confusion, tool-output placement, query budgeting, trajectory shaping, near-boundary objectives, recovery manipulation, delayed triggers, and survival after deletion or correction.
+
+Benign utility is the constraint under which adaptive ASR is meaningful; blocking all tools or stopping at every ambiguity changes the task rather than measuring attack resistance.
+
+\subsection{Implications for Future Attack Work}
+
+For VLA attack research, guardrails are best treated as transformations of the attack objective: source confusion, persistence, authorization-boundary crossing, near-boundary motion, semantic misuse, stealth, or delay.

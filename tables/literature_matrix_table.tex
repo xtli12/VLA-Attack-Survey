@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Evidence-aware synthesis by corpus. Core rows are attack evidence; contextual rows support taxonomy or evaluation but are not included in attack-study denominators. D: digital; S: simulation; HIL: hardware-in-the-loop; P: physical robot/world; PR: peer-reviewed; PP: preprint or non-archival version.}
+\label{tab:attack-literature-summary}
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{1.8pt}
+\begin{tabularx}{\textwidth}{@{}p{0.13\textwidth}p{0.28\textwidth}p{0.10\textwidth}p{0.11\textwidth}Y@{}}
+\toprule
+\textbf{Corpus / stratum} & \textbf{Representative work} & \textbf{Status} & \textbf{Validation} & \textbf{What the evidence supports} \\
+\midrule
+Direct VLA: instruction/control & RoboGCG, VLA-Fool, SABER, Q-DIG, trajectory redirection \cite{jones2025robogcg,yan2025vlafool,wu2026saber,srikanth2026qdig,puthumanaillam2026trajectory} & PP & D/S/P & Language or multimodal perturbations can alter VLA rollout behavior; black-box, natural-prompt, and command-preserving settings are emerging. \\
+Direct VLA: patches/physical vision & ICCV patch attacks, EDPA, ADVLA, UPA-RFAS, VLA-Hijack, Tex3D, partially observable patches \cite{wang2025vlaadversarial,xu2025edpa,zhang2025advla,lu2026patch,fu2026vlahijack,chen2026tex3d,wang2026partialpatch} & PR/PP & D/S/P & Visual attacks can target embeddings, grounding, visual proprioception, action trajectories, and object textures; transfer and physical evidence are improving but uneven. \\
+Direct VLA: action/backdoor & FreezeVLA, BadVLA, GoBA, DropVLA/TabVLA, AttackVLA/BackdoorVLA, SilentDrift \cite{wang2025freezevla,zhou2025badvla,zhou2025goba,xu2025dropvla,li2025attackvla,xu2026silentdrift} & PP & S/P & VLA attacks can target action primitives, action freezing, chunk drift, and long-horizon triggered behavior, often while preserving clean utility. \\
+Direct VLA: reasoning/privacy & TRAP, altered reasoning traces, ReasonBreak, VLA membership inference, VLALeaks \cite{huang2026trap,altered2026thoughts,teymoorianfard2026reasonbreak,peng2026miavla,luan2026vlaleaks} & PP & D/S/P & Reasoning traces and training membership are VLA-specific target representations; objectives include integrity and confidentiality rather than only task failure. \\
+Core: embodied-adjacent attacks & BadRobot, RoboPAIR, CHAI, RoboJailBench, ANNIE, Phantom Menace, Eva-VLA \cite{zhang2025badrobot,robey2025robopair,burbano2025chai,yeke2026robojailbench,huang2025annie,lu2025phantom,liu2025evavla} & PR/PP & D/S/P & Embodied LLM/VLM, environmental command, trajectory, sensor, and physical-variation attacks inform VLA threat models but are not counted as direct VLA evidence unless VLA policies are attacked. \\
+Contextual references & VLA/RFM substrates, benchmarks, adversarial ML, physical/sensor attacks, RAG/tool-agent security, RL backdoors, ROS/robot cybersecurity \cite{kim24openvla,black2024pi0,liu2023libero,goodfellow2015explaining,brown2017adversarial,cao2019lidar,zou2025poisonedrag,debenedetti2024agentdojo,kiourti2020trojdrl,deng2022insecurityros2} & PR/PP & D/S/P & Provides mechanisms, substrates, and evaluation lessons; not included in attack-study denominators unless the work has explicit attacker, target, method, and outcome. \\
+\bottomrule
+\end{tabularx}
+\end{table*}

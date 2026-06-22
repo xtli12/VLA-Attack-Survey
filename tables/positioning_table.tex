@@ -1,0 +1,25 @@
+\begin{table*}[t]
+\centering
+\footnotesize
+\caption{Positioning relative to adjacent surveys and review traditions. The paper is not another broad safety survey; it is a systematic evidence review of attacks on VLA-enabled robotic systems.}
+\label{tab:positioning}
+\renewcommand{\arraystretch}{1.13}
+\setlength{\tabcolsep}{2.2pt}
+\begin{tabularx}{\textwidth}{@{}p{0.16\textwidth}Y Y Y Y@{}}
+\toprule
+\textbf{Adjacent literature} & \textbf{Literature set emphasized} & \textbf{Primary classification axis} & \textbf{Questions left open for attacks} & \textbf{Reusable tool added here} \\
+\midrule
+VLA/RFM surveys \cite{sapkota2025vlasurvey} & VLA architectures, datasets, training recipes, action representations, applications & Model family, capability, embodiment, training data & Which architecture-specific representations are attack targets? Which attack claims have evidence? & Action-representation coding for tokens, chunks, waypoints, trajectories, diffusion/flow policies, skills. \\
+\addlinespace
+VLA safety survey \cite{li2026vlasafety} & Threats, mechanisms, defenses, evaluation, safe deployment & Safety threat and mitigation landscape & Which works directly attack VLA policies? What is only adjacent? Which ASR definitions and validation tiers are comparable? & Evidence strata, frozen per-paper CSV database, and reporting checklist focused on adversarial claims. \\
+\addlinespace
+Embodied-AI and embodied-security surveys \cite{liu2025embodiedsurvey,xing2025robustsecure} & Embodied perception, planning, navigation, sim-to-real, broad vulnerabilities & Embodied task stack and deployment challenge & How do attacks propagate from semantic inputs to low-level robot actions? & Closed-loop attack model linking state, observation, action, controller, recovery, memory, and safety constraints. \\
+\addlinespace
+LLM-agent security and benchmarks \cite{greshake2023not,ruan2024toolemu,debenedetti2024agentdojo,zhan2024injecagent} & Prompt injection, tool misuse, data leakage, agent sandboxes & Source boundary, tool access, data flow & Which software-agent results transfer to physical skill calls and which remain analogical? & Evidence labels that prevent software-agent attacks from being overclaimed as VLA-validated attacks. \\
+\addlinespace
+Adversarial ML and physical attacks \cite{szegedy2014intriguing,eykholt2018robust,tu2020lidar,cao2021invisible} & Classifiers, detectors, sensors, transfer, query efficiency, physical perturbations & Perturbation type, norm, access, target model & Does image/sensor success change a VLA plan, action token, trajectory, or safety envelope? & Multi-axis coding separates entry surface from target representation and embodied consequence. \\
+\addlinespace
+Robot and cyber-physical security \cite{dieber2020penetration,deng2022insecurityros2,neupane2024security,yaacoub2022robotics} & Middleware, networks, actuators, industrial robots, HRI, safety controls & Cyber-physical component and vulnerability class & How do foundation-model semantics interact with middleware, tools, HRI, and controllers? & Attack-chain vocabulary for memory, tools, ROS/middleware, human authority, and persistent state compromise. \\
+\bottomrule
+\end{tabularx}
+\end{table*}

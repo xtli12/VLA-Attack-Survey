@@ -1,0 +1,34 @@
+\section{Open Problems in VLA Attack Research}
+\label{sec:challenges}
+
+\subsection{Physically Realizable VLA Attacks}
+
+VLA attack papers increasingly report digital or simulator success, but physical realizability remains uneven. A physically meaningful attack must satisfy placement, visibility, timing, sensor, robot-motion, and human-observability constraints. The open problem is not simply to print a patch or sign, but to show that the attack remains effective while the robot moves, the viewpoint changes, the controller updates, and recovery behavior is available. Simulator-only studies remain useful for ablation, but claims about physical consequence require hardware-in-the-loop or real-robot evidence.
+
+\subsection{Long-Horizon and Persistent Attacks}
+
+Many demonstrated attacks are single-prompt, single-image, or short-episode attacks. VLA deployments will use memory, maps, logs, user preferences, tool histories, and multi-step planning. This creates room for persistent attacks that write corrupted state, wait for retrieval, or accumulate small deviations. The field needs attack protocols that measure whether effects survive new observations, user correction, memory cleanup, and safe-stop recovery.
+
+\subsection{Cross-Model and Cross-Embodiment Transfer}
+
+Transferability is a core open question. VLM attacks often report cross-model transfer, but VLA attacks must also consider action tokenizers, continuous action heads, chunked policies, diffusion or flow action models, camera placements, robot morphologies, and controller interfaces. A successful attack on OpenVLA in LIBERO does not automatically imply transfer to a flow-based bimanual robot or a planner-skill architecture. Standardized cross-embodiment suites would clarify which vulnerabilities are model-specific and which are architectural.
+
+\subsection{Attacks on Action Representations}
+
+Action representations are now attack targets. Tokenized policies expose action vocabularies; chunked policies expose multi-step commitments; diffusion and flow policies expose trajectory distributions; skill-based agents expose tool and precondition interfaces. Existing attacks begin to test action reachability, freezing, and targeted backdoors \cite{jones2025robogcg,wang2025freezevla,li2025attackvla}, but the field lacks a common language for action-level ASR, trajectory deviation, and targeted long-horizon action induction.
+
+\subsection{Memory, Tool, and Supply-Chain Attacks}
+
+The least explored VLA attacks may be the most system-level: poisoned demonstrations, corrupted robot logs, malicious simulator assets, compromised retrieval corpora, unsafe tool outputs, and over-permissive skill APIs. RAG poisoning, tool-agent prompt injection, and RL backdoors provide starting points \cite{zhan2024injecagent,zou2025poisonedrag,kiourti2020trojdrl,cui2024badrl}. VLA research still needs embodied versions that measure physical consequence, persistence, and cross-session activation.
+
+\subsection{HRI and Socially Situated Attackers}
+
+VLA systems will receive instructions from users, operators, bystanders, and remote services. Socially situated attackers can exploit authority ambiguity, urgency, politeness, role claims, visual gestures, and physical placement. These attacks are difficult to benchmark because they involve people and context, but ignoring them would miss a central difference between VLA attacks and ordinary VLM attacks. The challenge is to design ethically reviewable HRI attack studies that do not train users or models to reproduce harmful behavior.
+
+\subsection{Adaptive Attacks Against Runtime Guardrails}
+
+Runtime monitors, prompt hierarchy, retrieval filters, tool permissions, action shields, and CBFs will increasingly appear in VLA systems. Attack research must therefore move beyond non-adaptive baselines. Adaptive attackers may exploit monitor thresholds, induce false positives, stay inside encoded safe sets while causing semantic misuse, or delay effects until after a monitor stops attending. These studies are essential for understanding residual attack surfaces after first-generation defenses.
+
+\subsection{Standardized Attack Reporting and Responsible Disclosure}
+
+Attack reporting needs standardization: threat model, target component, security property, validation tier, transfer setting, stealth, persistence, consequence severity, and defense awareness. At the same time, VLA attack artifacts may transfer to real robots, sensors, or tool interfaces. Responsible disclosure should therefore be integrated into benchmark design through sanitized examples, aggregate reporting, controlled artifact release, and coordination with affected model or robot providers when a study demonstrates plausible physical misuse.

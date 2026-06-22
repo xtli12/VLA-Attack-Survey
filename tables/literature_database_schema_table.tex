@@ -1,0 +1,24 @@
+\begin{table*}[t]
+\centering
+\footnotesize
+\caption{Frozen evidence-database schema. Supplementary files include the full CSV database, corpus/source CSV, direct-VLA audit CSV, direct-VLA validation-flags CSV, and a README with field dictionary and statistic-generation commands.}
+\label{tab:database-schema}
+\renewcommand{\arraystretch}{1.08}
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabularx}{\textwidth}{@{}p{0.17\textwidth}Y p{0.31\textwidth}@{}}
+\toprule
+\textbf{Field group} & \textbf{Fields} & \textbf{Coding rule} \\
+\midrule
+Bibliographic record & work, year, venue/status, version date, DOI/arXiv/OpenReview URL & Use the peer-reviewed version when available; otherwise mark as preprint and avoid archival claims. \\
+Evidence stratum & evidence level, family & Direct VLA; embodied-adjacent; analogical/methodological. Code the victim and measured outcome, not only the paper's motivation. \\
+Corpus/source & corpus type, discovery source & Corpus type is core or contextual; discovery source records database query, snowballing, targeted verification, reviewer suggestion, or project-page discovery. \\
+Attack coding & lifecycle, timing, entry surface, target component, target representation & Multi-label allowed. Entry surface records where the adversary acts; target representation records what is changed. \\
+Threat model & knowledge level, access channel, privilege level, query budget, physical access, supply-chain access & Knowledge is white/gray/black; access is digital/physical/human/supply-chain/hybrid; privilege records user, operator, model, data, tool, or middleware privilege. \\
+Objective and consequence & objective, targetedness, consequence, safety boundary, privacy/authorization boundary & Do not collapse task failure, wrong object, unsafe action, collision/contact risk, privacy leakage, unauthorized skill, and persistent compromise. \\
+Validation setting & highest validation tier; validation flags in companion CSV & Highest tier is mutually exclusive. Flags are multi-label: digital input, real sensor, simulation rollout, HIL, real-robot actuation, human-proximate. \\
+Robot-control coding & action representation, chunk horizon, controller frequency, safety filter, recovery policy, pre/post-controller trace & TRO-relevant control-layer fields are coded as reported, not only recommended for future work. NR means not reported. \\
+Comparability & ASR definition, benign utility, transfer, adaptive setting, query budget, statistical uncertainty & ASR is comparable only when objective, denominator, target, and validation tier match. \\
+Limitations & limitation, responsible-disclosure note, missing ablation, missing physical detail & Used to separate demonstrated risk from plausible transfer and open attack surface. \\
+\bottomrule
+\end{tabularx}
+\end{table*}

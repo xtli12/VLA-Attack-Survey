@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Cross-study synthesis for the 23 direct VLA attack records. Counts are paper counts; rows may overlap when a paper evaluates multiple settings.}
+\label{tab:core-heatmaps}
+\renewcommand{\arraystretch}{1.08}
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{@{}p{0.20\textwidth}ccccY@{}}
+\toprule
+\textbf{Attack family} & \textbf{Embedding/grounding} & \textbf{Reasoning/plan} & \textbf{Action token/chunk} & \textbf{Trajectory/controller} & \textbf{Dominant validation tiers} \\
+\midrule
+Instruction/control & 1 & 3 & 2 & 2 & Simulation rollout; one real-robot red-team study. \\
+Visual/physical & 5 & 1 & 1 & 6 & Simulation and real-robot actuation dominate; one real-sensor-only transfer study. \\
+Backdoor/action & 1 & 1 & 4 & 3 & Mostly simulation; three real-robot actuation reports. \\
+Reasoning/privacy & 1 & 3 & 1 & 2 & Digital input-only and simulation; physical actuation only for patch-based reasoning hijack. \\
+\midrule
+\textbf{Timeline} & \multicolumn{5}{p{0.76\textwidth}@{}}{2025: 10 direct records, mostly prompt/patch/backdoor. 2026: 13 direct records, adding black-box instruction, reasoning, privacy, 3D texture, partial-observation, and driving-trajectory evidence.} \\
+\bottomrule
+\end{tabularx}
+\end{table*}

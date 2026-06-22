@@ -1,0 +1,23 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\caption{Transparent screening flow for frozen database \texttt{VLA-Attack-ER-v2026-06-16}. Counts describe this manuscript's adapted PRISMA-style reporting workflow; the protocol was not prospectively registered.}
+\label{tab:review-flow}
+\renewcommand{\arraystretch}{1.08}
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\columnwidth}{@{}p{0.48\columnwidth}rY@{}}
+\toprule
+\textbf{Screening stage} & \textbf{Count} & \textbf{Notes} \\
+\midrule
+Records captured before de-duplication & 276 & Database queries, arXiv/OpenReview/CVF pages, seed surveys, backward/forward snowballing. \\
+Duplicate or superseded records removed & 51 & Same work across arXiv, project page, repository, conference version, or renamed preprint. \\
+Title/abstract screened & 225 & Screened for VLA, embodied robotics, adversarial objective, privacy objective, or evaluation relevance. \\
+Excluded at title/abstract & 113 & Ordinary robustness only, no embodied implication, text-only safety, or unrelated robotics. \\
+Full texts assessed & 112 & Full paper, arXiv page, publisher page, OpenReview page, project page, or repository was checked. \\
+Full texts excluded & 27 & No adversarial objective (8); no action/robot boundary (6); insufficient VLA relevance (7); unverifiable identity (4); short duplicate (2). \\
+Core Evidence Corpus & 30 & Direct VLA attacks (23) plus embodied-adjacent attacks with explicit attacker, target, method, and outcome (7). \\
+Contextual Reference Corpus & 55 & VLA/RFM substrates, benchmarks, adversarial-ML methods, RAG/security-agent context, ROS/cyber-physical security, and action-representation foundations. \\
+Included records in frozen database & 85 & Core evidence (30) plus contextual references (55). \\
+\bottomrule
+\end{tabularx}
+\end{table}

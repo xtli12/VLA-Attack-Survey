@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Coding decision rules for common boundary cases. Conservative downgrading is used when VLA policy measurement is absent.}
+\label{tab:coding-decision-tree}
+\renewcommand{\arraystretch}{1.08}
+\setlength{\tabcolsep}{2.2pt}
+\begin{tabularx}{\textwidth}{@{}p{0.20\textwidth}Y Y Y@{}}
+\toprule
+\textbf{Boundary case} & \textbf{Direct VLA if...} & \textbf{Otherwise code as...} & \textbf{Key fields} \\
+\midrule
+VLM planner plus controller & The attacked planner is part of a VLA-enabled robot and the outcome is measured as VLA action, skill, trajectory, or robot execution. & Embodied-adjacent when it is an LLM/VLM planner without VLA policy measurement. & target component = planner; representation = plan/waypoint/skill; validation tier follows action evidence. \\
+Autonomous-driving VLA trajectory model & The paper names a VLA/reasoning-VLA driving model and measures reasoning-to-trajectory or closed-loop driving outcome. & Contextual driving/sensor evidence if only perception or planning is attacked. & representation = reasoning/trajectory/velocity field; consequence = collision/contact risk or safety metric. \\
+Membership inference & The membership unit is VLA training sample, action transition, trajectory, or VLA attention/action behavior. & Contextual privacy evidence if target is only LLM/VLM without action channel. & security property = confidentiality; consequence = privacy harm; ASR metric = AUC/TPR. \\
+ROS or middleware exploit & The exploit changes a VLA-enabled robot's tool call, controller command, memory, or action trace. & Contextual cyber-physical or embodied-adjacent security when no VLA system is in the loop. & access = middleware; privilege = middleware/tool; component = middleware/controller. \\
+Vision-encoder-only attack & The attacked encoder belongs to a VLA policy and downstream VLA rollout/action degradation is measured. & Contextual VLM/adversarial-ML evidence if only embeddings or image labels are measured. & component = visual encoder; representation = embedding/grounding; validation depends on rollout. \\
+Project page or repository claim & Bibliographic identity is clear and the method/result matches paper or released artifact. & Exclude if identity is unverifiable; contextual if only code substrate is available. & status = project/preprint; limitation records evidence strength. \\
+\bottomrule
+\end{tabularx}
+\end{table*}

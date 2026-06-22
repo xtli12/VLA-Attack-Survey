@@ -1,0 +1,53 @@
+\section{Evaluating VLA Attacks}
+\label{sec:evaluation}
+
+VLA attack evaluation asks whether an adversarial intervention changes a VLA-enabled system in the way the attacker intended, whether the change reaches embodied action, and how much evidence supports deployment relevance. A benchmark score by itself is not enough. The same attack success rate can mean a digital image perturbation, a simulator-only task failure, a physical sign that changes an intermediate command, or a real robot trajectory that violates a safety envelope. Table~\ref{tab:attack-reporting} gives a reporting checklist for attack papers.
+
+\input{tables/attack_reporting_table}
+
+\subsection{Attack Units}
+
+The unit of attack can be an image, sensor stream, instruction, multimodal prompt, retrieved item, tool response, plan, action token, action chunk, trajectory, episode, or deployment session. Image-level and prompt-level attacks are useful for isolating vulnerabilities, but they do not by themselves establish robot consequence. Plan-level attacks reveal goal hijacking and unsafe preconditions. Action-token and trajectory attacks expose the point where semantic manipulation becomes motion. Episode- and session-level attacks capture recovery failure and persistence, but they are harder to reproduce because robot state, simulator physics, and human interaction matter.
+
+Attack papers are strongest when they connect units. For example, a multimodal prompt injection study can report source-confusion at the input, changed subgoal at the plan level, changed skill call at the interface, and the resulting action or safe stop. Direct VLA attack papers can report token probability shifts, action deviation, trajectory-level effect, and whether the robot corrects after new observations.
+
+\subsection{Attack Metrics}
+
+The primary metric is attack success rate (ASR), but ASR must be typed. \emph{Untargeted ASR} measures whether the attacker causes task failure or abnormal behavior. \emph{Targeted ASR} measures whether the attacker induces a specified object choice, tool call, action token, waypoint, or trajectory. \emph{Safety-violation rate} measures whether the outcome crosses a physical, privacy, or authorization boundary. \emph{Consequence severity} records recoverability and affected actors. \emph{Transferability} measures success across prompts, models, embodiments, sensors, controllers, scenes, and action representations. \emph{Stealthiness} measures perceptibility, intervention frequency, and anomaly score. \emph{Persistence} measures whether the effect survives new observations, memory updates, or later sessions. \emph{Recovery failure} measures whether the robot continues after correction opportunities. \emph{Attacker cost} records query budget, optimization cost, physical placement effort, and required access.
+
+Let $\kappa_O(\tau^\delta)$ be an indicator that rollout $\tau^\delta$ satisfies objective type $O$, let $\sigma_C(\tau^\delta)$ indicate violation of consequence class $C$, and let $\rho_H(\tau^\delta)$ indicate that the attack effect persists after horizon $H$. For $N$ trials, typed attack metrics can be written as
+\begin{align}
+    \mathrm{ASR}_{O} &= \frac{1}{N}\sum_{i=1}^{N}\mathbf{1}\{\kappa_O(\tau_i^\delta)=1\}, \nonumber\\
+    \mathrm{SVR}_{C} &= \frac{1}{N}\sum_{i=1}^{N}\mathbf{1}\{\sigma_C(\tau_i^\delta)=1\}, \nonumber\\
+    \mathrm{PR}_{H} &= \frac{1}{N}\sum_{i=1}^{N}\mathbf{1}\{\rho_H(\tau_i^\delta)=1\}.
+    \label{eq:typed-metrics}
+\end{align}
+Here $\mathrm{PR}_{H}$ is a persistence rate over $H$ feedback steps, memory updates, or sessions. It is useful for memory poisoning, action freezing, delayed goal hijacking, and social attacks whose consequence appears after several feedback cycles. Eq.~\eqref{eq:typed-metrics} also makes clear why a single untyped ASR is insufficient: task failure, targeted action induction, and safety violation are different predicates over the same rollout.
+
+Benign utility remains relevant when evaluating attacks against defenses, but it is not the main object of the survey. It prevents a defense-aware attack evaluation from giving credit to defenses that simply disable the robot or refuse all ambiguous tasks. For attack research, utility is best treated as a constraint: the defended system should still perform benign tasks, while the adaptive attacker attempts to achieve its objective under that constraint.
+
+\subsection{Physical Executability and Validation}
+
+Physical executability is not binary. A digital perturbation may diagnose a vulnerable representation; a simulator-constrained attack may test scale and ablation; a hardware-in-the-loop evaluation may expose latency and controller effects; a physical robot trial tests the attack under sensing, calibration, lighting, friction, and recovery. The validation tier should be named explicitly and tied to the claimed consequence.
+
+The physically strongest attack evidence includes placement constraints, sensor stack, camera viewpoints, robot platform, controller rate, scene variation, number of trials, and whether the perturbation was introduced before or after perception preprocessing. A physical patch that changes an isolated image prediction and a physical sign that changes a robot's executed plan are different evidence levels.
+
+\subsection{Transferability, Stealth, and Persistence}
+
+Transferability determines whether an attack is a narrow exploit or a broader VLA vulnerability. VLM jailbreak studies often emphasize cross-model transfer \cite{qi2024visual,niu2024jailbreaking,li2024hades}; VLA attack studies must add transfer across action tokenizers, continuous action heads, embodiments, camera placements, tools, and environments. A prompt attack that transfers across planners but fails on end-to-end action policies and a patch attack that transfers across visual encoders but not embodiments have different implications.
+
+Stealth and persistence are especially important for robots. Strategically timed RL attacks show that fewer interventions can be more covert \cite{lin2017tactics}; memory poisoning and backdoors show how effects can persist until a trigger appears \cite{zou2025poisonedrag,kiourti2020trojdrl,cui2024badrl}. VLA attack evaluation should therefore record whether the attack remains effective after the robot moves, asks for clarification, sees new evidence, executes a safe stop, or updates memory.
+
+\subsection{Adaptive Attack Evaluation}
+
+Defense-aware attack research changes the objective. A prompt-hierarchy defense turns prompt injection into a source-confusion or provenance-bypass problem. A tool-permission layer turns tool attacks into argument-smuggling or authorization-boundary attacks. An action shield or CBF can turn a direct safety violation objective into near-boundary motion, semantic misuse, or recovery-exhaustion. Runtime monitors create incentives for stealthy, low-frequency, or delayed attacks.
+
+Adaptive evaluation should state what the attacker knows about the defense and whether the attack was optimized against it. Non-adaptive ASR is still useful as a baseline, but it should not be used to claim robust security. For VLA systems, the most informative adaptive attacks are those that preserve benign-looking plans while changing downstream action, memory, tool use, or physical state.
+
+\subsection{Benchmark Coverage and Limitations}
+
+\input{tables/benchmark_table}
+
+Table~\ref{tab:benchmark-evaluation} separates capability, safety, attack, and red-team testbeds. Capability benchmarks such as AI2-THOR, ALFRED, Habitat, RLBench, CALVIN, LIBERO, and ManiSkill support grounding or manipulation claims, but not attack claims unless adversarial objectives and consequence labels are added \cite{kolve2017ai2thor,shridhar2020alfred,savva2019habitat,james2020rlbench,mees2022calvin,liu2023libero,mu2021maniskill}. Tool-agent and embodied jailbreak benchmarks are closer to attack evaluation, but software-agent settings lack physical sensors and many embodied settings still approximate action consequences \cite{ruan2024toolemu,debenedetti2024agentdojo,zhan2024injecagent,yeke2026robojailbench}.
+
+The validity problem is sharper for physical claims. Planning-level benchmarks cannot establish hardware safety; simulator benchmarks cannot by themselves establish real-world transfer; red-team prompt sets cannot measure trajectory severity without action traces. Benchmark audits further caution that manipulation scores can reflect shortcuts or fragile evaluation assumptions \cite{jiang2026benchmarkaudit}. A credible VLA attack benchmark therefore needs paired benign/adversarial tasks, knowledge/access/privilege coding, severity labels, provenance conflicts, tool permissions, validation tiers, and recovery metrics.

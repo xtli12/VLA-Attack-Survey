@@ -1,0 +1,96 @@
+\section{VLA System, Threat Model, and Orthogonal Taxonomy}
+\label{sec:taxonomy}
+
+\subsection{Closed-Loop VLA System Model}
+
+A VLA-enabled robot can be viewed as a closed-loop state transition system rather than a single input-output model. Let $x_t$ denote the physical state, $o_t=O(x_t,\eta_t)$ the observation produced by sensors and preprocessing noise $\eta_t$, $m_t$ the memory/tool/human context, and $u_t$ the command emitted by the VLA or its planner. A low-level controller $K$ maps $u_t$ and robot state to actuation, while a recovery or safety mechanism $R$ may stop, replan, filter, or ask for help:
+\begin{align}
+    u_t &= \pi_\theta(o_{\le t}, g, m_t), \nonumber\\
+    a_t &= K(u_t, x_t, R_t), \nonumber\\
+    x_{t+1} &= F(x_t, a_t, w_t), \quad m_{t+1}=U(m_t,o_t,u_t,a_t).
+    \label{eq:closed-loop-vla}
+\end{align}
+The safety envelope is a set $\mathcal{S}$ over physical state, controller state, tool authorization, privacy state, and human proximity. An attack is relevant when an intervention $\delta$ changes one of these transitions or contexts so that the rollout violates a task, authorization, privacy, or safety predicate. This formulation keeps the useful parts of formalism: it identifies the observation function, VLA policy, controller, memory update, recovery mechanism, and safety constraint set that a paper must report.
+
+We use the propagation chain
+\begin{align}
+\delta &\rightarrow \Delta o_t \rightarrow \Delta z_t
+\rightarrow \Delta u_t \rightarrow \Delta a_t \nonumber\\
+&\rightarrow \Delta x_{t+1}
+\rightarrow \text{recovery or violation}
+\label{eq:attack-propagation}
+\end{align}
+as the organizing model for robotics evidence. The same entry perturbation can stop at the observation, change an embedding or grounding representation, change a VLA command, be clipped or transformed by a controller, or only become visible as a later state violation. RQ4 and RQ5 are therefore evaluated at the controller and recovery boundary, not only at the model-output boundary.
+
+\subsection{Typed Attack Success}
+\label{subsec:attack-success}
+
+Because VLA safety papers do not yet use a uniform definition of attack success, we define it explicitly. Let $\tau^0(c)$ be the benign rollout from an initial condition and task context $c=(x_0,g,m_0)$, and let $\tau^\delta(c)$ be the rollout under an adversarial intervention $\delta$ that satisfies the declared knowledge, access, privilege, budget, and physical constraints. A VLA attack is successful for objective type $O$ and consequence class $C$ when
+\begin{align}
+    \mathrm{Succ}_{O,C}(\tau^\delta,\tau^0)
+    &= \mathbf{1}\{ \phi_{O,C}(\tau^\delta)=1 \nonumber\\
+    &\quad \land\ \phi_{O,C}(\tau^0)=0
+    \land\ \delta \in \Delta(\mathcal{A}) \}.
+    \label{eq:attack-success}
+\end{align}
+where $\phi_{O,C}$ is a typed violation predicate and $\Delta(\mathcal{A})$ is the admissible attacker set. The benign rollout condition prevents ordinary task difficulty or non-adversarial distribution shift from being counted as attack success. If a benign rollout is unavailable, the paper should state the baseline used, such as clean task success, human-labeled intended behavior, or non-member trajectory statistics.
+
+The predicate $\phi_{O,C}$ must be typed. A \emph{task-failure attack} succeeds when the benign task would complete but the attacked rollout fails. A \emph{targeted behavior attack} succeeds when the robot reaches an attacker-specified object, action primitive, waypoint, trajectory, skill, or tool call. A \emph{safety attack} succeeds when the rollout violates a safety envelope, contact margin, force/velocity/workspace bound, or human-proximity constraint. An \emph{authorization attack} succeeds when the system executes an unauthorized command, skill, tool, or privilege transition. A \emph{privacy attack} succeeds when membership, trajectory, user, or scene information is inferred above a stated threshold. A \emph{persistence attack} succeeds when the adversarial effect survives replanning, feedback, memory update, fine-tuning, or a session boundary. A \emph{recovery-failure attack} succeeds when the system has an opportunity to stop, replan, ask for help, or invoke a recovery policy but still reaches the violation predicate.
+
+This definition makes ASR meaningful only when five items are stated together: the violation predicate, the denominator, the attacker assumptions, the validation tier, and the benign or clean baseline. Without these items, ASR values from different VLA papers should be treated as local evidence rather than comparable field-level rates.
+
+\begin{figure*}[t]
+\centering
+\scriptsize
+\begin{tikzpicture}[
+    node distance=0.45cm and 0.55cm,
+    box/.style={draw, rounded corners, align=center, minimum height=0.95cm, text width=2.15cm, fill=gray!8},
+    atk/.style={draw, rounded corners, align=center, text width=2.2cm, fill=red!8},
+    arr/.style={-{Latex[length=2mm]}, thick}
+]
+\node[box] (obs) {Observation\\$o_t$};
+\node[atk, left=of obs, text width=1.9cm] (adv) {Adversary\\and attack\\operator $\delta$};
+\node[box, right=of obs] (latent) {Representation\\$z_t$};
+\node[box, right=of latent] (cmd) {VLA command\\$u_t$};
+\node[box, right=of cmd] (ctrl) {Controller\\$K(u_t,x_t)$};
+\node[box, right=of ctrl] (exec) {Physical state\\$x_{t+1}$};
+\node[box, below=of cmd, text width=2.6cm] (rec) {Recovery, memory, tools, human state};
+\node[box, below=of exec, text width=2.25cm, fill=green!8] (safe) {Safety envelope\\$\mathcal{S}$};
+\draw[arr] (obs) -- (latent);
+\draw[arr] (latent) -- (cmd);
+\draw[arr] (cmd) -- (ctrl);
+\draw[arr] (ctrl) -- (exec);
+\draw[arr] (exec.south) -- (safe.north);
+\draw[arr] (exec.south) |- (rec.east);
+\draw[arr] (rec.west) -| (latent.south);
+\draw[arr] (rec.north) -- (cmd.south);
+\draw[arr, red!70] (adv) -- node[above, sloped] {$\Delta o_t$} (obs);
+\draw[arr, red!70] (adv.north) .. controls +(0,1.3) and +(0,1.3) .. node[above] {language / tool / data / physical entries} (cmd.north);
+\draw[arr, red!70] (adv.south) .. controls +(0,-1.1) and +(-1.3,-0.8) .. node[below] {middleware / recovery / memory entries} (rec.west);
+\draw[arr, red!70, dashed] (latent.north) to[bend left=20] node[above] {$\Delta z_t$} (cmd.north);
+\draw[arr, red!70, dashed] (cmd.north) to[bend left=20] node[above] {$\Delta u_t$} (ctrl.north);
+\draw[arr, red!70, dashed] (ctrl.north) to[bend left=20] node[above] {$\Delta a_t$} (exec.north);
+\end{tikzpicture}
+\caption{Closed-loop VLA attack view. The entry surface, target representation, and consequence can occur at different points in the loop.}
+\label{fig:vla-pipeline}
+\end{figure*}
+
+\subsection{Threat Model}
+
+We assume the deployer has an intended task, authorized users, authorized tools and skills, and a safety envelope for people, property, data, and robot hardware. The attacker seeks to violate one or more of these constraints while preserving enough surface plausibility that the system continues acting, logs the event as normal, or stores corrupted context for future sessions.
+
+Attacker capability is decomposed into three fields. \emph{Knowledge level} records what the attacker knows about weights, gradients, architecture, prompts, action heads, or controllers: white-box, gray-box, black-box, transfer-only, or unknown. \emph{Access channel} records how the intervention is delivered: digital, physical, human-mediated, supply-chain, or hybrid. \emph{Privilege level} records the role or boundary involved: user, bystander, operator, data contributor, model provider, tool/API, middleware, or no privilege. This prevents a common coding error: treating ``black-box'' and ``physical'' as alternatives. A physical patch can be optimized with white-box gradients, transferred in a black-box setting, or deployed by a bystander with no digital privileges.
+
+\subsection{Orthogonal Taxonomy}
+
+The taxonomy in Table~\ref{tab:taxonomy-overview} is multi-label and orthogonal. It deliberately avoids placing perception, goal hijacking, HRI, and persistence in the same list. Perception is often an entry surface; goal hijacking is usually an integrity or authorization violation; HRI is an entry surface, access channel, or privilege setting; persistence is a temporal profile; real-robot actuation is a validation tier; collision risk is a consequence. Mixing them hides what was actually demonstrated.
+
+\input{tables/taxonomy_table}
+
+The supplementary coding-decision table records boundary cases such as VLM planners with controllers, autonomous-driving VLA trajectory models, membership inference, ROS exploits, and vision-encoder-only attacks. In the main text we apply the same conservative rule: without VLA policy, VLA trajectory, VLA action representation, or VLA training/privacy measurement, the record is contextual or embodied-adjacent rather than direct.
+
+\subsection{Coding Examples}
+
+The same paper receives different labels on different axes. The ICCV patch attack on VLA robotics enters through \emph{vision}, targets action/trajectory representations, violates integrity, and has possible safety consequences through changed robot motion \cite{wang2025vlaadversarial}. SABER enters through \emph{language}, targets plans and action sequences through black-box rollout feedback, has a repeated inference-time profile, and validates in LIBERO simulation across multiple VLA models \cite{wu2026saber}. DropVLA is a training/fine-tuning-time supply-chain attack: its entry surface is poisoned vision/text data, its target representation is an action primitive within chunked control, its security property is integrity, its consequence can be unsafe or wrong-object action, its temporal profile is delayed/persistent, and its evidence includes simulation plus a physical Franka demonstration \cite{xu2025dropvla}. VLA membership inference is different again: the entry surface is model query or internal signals, the target representation is training-set membership reflected in action likelihoods or temporal motion patterns, the security property is confidentiality, and the consequence is privacy harm rather than task failure \cite{peng2026miavla,luan2026vlaleaks}.
+
+This coding also prevents overclaiming. A VLM jailbreak with no robot action is analogical evidence for source confusion, not direct evidence of VLA unsafe action. A ROS2 middleware exploit is embodied-adjacent evidence for tool/middleware compromise, not a VLA policy attack unless the VLA system consumes or emits the compromised message. A physical LiDAR or camera attack can be strong sensor evidence but remains analogical for VLA action unless a VLA-controlled robot rollout is measured.

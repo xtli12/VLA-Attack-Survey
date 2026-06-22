@@ -1,0 +1,66 @@
+\section{Standardized Evaluation Protocol}
+\label{sec:evaluation-protocol}
+
+VLA attack evaluation should answer four questions: what representation changed, what embodied consequence followed, what evidence level supports the claim, and whether the result survives benign utility, transfer, and recovery checks. Table~\ref{tab:attack-reporting} gives a minimum reporting checklist.
+
+\input{tables/attack_reporting_table}
+
+\subsection{Typed Metrics}
+
+Untyped ASR is insufficient. We therefore compute attack rates from the typed success definition in Section~\ref{subsec:attack-success}. Let $\kappa_O(\tau^\delta)$ indicate that adversarial rollout $\tau^\delta$ satisfies objective type $O$, let $\sigma_C(\tau^\delta)$ indicate violation of consequence class $C$, and let $\rho_H(\tau^\delta)$ indicate that the attack effect persists after horizon $H$ feedback steps, replans, memory updates, or sessions. For $N$ trials,
+\begin{align}
+    \mathrm{ASR}_{O} &= \frac{1}{N}\sum_{i=1}^{N}\mathbf{1}\{\kappa_O(\tau_i^\delta)=1\}, \nonumber\\
+    \mathrm{SVR}_{C} &= \frac{1}{N}\sum_{i=1}^{N}\mathbf{1}\{\sigma_C(\tau_i^\delta)=1\}, \nonumber\\
+    \mathrm{PR}_{H} &= \frac{1}{N}\sum_{i=1}^{N}\mathbf{1}\{\rho_H(\tau_i^\delta)=1\}.
+    \label{eq:typed-metrics}
+\end{align}
+Here $\mathrm{ASR}_{O}$ may refer to untargeted failure, targeted object choice, gripper primitive induction, action freezing, trajectory redirection, privacy membership inference, unauthorized skill invocation, or persistent memory compromise. $\mathrm{SVR}_{C}$ records consequence-specific violations such as unsafe action, collision/contact risk, privacy leakage, or authorization failure. $\mathrm{PR}_{H}$ is required for backdoors, memory attacks, repeated instruction edits, action-chunk drift, and attacks that exploit recovery behavior.
+
+For robot deployments, the attack should also be evaluated conditionally on the controller and recovery system. Let $r(\tau^\delta)$ indicate that a recovery opportunity occurred, $q(\tau^\delta)$ that the controller or safety filter rejected the command, $d_{\mathrm{pre}}$ and $d_{\mathrm{post}}$ be pre- and post-controller deviations from the benign action or trajectory, and $s_{\min}$ be the minimum signed safety margin along the rollout. Useful controller-aware metrics include
+\begin{align}
+    \mathrm{ASR}_{O\mid r} &= 
+    \frac{\sum_i \mathbf{1}\{\kappa_O(\tau_i^\delta)=1 \land r(\tau_i^\delta)=1\}}
+    {\sum_i \mathbf{1}\{r(\tau_i^\delta)=1\}}, \nonumber\\
+    \mathrm{CRR} &= \frac{1}{N}\sum_i \mathbf{1}\{q(\tau_i^\delta)=1\}, \quad
+    \Delta_{\mathrm{ctrl}} = d_{\mathrm{post}} - d_{\mathrm{pre}}.
+    \label{eq:controller-metrics}
+\end{align}
+Here $\mathrm{ASR}_{O\mid r}$ is recovery-conditioned ASR, $\mathrm{CRR}$ is controller rejection rate, and $\Delta_{\mathrm{ctrl}}$ measures whether the controller attenuates or amplifies the model-level deviation. Time-to-violation and $s_{\min}$ are especially important for human-proximate robots: two attacks with the same ASR may differ sharply if one violates the safety envelope after one control cycle and another remains far from contact.
+
+\subsection{Action-Representation Reporting}
+
+Every direct VLA attack should name the action representation under test. For autoregressive action-token policies, report token probabilities or selected action bins, first changed token, token-to-control mapping, and whether early token errors propagate. For parallel action chunks, report chunk length, temporal ensemble behavior, re-planning frequency, intra-chunk open-loop duration, and whether the attack affects one step or the whole chunk. For waypoint or trajectory policies, report maximum and final end-effector/base displacement, curvature, unsafe workspace entry, and recovery latency. For diffusion or flow policies, report whether the target is the conditional representation, denoising noise, velocity field, trajectory distribution, sampler, or final controller command.
+
+The propagation mechanism differs by representation. In autoregressive action-token policies, an early token error can be amplified by the detokenizer and by subsequent conditional token generation; the relevant variables are action frequency, token bin width, and whether gripper and pose tokens are coupled. In parallel action-chunk policies, the attack may corrupt a multi-step command before new observations arrive; chunk horizon, temporal ensemble, and replan rate determine the open-loop exposure. In waypoint and trajectory policies, the attack is geometric: displacement, curvature, workspace boundary crossing, and tracking-controller error are more informative than token accuracy. In diffusion or flow policies, the target may be the conditional representation, denoising path, velocity field, sampler, or final trajectory distribution; small distributional changes can be smoothed by sampling but can also create plausible near-boundary trajectories. In skill/API policies, the safety problem is often authorization and precondition bypass: selecting a valid but unauthorized skill can be more consequential than perturbing a low-level motor command.
+
+The physical controller must be part of the evaluation. A high-level action may be rejected, clipped, smoothed, delayed, or transformed by a low-level controller, safety filter, control barrier function, recovery policy, or emergency stop. A paper should therefore report both pre-controller and post-controller traces when possible. If only simulator actions are reported, claims about collision/contact risk or human safety should be marked as unvalidated physical claims.
+
+\subsection{Evidence-Family Protocols}
+
+Different attack families need different minimum evidence. For \emph{instruction-control attacks}, a study should report the original instruction, sanitized perturbation class, query budget, edit distance or semantic-preservation score, whether the benign task succeeds, and the first rollout step at which the action diverges. RoboGCG-style control-authority claims require a different denominator from SABER-style task success reduction, Q-DIG-style failure discovery, or trajectory-redirection claims \cite{jones2025robogcg,wu2026saber,srikanth2026qdig,puthumanaillam2026trajectory}. The recommended reporting unit is therefore a tuple: instruction pair, target policy, rollout seed, attack budget, action divergence, consequence, and recovery outcome.
+
+For \emph{visual and physical attacks}, a study should report whether the perturbation is digital noise, localized patch, printed patch, object texture, scene object, or sensor-path interference. It should also report patch area, placement distribution, view distribution, lighting, camera resolution, preprocessing, and whether optimization used action loss, embedding loss, attention loss, semantic misalignment, or trajectory loss. This distinction separates action-space patch attacks from EDPA/ADVLA-style feature attacks, UPA-RFAS/VLA-Hijack-style transfer attacks, Tex3D-style object-surface attacks, and partially observable patch attacks \cite{wang2025vlaadversarial,xu2025edpa,zhang2025advla,lu2026patch,fu2026vlahijack,chen2026tex3d,wang2026partialpatch}.
+
+For \emph{backdoor and supply-chain attacks}, a study should report the poisoned data fraction, whether poisoning is sample-, episode-, or trajectory-level, whether the trigger is visual, textual, state-based, object-based, or multimodal, and whether the attack survives downstream fine-tuning or data filtering. Clean success rate is mandatory because a backdoor with poor clean utility is easier to detect and less comparable to realistic supply-chain risk. Triggered metrics should separate failure, goal completion, primitive induction, action freezing, and chunk drift \cite{zhou2025badvla,zhou2025goba,xu2025dropvla,li2025attackvla,wang2025freezevla,xu2026silentdrift}.
+
+For \emph{reasoning and privacy attacks}, the metric is not ordinary task ASR. Reasoning attacks should record the attacked reasoning object, such as natural-language CoT, object entity references, bounding-box traces, subgoal plans, or driving rationales, and then measure whether the changed reasoning causally changes action \cite{huang2026trap,altered2026thoughts,teymoorianfard2026reasonbreak}. Privacy attacks should report the membership unit, access regime, candidate distribution, and confidence metric, because sample-level and trajectory-level membership inference are not comparable to physical task failure \cite{peng2026miavla,luan2026vlaleaks}.
+
+\subsection{Representation Baselines}
+
+VLA attacks often inherit representation assumptions from VLMs, action policies, and adversarial ML. Those baselines should be cited and coded as substrate or analogical evidence rather than counted as direct VLA attack evidence. Vision-language backbones such as CLIP, Flamingo, BLIP-2, LLaVA, MiniGPT-4, and InstructBLIP help explain why embedding, attention, and cross-modal alignment are plausible VLA targets \cite{radford2021clip,alayrac2022flamingo,li2023blip2,liu2023llava,zhu2023minigpt4,dai2023instructblip}. Query-efficient and transfer-oriented adversarial methods help design black-box evaluation, but they are still method baselines unless a VLA rollout is attacked \cite{papernot2017practical,tramer2018ensemble,chen2017zoo,brendel2018decision,ilyas2018blackbox,li2019nattack,andriushchenko2020square,croce2020autoattack,dong2018momentum}. This separation lets a review include necessary methodological context without inflating the amount of direct VLA evidence.
+
+\subsection{Validation Tiers}
+
+We use six validation tiers. \emph{Digital input-only} tests are useful for isolating mechanisms such as attention, likelihood, embeddings, prompt transfer, or membership features. \emph{Real-sensor input} means the perturbation is captured by a real camera, microphone, LiDAR, or robot sensor but does not necessarily drive actuation. \emph{Simulation rollout} measures closed-loop behavior in a simulator. \emph{Hardware-in-the-loop} exposes real sensors, controller timing, middleware, or safety filters while limiting hazard. \emph{Real-robot actuation} means the robot physically executes actions under the attack. \emph{Human-proximate validation} is reserved for studies that place people or human-subject interaction inside the evaluated safety boundary. Hybrid attacks should name both the delivery channel and the consequence tier, for example digital prompt with real-robot actuation, or physical patch with simulation-only consequence.
+
+\subsection{Benchmark Use}
+
+\input{tables/benchmark_table}
+
+Benchmarks must be matched to claims. LIBERO, CALVIN, RLBench, ManiSkill, RoboCasa, and DROID-derived settings can support manipulation and rollout comparisons, but they do not by themselves establish physical safety. AgentDojo, ToolEmu, InjecAgent, and RAG benchmarks support source-boundary and tool-risk analogies, not robot consequences. Embodied jailbreak benchmarks support action-boundary evaluation for planners and LLM-controlled robots, but direct VLA claims require VLA policies or VLA-enabled robot systems. A credible attack benchmark needs paired benign/adversarial tasks, evidence strata, knowledge/access/privilege coding, ASR definition, severity labels, transfer tests, validation tier, and recovery metrics.
+
+\subsection{Adaptive and Responsible Evaluation}
+
+Guardrails change the attack objective. Prompt hierarchy turns injection into source-boundary confusion; memory hygiene turns poisoning into persistence; tool permissions turn misuse into argument selection or authorization-boundary crossing; safety filters turn direct collision objectives into near-boundary, semantic misuse, or recovery-exhaustion objectives. Attack papers should state whether the attacker knows the guardrail, receives rejection feedback, adapts to it, or acts only through the physical environment.
+
+Because VLA attacks may transfer to real robots, papers should publish sanitized prompts, aggregate statistics, threat models, and defense-relevant analysis while withholding reusable high-risk payloads or hardware exploit recipes when needed. Responsible disclosure is part of evaluation quality, not an afterthought.

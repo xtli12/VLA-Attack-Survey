@@ -1,0 +1,25 @@
+\begin{table*}[t]
+\centering
+\footnotesize
+\caption{Orthogonal multi-axis taxonomy for coding VLA attacks. Each paper may receive multiple labels on each axis; axes are not mutually exclusive categories.}
+\label{tab:taxonomy-overview}
+\renewcommand{\arraystretch}{1.08}
+\setlength{\tabcolsep}{2.4pt}
+\begin{tabularx}{\textwidth}{@{}p{0.16\textwidth}Y Y@{}}
+\toprule
+\textbf{Axis} & \textbf{Allowed labels} & \textbf{Coding question} \\
+\midrule
+Lifecycle & Training; inference; runtime; post-deployment & When is the adversarial intervention introduced or activated? \\
+Entry surface & Vision; language; state; memory; tool; middleware; human; environment & Which semantic or system channel carries the adversarial content? \\
+Target component & Visual encoder; language encoder; multimodal projector; planner/reasoner; action head; controller; memory; tool/API; middleware & Which system component is attacked or measured? \\
+Target representation & Embedding; grounding; plan; action token; chunk; waypoint; trajectory; velocity field; controller state; memory entry & Which representation or control object changes inside or across components? \\
+Security property violated & Availability; integrity; confidentiality; authorization & Which security property is violated? Physical safety is represented as a consequence rather than merged into this axis. \\
+Knowledge level & White-box; gray-box; black-box; transfer-only; unknown & What does the attacker know about weights, gradients, architecture, prompts, action heads, or controllers? \\
+Access channel & Digital; physical; human-mediated; supply-chain; hybrid & How does the attacker deliver the intervention? This is separate from knowledge level. \\
+Privilege level & User; bystander; operator; data contributor; model provider; tool/API; middleware; no privilege & What role or privilege boundary does the attacker occupy or abuse? \\
+Temporal profile & One-shot; repeated; delayed; persistent & Does the attack act once, recur over feedback, activate later, or survive sessions/training? \\
+Validation tier & Digital input; real sensor; simulation; HIL; robot actuation; human-proximate & What is the strongest demonstrated validation tier? Do not infer actuation or human proximity from input-only tests. \\
+Consequence & Task failure; wrong object; unsafe action; collision/contact risk; privacy leakage; unauthorized skill; persistent state compromise & What happened at the robot/system boundary? Keep consequence separate from objective and entry surface. \\
+\bottomrule
+\end{tabularx}
+\end{table*}

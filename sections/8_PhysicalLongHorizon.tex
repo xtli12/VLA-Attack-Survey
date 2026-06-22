@@ -1,0 +1,32 @@
+\section{Physical-World and Long-Horizon Attacks}
+\label{sec:physical-long-horizon}
+
+Physical-world VLA attacks must satisfy constraints that digital attacks often ignore: the perturbation must be placeable, visible or sensor-effective at the right time, robust to motion and lighting, and compatible with the attacker's access. Long-horizon attacks add another constraint: the harmful consequence may depend on a sequence of locally plausible decisions. These properties make physical VLA attacks less like static adversarial examples and more like adversarial experiments in a closed robot system.
+
+\subsection{Physical Executability}
+
+A physically executable attack should specify the attacker's placement ability, timing, observability, and environmental control without giving operational misuse instructions. Physical attacks may be passive, such as object placement or printed patterns, or active, such as transient sensor interference. Recent work on VLA robustness under object transformations, illumination, adversarial patches, embodied jailbreaks, environmental command hijacking, targeted VLA backdoors, and sensor attacks illustrates the need to evaluate physical variations as first-class attack parameters \cite{zhang2025badrobot,robey2025robopair,wang2025vlaadversarial,burbano2025chai,li2025attackvla,liu2025evavla,lu2025phantom}.
+
+The difference between physical plausibility and physical validation matters. A simulator attack constrained by object geometry is more realistic than arbitrary pixel noise, but it is still not equivalent to a real robot trial. Papers should label validation as digital-only, simulator-constrained, hardware-in-the-loop, physically validated, or hybrid digital-physical, and pair that label with consequence severity.
+
+\subsection{Long-Horizon Manipulation}
+
+Long-horizon attacks aim to make the agent fail later. They may poison memory, alter an early object placement, induce an unnecessary intermediate step, exploit an action chunk, or make the robot choose a state from which safe recovery is difficult. ANNIE-style evaluation highlights that safety violations can be defined over trajectories and human-robot constraints rather than single predictions \cite{huang2025annie}. This is a natural fit for VLA attack research because embodied harm is often temporal.
+
+Long-horizon evaluation should include delayed objectives, recovery opportunities, and partial observability. A robust agent should detect when accumulated deviations make the original goal unsafe or impossible, then stop or ask for help. A brittle agent may keep optimizing task completion even after the safety envelope has changed.
+
+\subsection{Embodied Consequences}
+
+We distinguish seven consequence classes. \emph{Task failure} is inability to complete the intended task. \emph{Unsafe action induction} violates a physical constraint such as collision, distance, force, speed, contact, workspace, or tool misuse. \emph{Goal hijacking} changes what the agent is trying to achieve. \emph{Stealthy degradation} preserves surface plausibility while reducing performance over time. \emph{Privacy leakage} exposes observations, identities, locations, or stored preferences. \emph{Unauthorized tool use} crosses a digital or physical access boundary. \emph{Long-horizon manipulation} creates delayed harm through state changes.
+
+These classes should not be collapsed into a single attack success rate. A failed pick-and-place episode is not equivalent to a policy that moves toward a person, leaks a private image, or opens a restricted interface. Benchmark design should weight consequences by deployment context and report benign utility alongside security.
+
+\subsection{Sim-to-Real and Cross-Embodiment Transfer}
+
+VLA models are attractive partly because they promise cross-embodiment transfer. The same property can amplify attack uncertainty. An attack that shifts a tokenized action on one manipulator may not transfer to a flow-based policy on another, while a semantic prompt injection may transfer across embodiments because it targets goals rather than dynamics. Sim-to-real gaps further depend on calibration, latency, lighting, friction, object mass, controller gains, and contact compliance. Evaluation should therefore separate \emph{attack transfer across models} from \emph{attack transfer across physical platforms}.
+
+Cross-platform transfer is also a governance issue. Public benchmarks should make attacks comparable without creating reusable recipes against deployed robots. This favors sanitized scenarios, severity labels, and controlled physical demonstrations over raw payload release.
+
+\subsection{Responsible Disclosure}
+
+Because VLA attacks can map directly to real-world systems, the field needs norms for responsible disclosure. Papers can report threat models, aggregate results, sanitized examples, and defense-relevant analysis without publishing reusable payloads, hardware attack recipes, or unsafe instruction sets. Benchmarks should include review gates for high-risk artifacts and should separate public scoring code from sensitive exploit details when necessary.

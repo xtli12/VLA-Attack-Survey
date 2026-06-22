@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Increment over adjacent surveys. The comparison is about review artifacts, not the value of each literature.}
+\label{tab:coverage-matrix}
+\renewcommand{\arraystretch}{1.08}
+\setlength{\tabcolsep}{2.4pt}
+\begin{tabularx}{\textwidth}{@{}p{0.18\textwidth}Y Y Y Y@{}}
+\toprule
+\textbf{Dimension} & \textbf{Closest VLA safety survey} & \textbf{Embodied security survey} & \textbf{LLM-agent security survey} & \textbf{This review} \\
+\midrule
+Direct VLA attack corpus & Discusses VLA threats within broader safety. & Usually sparse or absent. & Usually absent. & Freezes 23 direct VLA attack records and separates them from 7 core adjacent attacks and 55 contextual references. \\
+Evidence grading & Threat/evaluation oriented. & Vulnerability oriented. & Software-agent risk oriented. & Direct, embodied-adjacent, contextual; core/context corpus split; highest validation tier and validation flags. \\
+Action representation & Often covered as model capability. & Usually not central. & Not applicable. & Codes action token, chunk, waypoint, trajectory, velocity/flow, skill/API, controller, and memory representations. \\
+Controller/recovery & Defense or safety mechanism discussion. & Cyber-physical component discussion. & Not applicable. & Reports coverage gaps for chunk horizon, controller frequency, safety filter, recovery policy, and pre/post-controller traces. \\
+Privacy attacks & Usually safety-adjacent. & Sometimes privacy/security. & Often data leakage. & Treats VLA membership inference and VLALeaks as direct VLA confidentiality evidence. \\
+Reusable data product & No attack-specific per-paper coding database. & No VLA attack evidence database. & Benchmarks but not robot VLA coding. & Provides frozen CSV database, corpus/source file, direct audit file, validation flags file, and README. \\
+Quantitative findings & Broad trend synthesis. & Broad vulnerability synthesis. & Benchmark scores or attack rates. & Reports counts and proportions for direct VLA evidence, validation, model/benchmark concentration, and reporting completeness; does not pool incompatible ASR. \\
+\bottomrule
+\end{tabularx}
+\end{table*}

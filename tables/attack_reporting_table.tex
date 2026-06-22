@@ -1,0 +1,25 @@
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Minimum reporting checklist for VLA attack papers. The checklist is attack-centered: it records what was attacked, how the attacker operated, how success was measured, and what evidence supports physical or embodied relevance.}
+\label{tab:attack-reporting}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{@{}p{0.16\textwidth}Y Y Y@{}}
+\toprule
+\textbf{Reporting item} & \textbf{What to specify} & \textbf{Why it changes interpretation} & \textbf{Examples of inadequate reporting} \\
+\midrule
+Threat model & Knowledge level, access channel, privilege level, timing, query budget, physical placement, tool privileges, training or inference access & Makes ASR comparable across white-box, black-box, physical, human-mediated, and supply-chain settings & Reporting ASR without query budget, access channel, or privilege boundary. \\
+Evidence stratum & Direct VLA, embodied-adjacent, or analogical evidence & Prevents adjacent LLM-agent, sensor, or robot-security results from being overclaimed as VLA-validated attacks & Calling a VLM jailbreak or ROS exploit a VLA attack without testing a VLA policy. \\
+Targeted component & Perception, grounding, planner, action decoder, skill API, controller, memory, simulator, human interface & Identifies the intermediate representation or decision changed by the attack & Calling all failures ``jailbreaks'' without locating the attacked stage. \\
+Attack objective & Untargeted failure, targeted action, unsafe action, freezing, goal hijack, privacy leak, unauthorized tool use, persistence & Separates task degradation from security-relevant consequences & Treating any lower task success as attack success. \\
+ASR denominator & Frame, prompt, episode, triggered episode, trajectory, query, physical trial, or membership candidate & Determines whether success rates can be compared or aggregated & Pooling gripper-release ASR with task-failure ASR or MIA AUC. \\
+Validation tier & Digital input-only, real-sensor input, simulation rollout, HIL, real-robot actuation, human-proximate & Prevents simulator, sensor-only, or image-level results from being overclaimed & Describing a photographed patch as real-robot actuation. \\
+Transferability & Across prompts, models, action representations, embodiments, sensors, environments, and controllers & Determines whether the attack is substrate-specific or system-level & Reporting one model and one scene as general VLA risk. \\
+Stealth and cost & Perturbation visibility, physical plausibility, attack duration, number of interventions, compute and queries & Connects attack success to deployability and detectability & Ignoring that the attack requires conspicuous or repeated intervention. \\
+Persistence and recovery & Whether the effect survives new observations, correction, memory reset, user intervention, or safe stop & Captures closed-loop and multi-session attacks & Ending evaluation at the first wrong action. \\
+Robot-control trace & Action representation, chunk horizon, controller frequency, safety filter, recovery policy, pre/post-controller traces & Connects model-level attack success to robotics evidence & Reporting only decoded actions when the controller clips or rejects them. \\
+Consequence severity & Safe stop, task failure, wrong-object action, safety-envelope violation, privacy/authorization violation, human-proximate harm & Distinguishes robustness failure from security impact & Collapsing all failed episodes into a single ASR. \\
+Defense awareness & Whether attacks are adaptive to filters, prompt hierarchy, tool permissions, shields, monitors, or human approval & Prevents evaluation from measuring only obsolete non-adaptive attacks & Evaluating a defense only against attacks designed before the defense. \\
+\bottomrule
+\end{tabularx}
+\end{table*}

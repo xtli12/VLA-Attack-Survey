@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\scriptsize
+\caption{Search sources and query templates used for the adapted PRISMA-style workflow. Searches were last run on 16 June 2026 and covered records available up to that date.}
+\label{tab:search-protocol}
+\renewcommand{\arraystretch}{1.08}
+\setlength{\tabcolsep}{2pt}
+\begin{tabularx}{\textwidth}{@{}p{0.15\textwidth}p{0.29\textwidth}Y p{0.16\textwidth}@{}}
+\toprule
+\textbf{Source} & \textbf{Query template} & \textbf{Screening use} & \textbf{Discovery source code} \\
+\midrule
+Google Scholar / Semantic Scholar & \texttt{("vision-language-action" OR "robot foundation model" OR OpenVLA OR "RT-2") AND (attack OR adversarial OR backdoor OR poisoning OR privacy OR "membership inference")} & Broad capture, citation chaining, and forward-citation checks for seed papers. & database query; forward snowballing \\
+arXiv & Same core query plus targeted terms: \texttt{VLA attack}, \texttt{OpenVLA patch}, \texttt{action chunk backdoor}, \texttt{VLA membership inference}. & Rapid capture of 2025--2026 preprints and versioned VLA attack papers. & database query; targeted verification \\
+IEEE Xplore / ACM DL / USENIX / NDSS / S\&P & \texttt{(robot OR cyber-physical OR ROS OR sensor) AND (security OR attack)}; \texttt{(adversarial patch OR LiDAR OR audio command) AND robot}. & Peer-reviewed robot/cyber-physical, sensor, and physical attack context. & database query; backward snowballing \\
+CVF / PMLR / RSS / CoRL / ICRA / IROS & \texttt{("vision-language-action" OR OpenVLA OR robot policy) AND (adversarial OR attack OR robustness OR benchmark)}. & VLA model substrates, direct attack papers, manipulation benchmarks, and action-representation references. & database query; venue scan \\
+OpenReview & \texttt{VLA attack}, \texttt{backdoor VLA}, \texttt{robot foundation model security}. & Under-review or workshop VLA attack records and version cross-checks. & database query; targeted verification \\
+Project pages / repositories & Paper-title and project-name searches for DropVLA, VLA-Fool, SABER, AttackVLA, UPA-RFAS, TRAP, Tex3D, and related releases. & Bibliographic verification, code availability, benchmark/model details, and version reconciliation. & project-page discovery \\
+\bottomrule
+\end{tabularx}
+\end{table*}
