@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Validation Ladder</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .ladder {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      align-items: end;
+      min-height: 320px;
+    }
+    .rung {
+      border: 1.5px solid #bcccdc;
+      border-radius: 10px 10px 4px 4px;
+      padding: 12px 10px;
+      text-align: center;
+      background: #f7f9fc;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .rung h2 {
+      font-size: 15px;
+      margin: 0 0 8px;
+    }
+    .rung p {
+      font-size: 12px;
+      margin: 0;
+    }
+    .h1 { height: 105px; }
+    .h2 { height: 135px; background: #eef4ff; }
+    .h3 { height: 165px; background: #e6f4ea; }
+    .h4 { height: 195px; background: #fff8e8; }
+    .h5 { height: 225px; background: #fff1f1; }
+    .h6 { height: 255px; background: #f3e8ff; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="figure">
+      <h1>Validation Ladder for VLA Attack Claims</h1>
+      <p class="subtitle">A compact visual explanation of how far an attack result can be interpreted.</p>
+
+      <div class="ladder">
+        <div class="rung h1">
+          <h2>Digital Input</h2>
+          <p>Image, prompt, logit, embedding, or action output without embodied rollout.</p>
+        </div>
+        <div class="rung h2">
+          <h2>Real Sensor</h2>
+          <p>Camera, audio, LiDAR, or robot sensor captures the attack input.</p>
+        </div>
+        <div class="rung h3">
+          <h2>Simulation Rollout</h2>
+          <p>Closed-loop robot task is evaluated in a simulator or benchmark suite.</p>
+        </div>
+        <div class="rung h4">
+          <h2>Hardware in the Loop</h2>
+          <p>Real sensors, controller timing, middleware, or safety filters are included.</p>
+        </div>
+        <div class="rung h5">
+          <h2>Real Robot Actuation</h2>
+          <p>Physical robot executes the attacked command or trajectory.</p>
+        </div>
+        <div class="rung h6">
+          <h2>Human-Proximate</h2>
+          <p>Evaluation includes explicit human proximity, authority, or safety boundary.</p>
+        </div>
+      </div>
+
+      <p class="caption">
+        <b>Use in paper.</b> Use this visual to explain why image-level success, simulation failure, and real-robot safety claims should not be treated as equivalent evidence.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

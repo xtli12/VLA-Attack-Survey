@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.9.15)  18 JUN 2026 15:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.9.15)  22 JUN 2026 15:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -765,17 +765,26 @@ Package hyperref Info: Link coloring OFF on input line 26.
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
- (./author.tex) (./sections/1_Introduction.tex
-LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
+ (./author.tex)
+Underfull \hbox (badness 4403) in paragraph at lines 36--38
+[]\T1/ptm/b/it/9 Abstract\T1/ptm/b/n/9 ---Vision-Language-Action (VLA) mod-els 
+con-nect
+ []
+
+(./sections/1_Introduction.tex
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 20.
 
 (d:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 20.
+
 
 (d:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+Underfull \vbox (badness 1533) has occurred while \output is active []
 
 
 
@@ -787,103 +796,18 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (./tables/survey_coverage_matrix_table.tex)
 
 
-
-[2]) (./sections/2_BackgroundThreatModel.tex
-Underfull \hbox (badness 1406) in paragraph at lines 8--9
-\T1/ptm/m/n/10 June 2026. The search time range was all records in-
- []
-
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 12
-.
-(d:/texlive/2025/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-Underfull \hbox (badness 10000) in paragraph at lines 12--13
-[]\T1/pcr/m/n/10 ("vision-language-action" OR VLA
+Underfull \hbox (badness 3271) in paragraph at lines 40--41
+[]\T1/ptm/m/n/10 The sur-vey dis-tin-guishes di-rect VLA ev-i-dence from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 12--13
-\T1/pcr/m/n/10 OR "robot foundation model") AND
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 12--13
-\T1/pcr/m/n/10 (attack OR adversarial OR jailbreak
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 12--13
-\T1/pcr/m/n/10 OR backdoor OR poisoning OR privacy OR
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 13--14
-[]\T1/pcr/m/n/10 ("OpenVLA" OR "RT-2" OR "Octo" OR
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 13--14
-\T1/pcr/m/n/10 "pi0" OR "LIBERO") AND (patch OR
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 13--14
-\T1/pcr/m/n/10 prompt OR backdoor OR "action token"
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 14--15
-[]\T1/pcr/m/n/10 ("embodied AI" OR "LLM-controlled
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 14--15
-\T1/pcr/m/n/10 robot" OR "robotic agent") AND
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 14--15
-\T1/pcr/m/n/10 ("prompt injection" OR jailbreak OR
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 15--16
-[]\T1/pcr/m/n/10 ("robot" OR ROS OR "cyber-physical")
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 15--16
-\T1/pcr/m/n/10 AND (security OR sensor attack OR
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 16--17
-[]\T1/pcr/m/n/10 ("adversarial patch" OR "physical
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 16--17
-\T1/pcr/m/n/10 adversarial" OR LiDAR OR RAG OR "tool
+Underfull \hbox (badness 1365) in paragraph at lines 47--48
+\T1/ptm/m/n/10 prop-a-gate from per-cep-tion, lan-guage, data, mem-ory,
  []
 
 
 
-(./tables/review_flow_table.tex
-Underfull \hbox (badness 10000) in paragraph at lines 22--22
-[]|\T1/ptm/m/n/8 Records cap-tured be-fore de-
- []
-
-)
-
-[3]
-Underfull \vbox (badness 4899) has occurred while \output is active []
-
-
-
-) (./sections/3_Taxonomy.tex
-
-[4]
+[2]) (./sections/3_Taxonomy.tex
 
 (./tables/taxonomy_table.tex
 Underfull \hbox (badness 7907) in paragraph at lines 24--24
@@ -892,8 +816,19 @@ Underfull \hbox (badness 7907) in paragraph at lines 24--24
 
 )
 
-[5]) (./sections/4_PerceptionGrounding.tex
+[3]
 
+
+Underfull \hbox (badness 2027) in paragraph at lines 90--91
+[]\T1/ptm/m/n/10 Attacker ca-pa-bil-ity has three in-de-pen-dent di-men-sions.
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[4]) (./sections/4_PerceptionGrounding.tex
 (./tables/literature_matrix_table.tex
 Underfull \hbox (badness 3657) in paragraph at lines 19--19
 []|\T1/ptm/m/n/7 Direct VLA: in-struc-
@@ -935,33 +870,33 @@ Underfull \hbox (badness 3679) in paragraph at lines 19--19
  []
 
 )
-
-[6]
-
-
-
-[7]
+Underfull \hbox (badness 1681) in paragraph at lines 10--11
+[]\T1/ptm/m/n/10 Training-time at-tacks arise be-cause VLA sys-tems are
+ []
 
 
-Underfull \hbox (badness 6658) in paragraph at lines 34--35
-[]\T1/ptm/b/n/10 Embodied-adjacent ev-i-dence. \T1/ptm/m/n/10 BadRobot, RoboPAI
-R,
+Underfull \hbox (badness 7030) in paragraph at lines 12--13
+[]\T1/ptm/m/n/10 VLA back-door work has there-fore moved be-yond
  []
 
 
 
-[8]) (./sections/5_InstructionsPlanning.tex
-(./tables/evidence_statistics_table.tex)
+
+
+[5]
+
+
+
+[6]) (./sections/5_InstructionsPlanning.tex
+
 (./tables/core_evidence_heatmap_table.tex)
 
-
-
-[9]
+[7]
 
 
 
-[10]
-Underfull \hbox (badness 2799) in paragraph at lines 46--47
+[8]
+Underfull \hbox (badness 2799) in paragraph at lines 44--45
 []\T1/ptm/m/n/10 The bench-mark dis-tri-bu-tion is sim-i-larly con-cen-trated.
  []
 
@@ -969,11 +904,21 @@ Underfull \hbox (badness 2799) in paragraph at lines 46--47
 
 (./tables/attack_reporting_table.tex)
 
-[11]
+[9]
 
 
 
-[12]
+[10]
+Underfull \hbox (badness 3492) in paragraph at lines 50--51
+[]\T1/ptm/m/n/10 VLA at-tacks in-herit rep-re-sen-ta-tion as-sump-tions from
+ []
+
+
+Underfull \hbox (badness 5133) in paragraph at lines 50--51
+\T1/ptm/m/n/10 back-bones such as CLIP, Flamingo, BLIP-2, LLaVA,
+ []
+
+
 
 (./tables/benchmark_table.tex
 Underfull \hbox (badness 4303) in paragraph at lines 24--24
@@ -1037,24 +982,25 @@ Underfull \hbox (badness 1688) in paragraph at lines 60--61
 
 ) (./sections/7_MemoryToolEnvironment.tex
 
-[13]
+[11]
+Underfull \hbox (badness 1552) in paragraph at lines 10--11
+\T1/ptm/m/n/10 mid-dle-ware tim-ing, safety fil-ters, con-troller la-tency, and
 
-) (./sections/12_Conclusion.tex
-
-[14])
-Underfull \hbox (badness 2020) in paragraph at lines 6--52
-[]\T1/ptm/m/n/10 The main con-clu-sion is there-fore evidence-aware but
  []
 
-(./main.bbl
 
 
 
-[15]
+
+[12]) (./sections/12_Conclusion.tex) (./main.bbl
 
 
 
-[16]
+[13]
+
+
+
+[14]
 Underfull \hbox (badness 3058) in paragraph at lines 449--451
 \T1/ptm/m/n/8 action mod-els: Op-ti-miz-ing speed and suc-cess,'' \T1/ptm/m/it/
 8 arXiv preprint
@@ -1064,26 +1010,26 @@ Underfull \hbox (badness 3058) in paragraph at lines 449--451
 
 
 
-[17]
+[15]
 
 )
 
-[18] (./main.aux)
+[16] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 33270156CBB89FC8E4270F2E8F02AD34;9946.
+(rerunfilecheck)             Checksum: 8E3A0DCD9DEB7CCB327AB540572091DC;8922.
  ) 
 Here is how much of TeX's memory you used:
- 22368 strings out of 473190
- 418896 string characters out of 5719979
- 826839 words of memory out of 5000000
- 44957 multiletter control sequences out of 15000+600000
- 686176 words of font info for 175 fonts, out of 8000000 for 9000
+ 22284 strings out of 473190
+ 417200 string characters out of 5719979
+ 818298 words of memory out of 5000000
+ 44901 multiletter control sequences out of 15000+600000
+ 684010 words of font info for 168 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
- 84i,11n,91p,1923b,794s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,10n,91p,1595b,794s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <d:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/tex
 live/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2025
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2025/texmf-di
@@ -1093,14 +1039,13 @@ c/amsfonts/cm/cmr10.pfb><d:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmr5.pfb><d:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pf
 b><d:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/tex
 live/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><d:/texlive/2025/
-texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><d:/texlive/2025/texmf-dist/fonts
-/type1/urw/times/utmb8a.pfb><d:/texlive/2025/texmf-dist/fonts/type1/urw/times/u
-tmbi8a.pfb><d:/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><d:/tex
-live/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (18 pages, 298800 bytes).
+texmf-dist/fonts/type1/urw/times/utmb8a.pfb><d:/texlive/2025/texmf-dist/fonts/t
+ype1/urw/times/utmbi8a.pfb><d:/texlive/2025/texmf-dist/fonts/type1/urw/times/ut
+mr8a.pfb><d:/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (16 pages, 272099 bytes).
 PDF statistics:
- 872 PDF objects out of 1000 (max. 8388607)
- 712 compressed objects within 8 object streams
- 218 named destinations out of 1000 (max. 500000)
- 405 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 847 PDF objects out of 1000 (max. 8388607)
+ 692 compressed objects within 7 object streams
+ 209 named destinations out of 1000 (max. 500000)
+ 365 words of extra memory for PDF output out of 10000 (max. 10000000)
 

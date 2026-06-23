@@ -1,7 +1,7 @@
 \begin{table*}[t]
 \centering
 \scriptsize
-\caption{Descriptive statistics from frozen database \texttt{VLA-Attack-ER-v2026-06-16}. Attack-study statistics use the Core Evidence Corpus unless a direct-VLA subset is explicitly named; NR is counted as not reported.}
+\caption{Descriptive patterns in the fixed evidence set. Attack-study statistics use the core attack literature unless a direct-VLA subset is explicitly named; NR is counted as not reported.}
 \label{tab:evidence-statistics}
 \renewcommand{\arraystretch}{1.08}
 \setlength{\tabcolsep}{3pt}
@@ -9,15 +9,15 @@
 \toprule
 \textbf{Statistic} & \textbf{Observed pattern} \\
 \midrule
-Corpus split & 85 records: 30 core attack studies (23 direct VLA and 7 embodied-adjacent) plus 55 contextual references. \\
+Literature split & 85 works: 30 core attack studies (23 direct VLA and 7 embodied-adjacent) plus 55 contextual references. \\
 Direct VLA subset & 23/30 core attack studies are direct VLA evidence; all percentages below use the direct subset ($n=23$). \\
-Entry surface flags in direct VLA & Visual/physical visual input: 14/23 (60.9\%); language/instruction: 9/23 (39.1\%); reasoning-trace input: 1/23 (4.3\%); privacy/query output: 2/23 (8.7\%); poisoned trajectory/data trigger: 1/23 (4.3\%). Multi-label counts overlap. \\
+Entry surfaces in direct VLA & Visual/physical visual input: 14/23 (60.9\%); language/instruction: 9/23 (39.1\%); reasoning-trace input: 1/23 (4.3\%); privacy/query output: 2/23 (8.7\%); poisoned trajectory/data trigger: 1/23 (4.3\%). Multi-label counts overlap. \\
 Knowledge level & Any black-box or transfer-only condition: 13/23 (56.5\%); any white/gray-box optimization condition: 14/23 (60.9\%). Multi-label counts overlap when papers report multiple settings. \\
 Access and privilege & Digital access channel: 14/23 (60.9\%); physical or digital-to-physical channel: 8/23 (34.8\%); supply-chain or data-contributor channel: 5/23 (21.7\%). \\
 Highest validation tier & Digital input-only: 3/23 (13.0\%); simulation rollout: 10/23 (43.5\%); real-sensor input: 1/23 (4.3\%); real-robot actuation: 9/23 (39.1\%); HIL: 0/23 (0\%); human-proximate: 0/23 (0\%). \\
 Model/benchmark concentration & OpenVLA-family target appears in 10/23 (43.5\%); LIBERO appears in 12/23 (52.2\%); $\pi_0/\pi_0$-fast appears in 6/23 (26.1\%). \\
 Reporting practices & Explicit transfer beyond one target/model/prompt: 16/23 (69.6\%); limited transfer notes: 6/23 (26.1\%); benign utility reported: 7/23 (30.4\%); query/edit budget reported: 6/23 (26.1\%). \\
-Robot-control reporting & Action/chunk horizon reported: 3/23 (13.0\%); controller frequency reported: 1/23 (4.3\%); safety filter reported: 0/23 (0\%); recovery policy/outcome reported: 0/23 (0\%); pre/post-controller trace: 0/23 (0\%). \\
+Control-layer details & Action/chunk horizon available: 3/23 (13.0\%); controller frequency available: 1/23 (4.3\%); safety filter: 0/23 (0\%); recovery policy/outcome: 0/23 (0\%); pre/post-controller trace: 0/23 (0\%). \\
 \bottomrule
 \end{tabularx}
 \end{table*}

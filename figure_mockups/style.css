@@ -1,0 +1,167 @@
+body {
+  margin: 0;
+  padding: 28px;
+  background: #f5f6f8;
+  color: #1f2933;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.page {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.figure {
+  background: #ffffff;
+  border: 1px solid #d9dee7;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 8px 22px rgba(31, 41, 51, 0.08);
+}
+
+h1 {
+  margin: 0 0 8px;
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: 0.2px;
+}
+
+h2 {
+  margin: 24px 0 10px;
+  font-size: 18px;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.subtitle {
+  text-align: center;
+  color: #596575;
+  margin-bottom: 24px;
+}
+
+.caption {
+  margin-top: 18px;
+  color: #3e4c59;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.grid {
+  display: grid;
+  gap: 14px;
+}
+
+.cards {
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #d9dee7;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.card a {
+  color: #1f5fae;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.box {
+  min-height: 62px;
+  min-width: 125px;
+  padding: 12px 10px;
+  border: 1.6px solid #334e68;
+  border-radius: 9px;
+  background: #f7f9fc;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.box b {
+  font-size: 15px;
+}
+
+.attack {
+  background: #fff1f1;
+  border-color: #b83232;
+}
+
+.repr {
+  background: #eef4ff;
+  border-color: #3568a8;
+}
+
+.control {
+  background: #f0f7ff;
+  border-color: #1d70b8;
+}
+
+.outcome {
+  background: #eef8ef;
+  border-color: #2f8132;
+}
+
+.support {
+  background: #fff8e8;
+  border-color: #b7791f;
+}
+
+.arrow {
+  color: #52606d;
+  font-size: 28px;
+  line-height: 1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 14px;
+}
+
+th {
+  background: #e8eef7;
+  border: 1px solid #bcccdc;
+  padding: 8px;
+  text-align: left;
+}
+
+td {
+  border: 1px solid #d9dee7;
+  padding: 8px;
+  vertical-align: top;
+}
+
+.small {
+  font-size: 12px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: #e8eef7;
+  color: #334e68;
+  font-size: 12px;
+  margin: 1px;
+}
+
+.heat-0 { background: #f7f9fc; }
+.heat-1 { background: #e6f4ea; }
+.heat-2 { background: #b7dfc1; }
+.heat-3 { background: #7bc47f; }
+.heat-4 { background: #3f9f46; color: #fff; }
+.note { color: #627d98; font-size: 13px; }

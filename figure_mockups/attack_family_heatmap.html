@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Attack Family Heatmap</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    td.center, th.center {
+      text-align: center;
+      vertical-align: middle;
+    }
+    .legend {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-end;
+      margin: 12px 0;
+      font-size: 12px;
+    }
+    .swatch {
+      width: 22px;
+      height: 14px;
+      border: 1px solid #bcccdc;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="figure">
+      <h1>Attack Family × Target Representation</h1>
+      <p class="subtitle">A compact heatmap for replacing dense evidence tables with a survey-friendly visual summary.</p>
+
+      <div class="legend">
+        Sparse
+        <span class="swatch heat-0"></span>
+        <span class="swatch heat-1"></span>
+        <span class="swatch heat-2"></span>
+        <span class="swatch heat-3"></span>
+        <span class="swatch heat-4"></span>
+        Stronger
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 18%;">Attack Family</th>
+            <th class="center">Embedding / Grounding</th>
+            <th class="center">Reasoning / Plan</th>
+            <th class="center">Action Token / Chunk</th>
+            <th class="center">Waypoint / Trajectory</th>
+            <th class="center">Memory / Tool</th>
+            <th class="center">Privacy</th>
+            <th style="width: 18%;">Main Evidence Gap</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Visual / Physical</b></td>
+            <td class="center heat-4">high</td>
+            <td class="center heat-1">low</td>
+            <td class="center heat-2">med</td>
+            <td class="center heat-4">high</td>
+            <td class="center heat-0">none</td>
+            <td class="center heat-0">none</td>
+            <td>Cross-embodiment and recovery after physical perturbation.</td>
+          </tr>
+          <tr>
+            <td><b>Instruction / Goal</b></td>
+            <td class="center heat-1">low</td>
+            <td class="center heat-4">high</td>
+            <td class="center heat-3">med-high</td>
+            <td class="center heat-3">med-high</td>
+            <td class="center heat-1">low</td>
+            <td class="center heat-0">none</td>
+            <td>Black-box transfer and source-boundary handling.</td>
+          </tr>
+          <tr>
+            <td><b>Backdoor / Supply Chain</b></td>
+            <td class="center heat-2">med</td>
+            <td class="center heat-1">low</td>
+            <td class="center heat-4">high</td>
+            <td class="center heat-3">med-high</td>
+            <td class="center heat-1">low</td>
+            <td class="center heat-0">none</td>
+            <td>Real data pipelines and persistence after fine-tuning.</td>
+          </tr>
+          <tr>
+            <td><b>Reasoning Hijack</b></td>
+            <td class="center heat-1">low</td>
+            <td class="center heat-4">high</td>
+            <td class="center heat-2">med</td>
+            <td class="center heat-3">med-high</td>
+            <td class="center heat-0">none</td>
+            <td class="center heat-0">none</td>
+            <td>Whether reasoning traces causally drive action across architectures.</td>
+          </tr>
+          <tr>
+            <td><b>Memory / Tool / HRI</b></td>
+            <td class="center heat-0">none</td>
+            <td class="center heat-2">med</td>
+            <td class="center heat-1">low</td>
+            <td class="center heat-1">low</td>
+            <td class="center heat-4">high</td>
+            <td class="center heat-2">med</td>
+            <td>Direct VLA validation beyond adjacent agent evidence.</td>
+          </tr>
+          <tr>
+            <td><b>Privacy</b></td>
+            <td class="center heat-1">low</td>
+            <td class="center heat-1">low</td>
+            <td class="center heat-2">med</td>
+            <td class="center heat-3">med-high</td>
+            <td class="center heat-1">low</td>
+            <td class="center heat-4">high</td>
+            <td>Beyond membership: routines, scene memory, and user properties.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="caption">
+        <b>Use in paper.</b> Values are qualitative placeholders. Replace labels with actual coded counts if desired, or use shading only to convey evidence density without overclaiming exact comparability.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,25 +1,25 @@
-\section{Open Problems}
+\section{Research Roadmap and Limits}
 \label{sec:open-problems}
 
-\subsection{From Direct Evidence to General Evidence}
+\subsection{Physically Grounded Attacks}
 
-Direct VLA attack evidence is no longer absent, but it is not yet broad enough for field-wide conclusions. The next step is replication across action-token, chunked, diffusion, flow, waypoint, skill-based, and hierarchical VLA systems; across manipulation, navigation, mobile manipulation, and human-proximate settings; and across controllers and safety filters. A result on OpenVLA/LIBERO should be reported as important direct evidence, not as proof of universal VLA vulnerability.
+Physical grounding is essential because VLA attacks ultimately claim effects on robot motion, tool use, environment state, or human proximity. Current work has moved beyond digital-only examples: several patch, texture, backdoor, and embodied red-team studies include simulation or real-robot demonstrations. Progress now depends less on simply adding physical trials than on making those trials more informative: calibrated cameras, lighting and viewpoint variation, object mass and friction, controller frequency, safety filters, time-to-violation, and recovery opportunities should be part of the evaluated claim.
 
-\subsection{Physical Recovery and HIL Protocols}
+\subsection{HIL and Real-Robot Recovery}
 
-The missing middle tier is hardware-in-the-loop. Simulation gives scale, and physical robots give realism, but HIL can expose real sensors, middleware timing, safety filters, and controller latency without requiring unsafe full deployment. Standard HIL protocols should record when an attack first changes representation, whether a controller clips or rejects it, whether the robot recovers after new observations, and whether human intervention changes the outcome.
+Recovery is the most underdeveloped robotics question. Simulation gives scale, and full physical deployment gives realism, but hardware-in-the-loop can expose real sensors, middleware timing, safety filters, controller latency, and emergency-stop logic without requiring unsafe full deployment. Future studies should show when an attack first changes representation, whether the controller clips or rejects it, whether the robot recovers after new observations, and whether human correction changes the outcome. A VLA attack that fails after one replan and a VLA attack that survives repeated recovery attempts are different risks.
 
-\subsection{Action-Representation Transfer}
+\subsection{Cross-Embodiment and Action-Representation Transfer}
 
-The field needs attacks and defenses that test transfer across action representations, not only across model names. A prompt attack may transfer across language-conditioned token policies but fail against a flow policy; a patch may transfer across visual encoders but not across camera placements; a chunk-drift backdoor may be irrelevant to a one-step replanner. Evaluation suites should vary tokenizer, chunk length, temporal ensemble, diffusion/flow sampler, waypoint controller, and low-level safety envelope.
+Transfer matters because VLA systems are defined by embodiment as much as by model name. Existing work has begun to test transfer across prompts, models, viewpoints, and simulation-to-real settings, but transfer across action representations is still thin. A prompt attack may transfer across language-conditioned token policies but fail against a flow policy; a patch may transfer across visual encoders but not camera placements; a chunk-drift backdoor may be irrelevant to a one-step replanner. Future suites should vary tokenizer, chunk length, temporal ensemble, diffusion/flow sampler, waypoint controller, robot morphology, camera geometry, and low-level safety envelope.
 
-\subsection{Memory, Tool, Middleware, and HRI}
+\subsection{Memory, Tool, Middleware, and HRI Attacks}
 
-Direct VLA evidence is still thin for memory poisoning, tool/API misuse, middleware compromise, and socially situated attackers. Adjacent evidence from RAG, software agents, ROS/ROS2, and HRI shows credible mechanisms \cite{zou2025poisonedrag,debenedetti2024agentdojo,deng2022insecurityros2,booth2017piggybacking}, but VLA attack studies need to measure robot consequences: unauthorized skill use, corrupted maps, persistent user preference changes, unsafe tool arguments, privacy leakage, and recovery after correction.
+Deployed VLA robots will not be stateless policies. They will retrieve maps, object memories, user preferences, logs, tool outputs, and social cues. Adjacent evidence from RAG, software agents, ROS/ROS2, and HRI shows credible routes for corruption \cite{zou2025poisonedrag,debenedetti2024agentdojo,deng2022insecurityros2,booth2017piggybacking}, but direct VLA evidence remains thin. Future work should measure robot-level effects: unauthorized skill use, corrupted maps, persistent user preference changes, unsafe tool arguments, privacy leakage, and recovery after correction.
 
 \subsection{Privacy as a First-Class VLA Attack Objective}
 
-Membership inference work shows that VLA actions and trajectories can leak training membership \cite{peng2026miavla,luan2026vlaleaks}. Future privacy evaluation should extend beyond membership to property inference, dataset provenance, user routine leakage, private-scene memorization, and cross-session log leakage. These are direct VLA security questions even when no robot collision or task failure occurs.
+Robot actions can reveal training data, user routines, scenes, and task histories. Membership inference work shows that VLA actions and trajectories can leak training membership \cite{peng2026miavla,luan2026vlaleaks}. The field now needs privacy tests beyond membership: property inference, dataset provenance, user routine leakage, private-scene memorization, and cross-session log leakage. These are direct VLA security questions even when no robot collision or task failure occurs.
 
 \subsection{Adaptive Attacks and Responsible Artifacts}
 
@@ -27,6 +27,6 @@ First-generation defenses will use prompt hierarchy, source labels, retrieval fi
 
 \subsection{Limitations of This Review}
 
-This review freezes the evidence database at the 16 June 2026 search date, so later arXiv releases, renamed project pages, and venue updates are outside scope. Google Scholar and Semantic Scholar ranking can bias discovery toward highly visible papers, while targeted-name searches can miss attacks that use different terminology. We searched English-language sources and may miss non-English reports. Several direct VLA attacks are recent preprints or workshop papers; their claims may change after peer review, and project-page or repository information is weaker evidence than archival text.
+This review fixes its evidence set at the 16 June 2026 search date, so later arXiv releases, renamed project pages, and venue updates are outside scope. Google Scholar and Semantic Scholar ranking can bias discovery toward highly visible papers, while targeted-name searches can miss attacks that use different terminology. We searched English-language sources and may miss non-English reports. Several direct VLA attacks are recent preprints or workshop papers; their claims may change after peer review, and project-page or repository information is weaker evidence than archival text.
 
-The complete database is auditable, but it records what papers report, not independent reproduction of their experiments. The independent second audit covers all 23 direct VLA records and principal fields, plus a stratified sample of non-direct records, but it does not re-run attacks, inspect all source code, or verify every ASR number. Coding remains partly judgment-based, especially for multi-label target representations, transfer reporting, and validation flags. Finally, the descriptive statistics are counts and proportions over a small database, not a meta-analysis. We do not pool ASR values across attack objectives, denominators, validation tiers, or robot platforms, and multi-label percentages can change noticeably when a single new direct VLA paper is added.
+The supplementary materials document inclusion choices and supporting notes, but they do not reproduce experiments, inspect every codebase, or verify every ASR number. Some judgments remain partly subjective, especially for target representations, transfer, and validation details. The descriptive observations should therefore be read as a map of an emerging literature, not as a meta-analysis; we do not pool ASR values across attack objectives, denominators, validation tiers, or robot platforms.

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Action Representation Attack Table</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <div class="figure">
+      <h1>Action Representations as VLA Attack Targets</h1>
+      <p class="subtitle">A robotics-centered table for the survey's action-level attack analysis.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 14%;">Action Representation</th>
+            <th style="width: 19%;">Typical Attack Target</th>
+            <th style="width: 23%;">Closed-Loop Propagation Risk</th>
+            <th style="width: 22%;">Controller / Recovery Issue</th>
+            <th style="width: 22%;">Useful Evaluation Signal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Action Tokens</b></td>
+            <td>Token probabilities, gripper state, pose bins, detokenizer mapping</td>
+            <td>Early token errors may condition later tokens and shift the whole rollout.</td>
+            <td>Controller may clip invalid commands, but semantic wrong-object actions can remain valid.</td>
+            <td>First changed token, targeted token rate, token-to-motion deviation</td>
+          </tr>
+          <tr>
+            <td><b>Action Chunks</b></td>
+            <td>Multi-step delta poses, primitive windows, static action states</td>
+            <td>Several future control steps can be corrupted before new observations arrive.</td>
+            <td>Replanning frequency and temporal ensemble determine whether drift is corrected or prolonged.</td>
+            <td>Chunk horizon, open-loop duration, persistence after replan</td>
+          </tr>
+          <tr>
+            <td><b>Waypoints</b></td>
+            <td>Object goal, spatial relation, intermediate pose, affordance map</td>
+            <td>Small semantic shifts can redirect the path to a wrong object or unsafe region.</td>
+            <td>Tracking controller may follow a geometrically valid but semantically wrong waypoint.</td>
+            <td>Endpoint error, wrong-object rate, workspace boundary entry</td>
+          </tr>
+          <tr>
+            <td><b>Trajectories</b></td>
+            <td>Full path, curvature, velocity profile, attacker-specified endpoint</td>
+            <td>Attack objective can be geometric rather than textual or token-level.</td>
+            <td>Safety filter may prevent collision while still allowing near-boundary or unauthorized motion.</td>
+            <td>Trajectory deviation, time-to-violation, minimum safety margin</td>
+          </tr>
+          <tr>
+            <td><b>Diffusion / Flow</b></td>
+            <td>Conditioning vector, denoising path, velocity field, sampler, trajectory distribution</td>
+            <td>Smooth distribution shifts may look plausible while biasing actions over time.</td>
+            <td>Sampling and smoothing can attenuate high-frequency attacks but hide low-frequency drift.</td>
+            <td>Distribution shift, multimodality near unsafe regions, post-controller deviation</td>
+          </tr>
+          <tr>
+            <td><b>Skill / API</b></td>
+            <td>Skill name, tool arguments, permission boundary, precondition check</td>
+            <td>Planner may choose a valid skill for an unauthorized or unsafe goal.</td>
+            <td>Low-level skill may execute correctly even when the high-level authorization is wrong.</td>
+            <td>Unauthorized skill rate, argument-smuggling success, tool audit trace</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="caption">
+        <b>Use in paper.</b> This table can become a main-text table because it emphasizes robotics mechanisms rather than generic adversarial ML categories.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

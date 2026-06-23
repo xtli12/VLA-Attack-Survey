@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Closed-Loop VLA Attack Framework</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <div class="figure">
+      <h1>Closed-Loop Propagation of VLA Attacks</h1>
+      <p class="subtitle">A visual template for the paper's main organizing figure.</p>
+
+      <div class="row">
+        <div class="box attack">
+          <b>Adversary</b><br>
+          patch, prompt,<br>poisoning, tool output
+        </div>
+        <div class="arrow">&rarr;</div>
+        <div class="box">
+          <b>Entry Surface</b><br>
+          vision, language,<br>memory, tool, human
+        </div>
+        <div class="arrow">&rarr;</div>
+        <div class="box repr">
+          <b>Changed Representation</b><br>
+          grounding, plan,<br>token, chunk, trajectory
+        </div>
+        <div class="arrow">&rarr;</div>
+        <div class="box">
+          <b>VLA Command</b><br>
+          action token,<br>waypoint, skill call
+        </div>
+        <div class="arrow">&rarr;</div>
+        <div class="box control">
+          <b>Controller Boundary</b><br>
+          clipping, smoothing,<br>safety filter
+        </div>
+        <div class="arrow">&rarr;</div>
+        <div class="box outcome">
+          <b>Outcome</b><br>
+          recovery or<br>violation
+        </div>
+      </div>
+
+      <div style="height: 28px;"></div>
+
+      <div class="row" style="justify-content: center;">
+        <div class="box support" style="width: 230px;">
+          <b>Feedback</b><br>
+          new observations may correct or reinforce deviation
+        </div>
+        <div class="arrow">&larr;</div>
+        <div class="box support" style="width: 230px;">
+          <b>State and Memory</b><br>
+          logs, retrieval, user preferences, tool state
+        </div>
+        <div class="arrow">&larr;</div>
+        <div class="box support" style="width: 230px;">
+          <b>Validation Tier</b><br>
+          digital, simulation, HIL, real robot
+        </div>
+      </div>
+
+      <p class="caption">
+        <b>Use in paper.</b> This figure should replace or refine the current pipeline figure. Its key message is that a VLA attack claim is not settled at the model-output boundary. The claim depends on whether the adversarial effect reaches the controller, survives feedback or recovery, and produces a robot or system consequence.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

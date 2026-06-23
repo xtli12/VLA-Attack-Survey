@@ -25,7 +25,7 @@
 
 \begin{document}
 
-\title{Attacks on Vision-Language-Action Robotic Systems: A Systematic Evidence Review}
+\title{Attacks on Vision-Language-Action Robotic Systems: Mechanisms, Evaluation, and Open Problems}
 
 \input{author}
 
@@ -34,15 +34,14 @@
 \maketitle
 
 \begin{abstract}
-Vision-Language-Action (VLA) models turn perception and language into executable robot behavior. This creates an attack surface that is not reducible to adversarial image classification, text-only jailbreaking, conventional robot robustness, or broad VLA safety: a small visual, linguistic, training-time, or system-level intervention can propagate through grounding, planning, action representation, controller execution, and recovery. This survey reviews how VLA attacks emerge in closed-loop robotic systems, how the literature has evolved from adversarial vision, prompt injection, and robot-policy attacks toward direct VLA patches, black-box instruction attacks, action-level backdoors, trajectory manipulation, reasoning-chain hijacking, and privacy attacks, and what current evidence can and cannot support. We use a structured evidence review to separate direct VLA attacks from embodied-adjacent evidence and broader contextual literature, while keeping the main narrative focused on attack mechanisms and robotic consequences. Because attack success is not yet used consistently in VLA safety work, we formalize typed VLA attack success as a rollout-level violation predicate tied to attacker assumptions, benign baselines, validation tier, and consequence. We introduce an orthogonal attack map spanning lifecycle, entry surface, target component, target representation, security property, knowledge level, access channel, privilege level, validation tier, and consequence. Across studies, the evidence shows rapid growth but also clear limits: direct VLA results remain concentrated around OpenVLA/LIBERO-style settings, physical validation is uneven, and controller, recovery, and pre/post-controller traces are rarely reported. We close with a robotics-oriented evaluation protocol and a research roadmap for physically grounded, action-representation-aware, and recovery-aware VLA attack studies.
+Vision-Language-Action (VLA) models connect open-ended language and visual context to robot action, memory, tools, and future observations. This makes attacks qualitatively different from adversarial image classification, text-only jailbreaking, or conventional robot robustness: an intervention may shift object grounding, redirect a trajectory, trigger an action segment, leak training membership, or persist until recovery fails. This mechanism-driven survey reviews how VLA attack research has moved from adversarial vision, prompt injection, and robot-policy attacks toward direct attacks on VLA perception, instruction following, action generation, reasoning, and privacy. We organize the literature around a closed-loop attack map that tracks how adversarial effects enter, what they change inside the robot stack, whether they cross the controller boundary, and whether feedback leads to recovery or violation. To calibrate claims, we distinguish direct VLA evidence from embodied-adjacent and contextual work, and we formalize typed attack success as a rollout-level predicate tied to attacker assumptions, benign baselines, validation tier, and closed-loop consequence. Current direct VLA studies already show that action-producing and reasoning-enabled policies can be attacked, but deployment-level claims remain narrow: physical recovery studies are limited, privacy metrics are still emerging, and adaptive evaluation against guardrails is immature. We close with a robotics-oriented roadmap for physically grounded, privacy-aware, and recovery-aware VLA attack studies.
 \end{abstract}
 
 \begin{IEEEkeywords}
-Vision-Language-Action Attacks, Robot Foundation Models, Systematic Evidence Review, Embodied Security, Physical Attack Evaluation.
+Vision-Language-Action Attacks, Robot Foundation Models, Survey, Embodied Security, Physical Attack Evaluation.
 \end{IEEEkeywords}
 
 \input{sections/1_Introduction}
-\input{sections/2_BackgroundThreatModel}
 \input{sections/3_Taxonomy}
 \input{sections/4_PerceptionGrounding}
 \input{sections/5_InstructionsPlanning}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VLA Attack Mechanism Evolution</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      align-items: stretch;
+    }
+    .stage {
+      border: 1.5px solid #bcccdc;
+      border-radius: 10px;
+      padding: 14px;
+      background: #ffffff;
+      min-height: 210px;
+      position: relative;
+    }
+    .stage::after {
+      content: "→";
+      position: absolute;
+      right: -15px;
+      top: 42%;
+      font-size: 24px;
+      color: #627d98;
+    }
+    .stage:last-child::after {
+      content: "";
+    }
+    .year {
+      font-weight: bold;
+      color: #1f5fae;
+      margin-bottom: 8px;
+    }
+    .stage h2 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+    .stage p {
+      font-size: 13px;
+      margin: 0 0 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="figure">
+      <h1>Evolution of VLA Attack Mechanisms</h1>
+      <p class="subtitle">A survey-style timeline for explaining why the field is now distinct from VLM, LLM, and classical robot-security attacks.</p>
+
+      <div class="timeline">
+        <div class="stage">
+          <div class="year">Pre-VLA Roots</div>
+          <h2>Adversarial Vision and Sensors</h2>
+          <p>Image perturbations, physical patches, LiDAR spoofing, and audio command attacks show that robot inputs can be manipulated.</p>
+          <span class="tag">pixels</span><span class="tag">patches</span><span class="tag">sensors</span>
+        </div>
+
+        <div class="stage">
+          <div class="year">LLM/VLM Era</div>
+          <h2>Prompt Injection and Jailbreaks</h2>
+          <p>Language and multimodal context become attack channels for goals, source boundaries, and tool calls.</p>
+          <span class="tag">prompt</span><span class="tag">scene text</span><span class="tag">tools</span>
+        </div>
+
+        <div class="stage">
+          <div class="year">Embodied Agents</div>
+          <h2>Embodied Jailbreaks</h2>
+          <p>Attacks are judged by plans, tool use, and robot-facing commands rather than text outputs alone.</p>
+          <span class="tag">planner</span><span class="tag">skills</span><span class="tag">HRI</span>
+        </div>
+
+        <div class="stage">
+          <div class="year">Direct VLA Attacks</div>
+          <h2>Action and Trajectory Targets</h2>
+          <p>Patches, prompts, backdoors, and reasoning attacks are evaluated by action tokens, chunks, trajectories, and rollout behavior.</p>
+          <span class="tag">tokens</span><span class="tag">chunks</span><span class="tag">trajectory</span>
+        </div>
+
+        <div class="stage">
+          <div class="year">Open Frontier</div>
+          <h2>Closed-Loop Evidence</h2>
+          <p>The next step is HIL, recovery, controller traces, cross-embodiment transfer, privacy, and adaptive attacks.</p>
+          <span class="tag">HIL</span><span class="tag">recovery</span><span class="tag">privacy</span>
+        </div>
+      </div>
+
+      <p class="caption">
+        <b>Use in paper.</b> This can appear near the beginning of the mechanism section to make the survey more narrative and less database-oriented.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

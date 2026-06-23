@@ -4,18 +4,18 @@ Version: `VLA-Attack-ER-v2026-06-16`
 
 Last search date: 2026-06-16
 
-This supplement supports the manuscript "Attacks on Vision-Language-Action Robotic Systems: A Systematic Evidence Review." It freezes the evidence database used for all counts in the paper.
+This supplement supports the manuscript "Attacks on Vision-Language-Action Robotic Systems: Mechanisms, Evidence, and Evaluation." It provides a fixed evidence appendix used for descriptive counts in the paper.
 
 ## Files
 
-- `vla_attack_evidence_database_v2026-06-16.csv`: complete coded evidence database with 85 records.
+- `vla_attack_evidence_database_v2026-06-16.csv`: complete evidence appendix with 85 entries.
 - `direct_vla_coding_audit_v2026-06-16.csv`: independent second audit pass for the 23 direct VLA records.
 - `direct_vla_validation_flags_v2026-06-16.csv`: companion file separating mutually exclusive highest validation tier from multi-label validation flags for direct VLA records.
 - `vla_attack_corpus_source_v2026-06-16.csv`: companion file mapping each record to `core` or `contextual` corpus and recording discovery source.
 
 ## Database Counts
 
-The frozen database contains 85 records:
+The fixed evidence appendix contains 85 entries:
 
 - `direct`: 23
 - `embodied-adjacent`: 28
@@ -47,7 +47,7 @@ If the target is an embodied LLM/VLM planner, robot middleware, sensor path, HRI
 
 ## Field Dictionary
 
-- `db_version`: frozen database version.
+- `db_version`: fixed appendix version.
 - `record_id`: stable record identifier. Direct VLA records use `Dxx`; adjacent records use `Axx`; analogical/methodological records use `Gxx`.
 - `work_key`: BibTeX key used in the manuscript.
 - `work_short`: short human-readable name.

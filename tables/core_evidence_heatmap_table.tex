@@ -1,20 +1,18 @@
 \begin{table*}[t]
 \centering
 \scriptsize
-\caption{Cross-study synthesis for the 23 direct VLA attack records. Counts are paper counts; rows may overlap when a paper evaluates multiple settings.}
+\caption{Representative direct VLA attack mechanisms and what each mechanism currently supports. The table is qualitative: it summarizes mechanism-level evidence rather than pooling heterogeneous ASR values.}
 \label{tab:core-heatmaps}
 \renewcommand{\arraystretch}{1.08}
 \setlength{\tabcolsep}{3pt}
-\begin{tabularx}{\textwidth}{@{}p{0.20\textwidth}ccccY@{}}
+\begin{tabularx}{\textwidth}{@{}p{0.17\textwidth}Y Y Y Y@{}}
 \toprule
-\textbf{Attack family} & \textbf{Embedding/grounding} & \textbf{Reasoning/plan} & \textbf{Action token/chunk} & \textbf{Trajectory/controller} & \textbf{Dominant validation tiers} \\
+\textbf{Attack family} & \textbf{Representative entry} & \textbf{Changed representation} & \textbf{Robotic consequence} & \textbf{Evidence strength and caveat} \\
 \midrule
-Instruction/control & 1 & 3 & 2 & 2 & Simulation rollout; one real-robot red-team study. \\
-Visual/physical & 5 & 1 & 1 & 6 & Simulation and real-robot actuation dominate; one real-sensor-only transfer study. \\
-Backdoor/action & 1 & 1 & 4 & 3 & Mostly simulation; three real-robot actuation reports. \\
-Reasoning/privacy & 1 & 3 & 1 & 2 & Digital input-only and simulation; physical actuation only for patch-based reasoning hijack. \\
-\midrule
-\textbf{Timeline} & \multicolumn{5}{p{0.76\textwidth}@{}}{2025: 10 direct records, mostly prompt/patch/backdoor. 2026: 13 direct records, adding black-box instruction, reasoning, privacy, 3D texture, partial-observation, and driving-trajectory evidence.} \\
+Instruction/control & Prompt edit, scene text, or cross-modal instruction perturbation & Plan, source grounding, action token, or command-preserving trajectory & Task failure, action inflation, wrong-object behavior, or trajectory redirection & Direct rollout evidence is emerging; transfer, query budget, and recovery still vary across studies. \\
+Visual/physical & Digital patch, printed patch, object texture, or partial-observation physical access & Embedding, grounding, visual proprioception, action loss, or trajectory objective & Wrong-object action, targeted motion, trajectory deviation, or degraded manipulation & Strong mechanism evidence across digital, simulation, and some real-robot settings; physical generality across viewpoints, objects, and controllers remains open. \\
+Backdoor/action & Poisoned demonstration, trigger object, or supply-chain fine-tuning & Primitive, action freeze, chunk drift, waypoint, or long-horizon action sequence & Triggered release/freeze, wrong goal behavior, or gradual trajectory shift & Direct VLA studies show action representations are attackable while preserving clean utility; robustness to filtering, adaptation, and controller clipping is less mature. \\
+Reasoning/privacy & Physical/contextual reasoning perturbation or action-trace query access & CoT/entity reference, reasoning-to-action state, likelihood, attention, or temporal trajectory signature & Reasoning hijack, unsafe driving/manipulation behavior, or training-membership leakage & Expands the field beyond task-failure ASR; privacy and reasoning claims require metrics different from physical task success. \\
 \bottomrule
 \end{tabularx}
 \end{table*}
