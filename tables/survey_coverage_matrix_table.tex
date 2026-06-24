@@ -1,20 +1,40 @@
 \begin{table*}[t]
 \centering
 \scriptsize
-\caption{How this survey differs from adjacent survey traditions. The comparison concerns scope and evidence use, not the value of each literature.}
+\caption{Overview of related survey traditions and how this survey is positioned. The comparison concerns scope and evidence use, not the value of each literature.}
 \label{tab:coverage-matrix}
-\renewcommand{\arraystretch}{1.08}
+\newcommand{\yesmark}{\textcolor{green!55!black}{$\surd$}}
+\newcommand{\nomark}{\textcolor{red!70!black}{$\times$}}
+\newcommand{\partmark}{\textcolor{orange!85!black}{\textit{Partial}}}
+\renewcommand{\arraystretch}{1.12}
 \setlength{\tabcolsep}{2.4pt}
-\begin{tabularx}{\textwidth}{@{}p{0.18\textwidth}Y Y Y Y@{}}
+\begin{tabularx}{\textwidth}{@{}P{0.16\textwidth}||>{\centering\arraybackslash}P{0.12\textwidth}>{\centering\arraybackslash}P{0.13\textwidth}>{\centering\arraybackslash}P{0.12\textwidth}>{\centering\arraybackslash}P{0.11\textwidth}|Y@{}}
 \toprule
-\textbf{Dimension} & \textbf{Closest VLA safety survey} & \textbf{Embodied security survey} & \textbf{LLM-agent security survey} & \textbf{This survey} \\
+\textbf{Adjacent literature} & \textbf{Direct VLA attack corpus} & \textbf{Action/control representation} & \textbf{Controller/recovery boundary} & \textbf{Evidence calibration} & \textbf{Gap addressed here} \\
 \midrule
-Direct VLA attack evidence & Discusses VLA threats within broader safety. & Usually sparse or absent. & Usually absent. & Centers demonstrated attacks on VLA policies, VLA-controlled robots, and VLA training/privacy channels. \\
-Evidence use & Threat/evaluation oriented. & Vulnerability oriented. & Software-agent risk oriented. & Separates direct VLA evidence from embodied-adjacent and contextual work so adjacent risks do not inflate VLA claims. \\
-Action representation & Often covered as model capability. & Usually not central. & Not applicable. & Compares action token, chunk, waypoint, trajectory, velocity/flow, skill/API, controller, and memory representations. \\
-Controller/recovery & Defense or safety mechanism discussion. & Cyber-physical component discussion. & Not applicable. & Highlights why chunk horizon, controller frequency, safety filters, recovery, and pre/post-controller traces change attack claims. \\
-Privacy attacks & Usually safety-adjacent. & Sometimes privacy/security. & Often data leakage. & Treats VLA membership inference and VLALeaks as direct VLA confidentiality evidence. \\
-Evaluation emphasis & Broad trend synthesis. & Broad vulnerability synthesis. & Benchmark scores or attack rates. & Interprets typed attack success, validation tier, controller boundary, transfer, privacy metrics, and recovery rather than pooling incompatible ASR. \\
+VLA/RFM surveys \cite{sapkota2025vlasurvey,liu2025embodiedsurvey}
+& \nomark & \yesmark & \partmark & \partmark
+& Explain model architectures, datasets, action heads, and applications, but usually treat attacks as peripheral robustness or safety issues. \\
+\midrule
+VLA safety survey \cite{li2026vlasafety}
+& \partmark & \partmark & \partmark & \yesmark
+& Covers threats, alignment, defenses, evaluations, and deployment challenges across VLA safety; it is broader than an attack-mechanism and evidence-strength analysis. \\
+\midrule
+Embodied and robot security surveys \cite{neupane2024security,yaacoub2022robotics}
+& \nomark & \nomark & \yesmark & \partmark
+& Explain sensors, middleware, cyber-physical vulnerabilities, HRI, and deployed robot risks, but do not center VLA policies or VLA action representations. \\
+\midrule
+LLM-agent and tool-risk studies \cite{greshake2023not,ruan2024toolemu,debenedetti2024agentdojo}
+& \nomark & \nomark & \partmark & \yesmark
+& Clarify prompt injection, source confusion, tool misuse, and benchmark design, but software-agent success does not establish robot-level VLA consequences. \\
+\midrule
+Adversarial ML and physical-attack work \cite{goodfellow2015explaining,brown2017adversarial,athalye2018synthesizing,eykholt2018robust}
+& \nomark & \nomark & \partmark & \yesmark
+& Provides mechanisms for perturbations, transfer, and physical realization, but sensor failure must still be connected to VLA grounding, action, execution, and recovery. \\
+\midrule
+\textbf{This paper}
+& \yesmark & \yesmark & \yesmark & \yesmark
+& Centers attacks on VLA-controlled robots, separates direct VLA evidence from adjacent work, and evaluates claims through action representation, controller boundary, validation tier, privacy, and recovery. \\
 \bottomrule
 \end{tabularx}
 \end{table*}

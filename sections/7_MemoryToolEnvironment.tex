@@ -3,7 +3,7 @@
 
 \subsection{Physically Grounded Attacks}
 
-Physical grounding is essential because VLA attacks ultimately claim effects on robot motion, tool use, environment state, or human proximity. Current work has moved beyond digital-only examples: several patch, texture, backdoor, and embodied red-team studies include simulation or real-robot demonstrations. Progress now depends less on simply adding physical trials than on making those trials more informative: calibrated cameras, lighting and viewpoint variation, object mass and friction, controller frequency, safety filters, time-to-violation, and recovery opportunities should be part of the evaluated claim.
+Physical grounding is essential because VLA attacks ultimately claim effects on robot motion, tool use, environment state, or human proximity. Current work has moved beyond digital-only examples: several patch, texture, backdoor, and embodied red-team studies include simulation or real-robot demonstrations. Progress now depends less on simply adding physical trials than on making those trials informative. Calibrated cameras, lighting and viewpoint variation, object mass and friction, controller frequency, safety filters, time-to-violation, and recovery opportunities should be part of the evaluated claim.
 
 \subsection{HIL and Real-Robot Recovery}
 
@@ -11,7 +11,7 @@ Recovery is the most underdeveloped robotics question. Simulation gives scale, a
 
 \subsection{Cross-Embodiment and Action-Representation Transfer}
 
-Transfer matters because VLA systems are defined by embodiment as much as by model name. Existing work has begun to test transfer across prompts, models, viewpoints, and simulation-to-real settings, but transfer across action representations is still thin. A prompt attack may transfer across language-conditioned token policies but fail against a flow policy; a patch may transfer across visual encoders but not camera placements; a chunk-drift backdoor may be irrelevant to a one-step replanner. Future suites should vary tokenizer, chunk length, temporal ensemble, diffusion/flow sampler, waypoint controller, robot morphology, camera geometry, and low-level safety envelope.
+Transfer matters because VLA systems are defined by embodiment as much as by model name. Existing work has begun to test transfer across prompts, models, viewpoints, and simulation-to-real settings, while robot-learning work has long treated cross-task, cross-dataset, and cross-embodiment generalization as central design problems \cite{jang2021bcz,kalashnikov2021mtopt,lynch2022interactive,openx2023,khazatsky2024droid} \cite{mandlekar2021robomimic,mandlekar2023mimicgen,ghosh2024octo,bousmalis2023robocat,nvidia2025gr00tn1}. Transfer across action representations is still thin. A prompt attack may transfer across language-conditioned token policies but fail against a flow policy; a patch may transfer across visual encoders but not camera placements; a chunk-drift backdoor may be irrelevant to a one-step replanner. Future suites should vary tokenizer, chunk length, temporal ensemble, diffusion/flow sampler, waypoint controller, robot morphology, camera geometry, and low-level safety envelope.
 
 \subsection{Memory, Tool, Middleware, and HRI Attacks}
 

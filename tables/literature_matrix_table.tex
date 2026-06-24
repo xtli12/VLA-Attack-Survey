@@ -1,20 +1,49 @@
-\begin{table*}[t]
+\begin{table*}[!t]
 \centering
 \scriptsize
-\caption{Representative mechanism synthesis by literature role. Core rows summarize attack mechanisms; contextual rows explain substrates or evaluation context but are not treated as direct VLA attack results. D: digital; S: simulation; HIL: hardware-in-the-loop; P: physical robot/world; PR: peer-reviewed; PP: preprint or non-archival version.}
+\caption{Representative VLA attack methods and evaluation settings. Objectives use F = task failure/availability, T = targeted behavior, S = safety violation, P = privacy leakage, and A = authorization misuse. Validation uses D = digital input, Sim = simulation rollout, HIL = hardware-in-the-loop, and Robot = real robot/world actuation. PR = peer-reviewed; PP = preprint or non-archival version.}
 \label{tab:attack-literature-summary}
-\renewcommand{\arraystretch}{1.1}
-\setlength{\tabcolsep}{1.8pt}
-\begin{tabularx}{\textwidth}{@{}p{0.13\textwidth}p{0.28\textwidth}p{0.10\textwidth}p{0.11\textwidth}Y@{}}
+\renewcommand{\arraystretch}{1.08}
+\setlength{\tabcolsep}{1.65pt}
+\begin{tabularx}{\textwidth}{@{}P{0.105\textwidth}P{0.075\textwidth}P{0.15\textwidth}P{0.065\textwidth}P{0.10\textwidth}P{0.09\textwidth}P{0.13\textwidth}P{0.075\textwidth}Y@{}}
 \toprule
-\textbf{Role} & \textbf{Representative work} & \textbf{Status} & \textbf{Validation} & \textbf{What the evidence supports} \\
+\textbf{Work} & \textbf{Venue / status} & \textbf{Attack strategy} & \textbf{Obj.} & \textbf{Knowledge / access} & \textbf{Entry surface} & \textbf{Target representation} & \textbf{Validation} & \textbf{Victim model / benchmark} \\
 \midrule
-Direct VLA: instruction/control & RoboGCG, VLA-Fool, SABER, Q-DIG, trajectory redirection \cite{jones2025robogcg,yan2025vlafool,wu2026saber,srikanth2026qdig,puthumanaillam2026trajectory} & PP & D/S/P & Language or multimodal perturbations can alter VLA rollout behavior; black-box, natural-prompt, and command-preserving settings are emerging. \\
-Direct VLA: patches/physical vision & ICCV patch attacks, EDPA, ADVLA, UPA-RFAS, VLA-Hijack, Tex3D, partially observable patches \cite{wang2025vlaadversarial,xu2025edpa,zhang2025advla,lu2026patch,fu2026vlahijack,chen2026tex3d,wang2026partialpatch} & PR/PP & D/S/P & Visual attacks can target embeddings, grounding, visual proprioception, action trajectories, and object textures; transfer and physical evidence are improving but uneven. \\
-Direct VLA: action/backdoor & FreezeVLA, BadVLA, GoBA, DropVLA/TabVLA, AttackVLA/BackdoorVLA, SilentDrift \cite{wang2025freezevla,zhou2025badvla,zhou2025goba,xu2025dropvla,li2025attackvla,xu2026silentdrift} & PP & S/P & VLA attacks can target action primitives, action freezing, chunk drift, and long-horizon triggered behavior, often while preserving clean utility. \\
-Direct VLA: reasoning/privacy & TRAP, altered reasoning traces, ReasonBreak, VLA membership inference, VLALeaks \cite{huang2026trap,altered2026thoughts,teymoorianfard2026reasonbreak,peng2026miavla,luan2026vlaleaks} & PP & D/S/P & Reasoning traces and training membership are VLA-specific target representations; objectives include integrity and confidentiality rather than only task failure. \\
-Core: embodied-adjacent attacks & BadRobot, RoboPAIR, CHAI, RoboJailBench, ANNIE, Phantom Menace, Eva-VLA \cite{zhang2025badrobot,robey2025robopair,burbano2025chai,yeke2026robojailbench,huang2025annie,lu2025phantom,liu2025evavla} & PR/PP & D/S/P & Embodied LLM/VLM, environmental command, trajectory, sensor, and physical-variation attacks inform VLA threat models but are not counted as direct VLA evidence unless VLA policies are attacked. \\
-Contextual references & VLA/RFM substrates, benchmarks, adversarial ML, physical/sensor attacks, RAG/tool-agent security, RL backdoors, ROS/robot cybersecurity \cite{kim24openvla,black2024pi0,liu2023libero,goodfellow2015explaining,brown2017adversarial,cao2019lidar,zou2025poisonedrag,debenedetti2024agentdojo,kiourti2020trojdrl,deng2022insecurityros2} & PR/PP & D/S/P & Provides mechanisms, substrates, and evaluation lessons; not treated as attack evidence unless the work has explicit attacker, target, method, and outcome. \\
+\multicolumn{9}{@{}l}{\emph{Instruction and reasoning attacks}} \\
+\midrule
+RoboGCG \cite{jones2025robogcg} & PP & Adversarial prompt optimization for control authority & F/T & Gray/black-box; digital & Language & Action reachability / rollout behavior & D, Sim & VLA policies / manipulation rollouts \\
+SABER \cite{wu2026saber} & PP & Bounded black-box instruction edits & F/S & Black-box; query access & Language & Plan and action sequence & D, Sim & OpenVLA-style policies / LIBERO \\
+Q-DIG \cite{srikanth2026qdig} & PP & Quality-diversity red-team prompts & F & Black-box; digital & Language & Task plan / policy behavior & Sim & Robot-policy benchmarks \\
+TRAP \cite{huang2026trap} & PP & Patch-induced CoT/reasoning hijack & T/S & Physical/digital patch & Vision + reasoning & CoT trace / entity grounding & D, Sim, Robot & Reasoning-enabled VLA manipulation \\
+Trajectory redirection \cite{puthumanaillam2026trajectory} & PP & Command-preserving prompt redirection & T/S & Digital prompt & Language & Trajectory / endpoint & Sim & VLA manipulation rollouts \\
+\midrule
+\multicolumn{9}{@{}l}{\emph{Visual and physical attacks}} \\
+\midrule
+VLA adversarial patch \cite{wang2025vlaadversarial} & PR & Action-space adversarial patch / trajectory loss & F/T/S & White/gray-box; patch & Vision & Grounding, action, trajectory & D, Sim, Robot & VLA policies / manipulation tasks \\
+VLA-Fool \cite{yan2025vlafool} & PP & Textual, visual, and cross-modal misalignment & F/T & Digital input & Vision + language & Multimodal alignment / action & D, Sim & VLA models / manipulation suites \\
+EDPA / ADVLA \cite{xu2025edpa,zhang2025advla} & PP & Embedding, attention, and projected-feature attacks & F/T & White/transfer; digital & Vision & Visual embedding / attention & D, Sim & OpenVLA-style targets \\
+UPA-RFAS / VLA-Hijack \cite{lu2026patch,fu2026vlahijack} & PR/PP & Transferable patch / visual proprioception hijack & F/T/S & Transfer / black-box patch & Vision & Visual-proprioceptive features & D, Sim, Robot & Multiple VLA policies \\
+Tex3D \cite{chen2026tex3d} & PP & Adversarial 3D object texture & F/T & Physical object access & Environment / vision & Object texture / grounding & Sim, Robot & VLA manipulation tasks \\
+Partial-observation patch \cite{wang2026partialpatch} & PR & Patch optimized from short trajectory prefix & F/T & Partial-observation access & Vision & Trajectory-relevant visual state & Sim & VLA robot rollouts \\
+\midrule
+\multicolumn{9}{@{}l}{\emph{Backdoor and action-level attacks}} \\
+\midrule
+FreezeVLA \cite{wang2025freezevla} & PP & Triggered action freezing & F/T & Training-time / trigger & Data + runtime trigger & Static action state / primitive & Sim & VLA manipulation policies \\
+BadVLA \cite{zhou2025badvla} & PP & Objective-decoupled VLA backdoor & T & Training-time / trigger & Data / physical object & Goal or action behavior & Sim & VLA policies / manipulation suites \\
+GoBA \cite{zhou2025goba} & PP & Physical-object-triggered backdoor & T/S & Training-time + physical trigger & Physical object & Goal-conditioned behavior & Sim, Robot & VLA manipulation tasks \\
+DropVLA / AttackVLA \cite{xu2025dropvla,li2025attackvla} & PP & Action-level / long-horizon triggered behavior & F/T & Training-time / trigger & Data + action head & Primitive / sequence / action head & Sim & OpenVLA-style targets \\
+SilentDrift \cite{xu2026silentdrift} & PP & Stealthy chunk-level drift & F/T/S & Training-time / trigger & Data + action chunk & Delta-pose chunk / trajectory & Sim & Chunked VLA policies \\
+\midrule
+\multicolumn{9}{@{}l}{\emph{Privacy attacks}} \\
+\midrule
+VLA membership inference \cite{peng2026miavla} & PP & Membership inference from action likelihoods/errors & P & Query / output access & Model outputs & Action likelihood / error trace & D, Sim & VLA policies / trajectory data \\
+VLALeaks \cite{luan2026vlaleaks} & PP & Membership inference from temporal action traces & P & Query / output access & Model outputs & Attention / temporal motion signature & D, Sim & VLA models / robot traces \\
+\midrule
+\multicolumn{9}{@{}l}{\emph{Embodied-adjacent attacks}} \\
+\midrule
+BadRobot / RoboPAIR \cite{zhang2025badrobot,robey2025robopair} & PR/PP & Embodied jailbreak / harmful plan induction & F/S/A & Digital or interactive & Language & Plan / skill sequence & D, Sim, Robot & LLM-controlled robots \\
+CHAI / RoboJailBench \cite{burbano2025chai,yeke2026robojailbench} & PP & Command hijacking / embodied jailbreak benchmark & F/S/A & Digital + physical context & Language / environment & Plan, tool, or skill call & D, Sim & Embodied agents / robot planners \\
+ANNIE / Phantom / Eva-VLA \cite{huang2025annie,lu2025phantom,liu2025evavla} & PP & Environmental commands, sensor attacks, physical variations & F/S & Physical or sensor access & Environment / sensors & Observation, trajectory, robustness state & D, Sim, Robot & Embodied VLM/VLA-adjacent systems \\
 \bottomrule
 \end{tabularx}
 \end{table*}

@@ -2,9 +2,13 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
-\citation{driess2023palme,brohan2022rt1,brohan2023rt2,jiang2023vima,openx2023,kim24openvla,ghosh2024octo,black2024pi0}
-\citation{ahn2022saycan,liang2023code,singh2023progprompt,huang2023voxposer,shridhar2022cliport,chi2023diffusion,zhao2023act}
-\citation{li2026vlasafety}
+\citation{driess2023palme,brohan2022rt1,brohan2023rt2,jiang2023vima,openx2023}
+\citation{kim24openvla,ghosh2024octo,black2024pi0,bousmalis2023robocat,wu2023gr1}
+\citation{li2023roboflamingo,cheang2024gr2,wang2025unified,nvidia2025gr00tn1,wang2025vlaadapter}
+\citation{ahn2022saycan,liang2023code,singh2023progprompt,huang2023voxposer,shridhar2022cliport}
+\citation{chi2023diffusion,zhao2023act,pertsch2025fast,liu2024rdt,reuss2024mdt}
+\citation{qi2024visual,zou2023universal,huang2017adversarial,pinto2017robust,gleave2020adversarial}
+\citation{li2026vlasafety,sermanet2025asimov,zhang2025safevla}
 \citation{jones2025robogcg,wang2025vlaadversarial,yan2025vlafool,wu2026saber}
 \citation{wang2025freezevla,zhou2025badvla,zhou2025goba,xu2025dropvla,li2025attackvla,xu2026silentdrift}
 \citation{xu2025edpa,lu2026patch}
@@ -16,132 +20,197 @@
 \newlabel{sec:introduction}{{I}{1}{Introduction}{section.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {I-A}}Related Surveys and Positioning}{1}{subsection.1.1}\protected@file@percent }
 \newlabel{subsec:positioning}{{\mbox  {I-A}}{1}{Related Surveys and Positioning}{subsection.1.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces How this survey differs from adjacent survey traditions. The comparison concerns scope and evidence use, not the value of each literature.}}{2}{table.1}\protected@file@percent }
-\newlabel{tab:coverage-matrix}{{I}{2}{How this survey differs from adjacent survey traditions. The comparison concerns scope and evidence use, not the value of each literature}{table.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {I-B}}Guiding Questions}{2}{subsection.1.2}\protected@file@percent }
-\newlabel{subsec:rqs}{{\mbox  {I-B}}{2}{Guiding Questions}{subsection.1.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {I-B}}Guiding Questions}{1}{subsection.1.2}\protected@file@percent }
+\newlabel{subsec:rqs}{{\mbox  {I-B}}{1}{Guiding Questions}{subsection.1.2}{}}
+\citation{sapkota2025vlasurvey,liu2025embodiedsurvey}
+\citation{li2026vlasafety}
+\citation{neupane2024security,yaacoub2022robotics}
+\citation{greshake2023not,ruan2024toolemu,debenedetti2024agentdojo}
+\citation{goodfellow2015explaining,brown2017adversarial,athalye2018synthesizing,eykholt2018robust}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Overview of related survey traditions and how this survey is positioned. The comparison concerns scope and evidence use, not the value of each literature.}}{2}{table.1}\protected@file@percent }
+\newlabel{tab:coverage-matrix}{{I}{2}{Overview of related survey traditions and how this survey is positioned. The comparison concerns scope and evidence use, not the value of each literature}{table.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {I-C}}Scope and Definition}{2}{subsection.1.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {I-D}}Evidence Use}{2}{subsection.1.4}\protected@file@percent }
 \newlabel{subsec:evidence-use}{{\mbox  {I-D}}{2}{Evidence Use}{subsection.1.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {I-E}}Contributions}{2}{subsection.1.5}\protected@file@percent }
+\citation{driess2023palme,brohan2023rt2,kim24openvla,ghosh2024octo,black2024pi0}
+\citation{sapkota2025vlasurvey,liu2025embodiedsurvey,xing2025robustsecure}
+\citation{lynch2022interactive,huang2022inner,belkhale2024rth,wu2023tidybot,saxena2014robobrain}
+\citation{brohan2022rt1,brohan2023rt2,kim24openvla,ghosh2024octo,bousmalis2023robocat}
+\citation{wu2023gr1,li2023roboflamingo,cheang2024gr2,wang2025unified,nvidia2025gr00tn1}
+\citation{ahn2022saycan,liang2023code,singh2023progprompt,huang2023voxposer,shridhar2022cliport}
+\citation{huang2022inner,wu2023tidybot,belkhale2024rth,yang2025magma}
+\citation{brohan2022rt1,brohan2023rt2,kim24openvla,qu2025spatialvla,pertsch2025fast}
+\citation{zhao2023act,kim2025openvlaoft,pertsch2025fast,liu2024rdt}
+\citation{zeng2020transporter,shridhar2022peract,gervet2023act3d,goyal2023rvt,shridhar2022cliport}
+\citation{chi2023diffusion,black2024pi0,ze2024dp3,xian2024diffuseractor,liu2024rdt}
+\citation{reuss2024mdt,lu2026h3dp}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces VLA attack survey overview. The figure summarizes the scope of the survey by linking the VLA system loop to attack entry surfaces, target representations, consequences, and evidence/evaluation levels.}}{3}{figure.1}\protected@file@percent }
+\newlabel{fig:survey-overview}{{1}{3}{VLA attack survey overview. The figure summarizes the scope of the survey by linking the VLA system loop to attack entry surfaces, target representations, consequences, and evidence/evaluation levels}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {I-F}}Survey Overview}{3}{subsection.1.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {II}Closed-Loop Propagation of VLA Attacks}{3}{section.2}\protected@file@percent }
 \newlabel{sec:taxonomy}{{II}{3}{Closed-Loop Propagation of VLA Attacks}{section.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}Closed-Loop VLA System}{3}{subsection.2.1}\protected@file@percent }
-\newlabel{eq:closed-loop-vla}{{1}{3}{Closed-Loop VLA System}{equation.1}{}}
-\newlabel{eq:attack-propagation}{{2}{3}{Closed-Loop VLA System}{equation.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}Attack Map}{3}{subsection.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-C}}Typed Attack Success}{3}{subsection.2.3}\protected@file@percent }
-\newlabel{subsec:attack-success}{{\mbox  {II-C}}{3}{Typed Attack Success}{subsection.2.3}{}}
-\newlabel{eq:attack-success}{{3}{3}{Typed Attack Success}{equation.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}VLA Systems as Semantic-to-Physical Loops}{3}{subsection.2.1}\protected@file@percent }
+\citation{shafiullah2022bet,lee2024vqbet,pertsch2025fast}
+\citation{zhao2023act,kim2025openvlaoft,xu2026silentdrift}
+\citation{ames2017control,alshiekh2018shielded,achiam2017constrained,dawson2023safecontrol}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces VLA system loop used as background for the attack analysis. The figure abstracts the deployed robot stack from multimodal context through grounding/planning, action representation, controller execution, and feedback/recovery.}}{4}{figure.2}\protected@file@percent }
+\newlabel{fig:vla-system-loop}{{2}{4}{VLA system loop used as background for the attack analysis. The figure abstracts the deployed robot stack from multimodal context through grounding/planning, action representation, controller execution, and feedback/recovery}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}Action Representations and Attack Surfaces}{4}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-C}}Closed-Loop Attack Model}{4}{subsection.2.3}\protected@file@percent }
+\newlabel{eq:closed-loop-vla}{{1}{4}{Closed-Loop Attack Model}{equation.1}{}}
+\newlabel{eq:attack-propagation}{{2}{4}{Closed-Loop Attack Model}{equation.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Orthogonal attack-map dimensions for VLA attacks. Each paper may touch multiple dimensions; the dimensions are not mutually exclusive categories.}}{5}{table.2}\protected@file@percent }
+\newlabel{tab:taxonomy-overview}{{II}{5}{Orthogonal attack-map dimensions for VLA attacks. Each paper may touch multiple dimensions; the dimensions are not mutually exclusive categories}{table.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-D}}Attack Map}{5}{subsection.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-E}}Typed Attack Success}{5}{subsection.2.5}\protected@file@percent }
+\newlabel{subsec:attack-success}{{\mbox  {II-E}}{5}{Typed Attack Success}{subsection.2.5}{}}
+\newlabel{eq:attack-success}{{3}{5}{Typed Attack Success}{equation.3}{}}
 \citation{wang2025vlaadversarial,xu2025edpa,lu2026patch}
 \citation{wang2025freezevla,xu2025dropvla,xu2026silentdrift}
 \citation{puthumanaillam2026trajectory}
 \citation{peng2026miavla,luan2026vlaleaks}
-\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Orthogonal attack-map dimensions for VLA attacks. Each paper may touch multiple dimensions; the dimensions are not mutually exclusive categories.}}{4}{table.2}\protected@file@percent }
-\newlabel{tab:taxonomy-overview}{{II}{4}{Orthogonal attack-map dimensions for VLA attacks. Each paper may touch multiple dimensions; the dimensions are not mutually exclusive categories}{table.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Core closed-loop view used throughout the survey. The figure separates adversarial entry surfaces from representation impact, marks the controller boundary between model command and physical actuation, and shows how feedback either supports recovery or carries the system toward a robot/system violation.}}{4}{figure.1}\protected@file@percent }
-\newlabel{fig:vla-pipeline}{{1}{4}{Core closed-loop view used throughout the survey. The figure separates adversarial entry surfaces from representation impact, marks the controller boundary between model command and physical actuation, and shows how feedback either supports recovery or carries the system toward a robot/system violation}{figure.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-D}}Attacker Assumptions}{4}{subsection.2.4}\protected@file@percent }
-\citation{jones2025robogcg,yan2025vlafool,wu2026saber,srikanth2026qdig,puthumanaillam2026trajectory}
-\citation{wang2025vlaadversarial,xu2025edpa,zhang2025advla,lu2026patch,fu2026vlahijack,chen2026tex3d,wang2026partialpatch}
-\citation{wang2025freezevla,zhou2025badvla,zhou2025goba,xu2025dropvla,li2025attackvla,xu2026silentdrift}
-\citation{huang2026trap,altered2026thoughts,teymoorianfard2026reasonbreak,peng2026miavla,luan2026vlaleaks}
-\citation{zhang2025badrobot,robey2025robopair,burbano2025chai,yeke2026robojailbench,huang2025annie,lu2025phantom,liu2025evavla}
-\citation{kim24openvla,black2024pi0,liu2023libero,goodfellow2015explaining,brown2017adversarial,cao2019lidar,zou2025poisonedrag,debenedetti2024agentdojo,kiourti2020trojdrl,deng2022insecurityros2}
+\citation{jones2025robogcg}
+\citation{wu2026saber}
+\citation{srikanth2026qdig}
+\citation{huang2026trap}
+\citation{puthumanaillam2026trajectory}
+\citation{wang2025vlaadversarial}
+\citation{yan2025vlafool}
+\citation{xu2025edpa,zhang2025advla}
+\citation{lu2026patch,fu2026vlahijack}
+\citation{chen2026tex3d}
+\citation{wang2026partialpatch}
+\citation{wang2025freezevla}
+\citation{zhou2025badvla}
+\citation{zhou2025goba}
+\citation{xu2025dropvla,li2025attackvla}
+\citation{xu2026silentdrift}
+\citation{peng2026miavla}
+\citation{luan2026vlaleaks}
+\citation{zhang2025badrobot,robey2025robopair}
+\citation{burbano2025chai,yeke2026robojailbench}
+\citation{huang2025annie,lu2025phantom,liu2025evavla}
 \citation{zhou2025badvla,zhou2025goba}
 \citation{xu2025dropvla,li2025attackvla,wang2025freezevla,xu2026silentdrift}
-\citation{biggio2012poisoning,gu2017badnets,carlini2024poisoningweb}
-\citation{kiourti2020trojdrl,cui2024badrl}
+\citation{biggio2012poisoning,gu2017badnets,liu2018trojaning,carlini2024poisoningweb}
+\citation{kiourti2020trojdrl,wang2021backdoorl,cui2024badrl,rathbun2025inception}
+\citation{lin2017tactics,sharif2016accessorize,xie2017segdet,sato2021dirtyroad}
 \citation{wang2025vlaadversarial}
 \citation{yan2025vlafool,xu2025edpa,zhang2025advla}
 \citation{lu2026patch,fu2026vlahijack}
 \citation{chen2026tex3d,wang2026partialpatch}
-\citation{szegedy2014intriguing,goodfellow2015explaining,brown2017adversarial,athalye2018synthesizing,eykholt2018robust}
-\citation{xiao2019meshadv,cao2019lidar,carlini2016hiddenvoice}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-E}}Reading the Map Through Examples}{5}{subsection.2.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {III}Evolution of VLA Attack Mechanisms}{5}{section.3}\protected@file@percent }
-\newlabel{sec:evidence-synthesis}{{III}{5}{Evolution of VLA Attack Mechanisms}{section.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}Training-Time, Supply-Chain, and Backdoor Attacks}{5}{subsection.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Perception, Multimodal, and Physical Attacks}{5}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-F}}Attacker Assumptions}{6}{subsection.2.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-G}}Reading the Map Through Examples}{6}{subsection.2.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {III}Evolution of VLA Attack Mechanisms}{6}{section.3}\protected@file@percent }
+\newlabel{sec:evidence-synthesis}{{III}{6}{Evolution of VLA Attack Mechanisms}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}Training-Time, Supply-Chain, and Backdoor Attacks}{6}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Perception, Multimodal, and Physical Attacks}{6}{subsection.3.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Representative VLA attack methods and evaluation settings. Objectives use F = task failure/availability, T = targeted behavior, S = safety violation, P = privacy leakage, and A = authorization misuse. Validation uses D = digital input, Sim = simulation rollout, HIL = hardware-in-the-loop, and Robot = real robot/world actuation. PR = peer-reviewed; PP = preprint or non-archival version.}}{7}{table.3}\protected@file@percent }
+\newlabel{tab:attack-literature-summary}{{III}{7}{Representative VLA attack methods and evaluation settings. Objectives use F = task failure/availability, T = targeted behavior, S = safety violation, P = privacy leakage, and A = authorization misuse. Validation uses D = digital input, Sim = simulation rollout, HIL = hardware-in-the-loop, and Robot = real robot/world actuation. PR = peer-reviewed; PP = preprint or non-archival version}{table.3}{}}
+\citation{szegedy2014intriguing,goodfellow2015explaining,papernot2016limitations,carlini2017towards,brown2017adversarial}
+\citation{kurakin2017physical,moosavi2017universal,madry2018towards,athalye2018synthesizing,eykholt2018robust}
+\citation{eykholt2018detectors,chen2018shapeshifter,thys2019fooling,xu2020tshirt,xiao2019meshadv}
+\citation{tu2020lidar,sun2020robustlidar,cao2021invisible,cao2019lidar,carlini2016hiddenvoice}
+\citation{zhang2017dolphinattack,yuan2018commandersong,sugawara2020lightcommands}
 \citation{jones2025robogcg}
 \citation{yan2025vlafool}
 \citation{wu2026saber}
 \citation{srikanth2026qdig}
 \citation{puthumanaillam2026trajectory}
+\citation{perez2022ignore,wei2023jailbroken,chao2023pair,liu2024autodan,mazeika2024harmbench}
+\citation{shen2024dan,mehrotra2024tap,zhu2023promptbench,li2023deepinception,paulus2025advprompter}
 \citation{huang2026trap}
 \citation{altered2026thoughts}
+\citation{zhao2025cotvla}
 \citation{teymoorianfard2026reasonbreak}
 \citation{zhang2025badrobot,robey2025robopair,yeke2026robojailbench}
 \citation{burbano2025chai,yin2024safeagentbench,zhu2024earbench}
-\citation{brohan2022rt1,brohan2023rt2,kim24openvla,qu2025spatialvla}
-\citation{zhao2023act,kim2025openvlaoft}
+\citation{gong2025figstep,niu2024jailbreaking,liu2024mmsafetybench,li2024hades}
+\citation{brohan2022rt1,brohan2023rt2,kim24openvla,qu2025spatialvla,wang2025unified}
+\citation{pertsch2025fast,shafiullah2022bet,lee2024vqbet}
+\citation{zhao2023act,kim2025openvlaoft,liu2024rdt,pertsch2025fast}
 \citation{xu2026silentdrift}
-\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Representative mechanism synthesis by literature role. Core rows summarize attack mechanisms; contextual rows explain substrates or evaluation context but are not treated as direct VLA attack results. D: digital; S: simulation; HIL: hardware-in-the-loop; P: physical robot/world; PR: peer-reviewed; PP: preprint or non-archival version.}}{6}{table.3}\protected@file@percent }
-\newlabel{tab:attack-literature-summary}{{III}{6}{Representative mechanism synthesis by literature role. Core rows summarize attack mechanisms; contextual rows explain substrates or evaluation context but are not treated as direct VLA attack results. D: digital; S: simulation; HIL: hardware-in-the-loop; P: physical robot/world; PR: peer-reviewed; PP: preprint or non-archival version}{table.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Instruction, Planning, and Reasoning Attacks}{6}{subsection.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-D}}Action-Level and Closed-Loop Attacks}{6}{subsection.3.4}\protected@file@percent }
 \citation{wang2025vlaadversarial,puthumanaillam2026trajectory}
-\citation{shridhar2022cliport,liang2023code,singh2023progprompt,huang2023voxposer}
-\citation{chi2023diffusion,black2024pi0}
-\citation{ghosh2024octo,openx2023,reed2022gato}
-\citation{khazatsky2024droid,walke2023bridgedata,dasari2019robonet}
+\citation{shridhar2022cliport,zeng2020transporter,shridhar2022peract,gervet2023act3d}
+\citation{liang2023code,singh2023progprompt,huang2023voxposer,goyal2023rvt}
+\citation{chi2023diffusion,black2024pi0,ze2024dp3,xian2024diffuseractor,liu2024rdt}
+\citation{reuss2024mdt,lu2026h3dp}
+\citation{ghosh2024octo,openx2023,reed2022gato,bousmalis2023robocat,nvidia2025gr00tn1}
+\citation{khazatsky2024droid,walke2023bridgedata,dasari2019robonet,mandlekar2021robomimic,mandlekar2023mimicgen}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Instruction, Planning, and Reasoning Attacks}{8}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-D}}Action-Level and Closed-Loop Attacks}{8}{subsection.3.4}\protected@file@percent }
 \citation{greshake2023not,zhan2024injecagent,debenedetti2024agentdojo}
 \citation{yi2023bipia,ruan2024toolemu}
-\citation{schick2023toolformer,yao2023react,qin2023toolllm,yao2022webshop,zhou2023webarena}
-\citation{quigley2009ros,deng2022insecurityros2,neupane2024security}
+\citation{schick2023toolformer,yao2023react,patil2023gorilla,qin2023toolllm,yao2022webshop,zhou2023webarena}
+\citation{quigley2009ros,dieber2020penetration,deng2022insecurityros2,neupane2024security,yaacoub2022robotics}
 \citation{quarta2017industrial,bonaci2015surgical,mayoral2020robot}
-\citation{booth2017piggybacking,bainbridge2011benefits,saunderson2021persuasive}
+\citation{booth2017piggybacking,postnikoff2018robot,bainbridge2011benefits,saunderson2021persuasive}
 \citation{zhong2023poisoning,deng2024pandora,zou2025poisonedrag,cho2024garag}
 \citation{peng2026miavla,luan2026vlaleaks}
 \citation{jones2025robogcg}
 \citation{wu2026saber}
 \citation{srikanth2026qdig}
 \citation{puthumanaillam2026trajectory}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-E}}System, Memory, Tool, HRI, and Persistent Attacks}{7}{subsection.3.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {IV}What Current Evidence Shows}{7}{section.4}\protected@file@percent }
-\newlabel{sec:cross-study}{{IV}{7}{What Current Evidence Shows}{section.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Mechanism-Level Patterns}{7}{subsection.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Representative Work by Mechanism}{7}{subsection.4.2}\protected@file@percent }
 \citation{wang2025vlaadversarial}
 \citation{xu2025edpa,zhang2025advla}
 \citation{lu2026patch,fu2026vlahijack}
 \citation{chen2026tex3d,wang2026partialpatch}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-E}}System, Memory, Tool, HRI, and Persistent Attacks}{9}{subsection.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {IV}What Current Evidence Shows}{9}{section.4}\protected@file@percent }
+\newlabel{sec:cross-study}{{IV}{9}{What Current Evidence Shows}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Mechanism-Level Patterns}{9}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Representative Work by Mechanism}{9}{subsection.4.2}\protected@file@percent }
 \citation{zhou2025badvla,zhou2025goba,xu2025dropvla,li2025attackvla,wang2025freezevla,xu2026silentdrift}
 \citation{huang2026trap,altered2026thoughts}
 \citation{teymoorianfard2026reasonbreak}
 \citation{peng2026miavla,luan2026vlaleaks}
-\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Representative direct VLA attack mechanisms and what each mechanism currently supports. The table is qualitative: it summarizes mechanism-level evidence rather than pooling heterogeneous ASR values.}}{8}{table.4}\protected@file@percent }
-\newlabel{tab:core-heatmaps}{{IV}{8}{Representative direct VLA attack mechanisms and what each mechanism currently supports. The table is qualitative: it summarizes mechanism-level evidence rather than pooling heterogeneous ASR values}{table.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Comparison Limits}{8}{subsection.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-D}}Strengths and Limits}{8}{subsection.4.4}\protected@file@percent }
 \citation{peng2026miavla,luan2026vlaleaks}
 \citation{kim24openvla,kim2025openvlaoft,liu2023libero}
-\citation{black2024pi0}
+\citation{black2024pi0,pertsch2025fast}
 \citation{qu2025spatialvla}
+\citation{wang2025unified,cheang2024gr2,nvidia2025gr00tn1,yang2025magma,wang2025vlaadapter}
 \citation{fu2026vlahijack,huang2026trap,teymoorianfard2026reasonbreak,xu2026silentdrift}
 \citation{james2020rlbench,mees2022calvin,mu2021maniskill,nasiriany2024robocasa,khazatsky2024droid}
-\citation{jiang2026benchmarkaudit,openx2023,walke2023bridgedata,dasari2019robonet}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-E}}Target Model and Benchmark Concentration}{9}{subsection.4.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-F}}Evaluation Weaknesses}{9}{subsection.4.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-G}}Open and Early Topics}{9}{subsection.4.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {V}Judging VLA Attack Claims}{9}{section.5}\protected@file@percent }
-\newlabel{sec:evaluation-principles}{{V}{9}{Judging VLA Attack Claims}{section.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-A}}Typed Success Rather Than One ASR}{9}{subsection.5.1}\protected@file@percent }
-\newlabel{eq:typed-metrics}{{4}{9}{Typed Success Rather Than One ASR}{equation.4}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces Minimum details needed to interpret VLA attack claims. The table keeps the focus on what was attacked, how the attacker operated, how success was measured, and what supports physical or embodied relevance.}}{10}{table.5}\protected@file@percent }
-\newlabel{tab:attack-reporting}{{V}{10}{Minimum details needed to interpret VLA attack claims. The table keeps the focus on what was attacked, how the attacker operated, how success was measured, and what supports physical or embodied relevance}{table.5}{}}
-\newlabel{eq:controller-metrics}{{5}{10}{Typed Success Rather Than One ASR}{equation.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-B}}Action Representation Changes the Claim}{10}{subsection.5.2}\protected@file@percent }
+\citation{lynch2022interactive,walke2023bridgedata,mandlekar2021robomimic,mandlekar2023mimicgen}
+\citation{jiang2026benchmarkaudit,openx2023,dasari2019robonet,robocasa365}
+\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Attack family by target-representation evidence map. Symbols are qualitative evidence strength for direct VLA attack literature: 0 = no direct evidence in the reviewed set; + = early or narrow evidence; ++ = repeated evidence in simulation or digital rollouts; +++ = stronger evidence with multiple targets, transfer, or physical/robot validation. The table summarizes mechanism coverage rather than pooled ASR.}}{10}{table.4}\protected@file@percent }
+\newlabel{tab:core-heatmaps}{{IV}{10}{Attack family by target-representation evidence map. Symbols are qualitative evidence strength for direct VLA attack literature: 0 = no direct evidence in the reviewed set; + = early or narrow evidence; ++ = repeated evidence in simulation or digital rollouts; +++ = stronger evidence with multiple targets, transfer, or physical/robot validation. The table summarizes mechanism coverage rather than pooled ASR}{table.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Comparison Limits}{10}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-D}}Strengths and Limits}{10}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-E}}Target Model and Benchmark Concentration}{10}{subsection.4.5}\protected@file@percent }
+\citation{brohan2022rt1,brohan2023rt2,kim24openvla,qu2025spatialvla,pertsch2025fast}
+\citation{zhao2023act,kim2025openvlaoft,liu2024rdt}
+\citation{zeng2020transporter,shridhar2022peract,gervet2023act3d,goyal2023rvt}
+\citation{chi2023diffusion,black2024pi0,ze2024dp3,xian2024diffuseractor,reuss2024mdt}
+\citation{shafiullah2022bet,lee2024vqbet,pertsch2025fast}
+\citation{zhao2023act,kim2025openvlaoft,xu2026silentdrift}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-F}}Evaluation Weaknesses}{11}{subsection.4.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-G}}Open and Early Topics}{11}{subsection.4.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {V}Judging VLA Attack Claims}{11}{section.5}\protected@file@percent }
+\newlabel{sec:evaluation-principles}{{V}{11}{Judging VLA Attack Claims}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-A}}Typed Success Rather Than One ASR}{11}{subsection.5.1}\protected@file@percent }
+\newlabel{eq:typed-metrics}{{4}{11}{Typed Success Rather Than One ASR}{equation.4}{}}
+\newlabel{eq:controller-metrics}{{5}{11}{Typed Success Rather Than One ASR}{equation.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-B}}Action Representation Changes the Claim}{11}{subsection.5.2}\protected@file@percent }
+\citation{ames2017control,alshiekh2018shielded,achiam2017constrained,dawson2023safecontrol}
 \citation{jones2025robogcg,wu2026saber,srikanth2026qdig,puthumanaillam2026trajectory}
 \citation{wang2025vlaadversarial,xu2025edpa,zhang2025advla,lu2026patch,fu2026vlahijack,chen2026tex3d,wang2026partialpatch}
 \citation{zhou2025badvla,zhou2025goba,xu2025dropvla,li2025attackvla,wang2025freezevla,xu2026silentdrift}
 \citation{huang2026trap,altered2026thoughts,teymoorianfard2026reasonbreak}
 \citation{peng2026miavla,luan2026vlaleaks}
 \citation{radford2021clip,alayrac2022flamingo,li2023blip2,liu2023llava,zhu2023minigpt4,dai2023instructblip}
-\citation{papernot2017practical,tramer2018ensemble,chen2017zoo,brendel2018decision,ilyas2018blackbox,li2019nattack,andriushchenko2020square,croce2020autoattack,dong2018momentum}
+\citation{florence2021implicit,shafiullah2022bet,lee2024vqbet,zeng2020transporter,chi2023diffusion}
+\citation{ghosh2024octo,bousmalis2023robocat,black2024pi0,liu2024rdt}
+\citation{papernot2017practical,tramer2018ensemble,chen2017zoo,brendel2018decision,ilyas2018blackbox}
+\citation{li2019nattack,andriushchenko2020square,croce2020autoattack,dong2018momentum}
+\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces Checklist for reporting VLA attack claims. D = digital input; Sim = simulation rollout; HIL = hardware-in-the-loop; Robot = real robot actuation; F = task failure; T = targeted behavior; S = safety violation; P = privacy leakage; A = authorization misuse.}}{12}{table.5}\protected@file@percent }
+\newlabel{tab:attack-reporting}{{V}{12}{Checklist for reporting VLA attack claims. D = digital input; Sim = simulation rollout; HIL = hardware-in-the-loop; Robot = real robot actuation; F = task failure; T = targeted behavior; S = safety violation; P = privacy leakage; A = authorization misuse}{table.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-C}}Claim Checks by Attack Family}{12}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-D}}Representation Context}{12}{subsection.5.4}\protected@file@percent }
 \citation{kolve2017ai2thor,shridhar2020alfred,savva2019habitat}
 \citation{james2020rlbench,mees2022calvin,liu2023libero,mu2021maniskill}
-\citation{nasiriany2024robocasa,khazatsky2024droid}
+\citation{nasiriany2024robocasa,khazatsky2024droid,walke2023bridgedata,mandlekar2021robomimic}
 \citation{ruan2024toolemu,debenedetti2024agentdojo,zhan2024injecagent}
 \citation{yin2024safeagentbench,zhu2024earbench}
 \citation{zhang2025badrobot,robey2025robopair,yeke2026robojailbench}
@@ -150,23 +219,28 @@
 \citation{wang2025freezevla,xu2025dropvla,li2025attackvla,xu2026silentdrift}
 \citation{burbano2025chai,huang2025annie,liu2025evavla,lu2025phantom}
 \citation{jiang2026benchmarkaudit}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-C}}Claim Checks by Attack Family}{11}{subsection.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-D}}Representation Context}{11}{subsection.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-E}}Physical Validation}{11}{subsection.5.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-F}}Benchmark Claims}{11}{subsection.5.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-G}}Adaptive and Responsible Evaluation}{11}{subsection.5.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {VI}Research Roadmap and Limits}{11}{section.6}\protected@file@percent }
-\newlabel{sec:open-problems}{{VI}{11}{Research Roadmap and Limits}{section.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-A}}Physically Grounded Attacks}{11}{subsection.6.1}\protected@file@percent }
+\citation{liu2023libero,mees2022calvin,james2020rlbench,mu2021maniskill,nasiriany2024robocasa}
+\citation{khazatsky2024droid,robocasa365,mandlekar2021robomimic,fu2020d4rl,yu2020metaworld,zhu2020robosuite}
+\@writefile{lot}{\contentsline {table}{\numberline {VI}{\ignorespaces Benchmark claim-boundary table for VLA attack evaluation. D = digital input; Sim = simulation rollout; HIL = hardware-in-the-loop; Robot = real robot actuation. A resource supports only the evidence level it measures; adversarial overlays are needed before capability or safety benchmarks become attack benchmarks.}}{13}{table.6}\protected@file@percent }
+\newlabel{tab:benchmark-evaluation}{{VI}{13}{Benchmark claim-boundary table for VLA attack evaluation. D = digital input; Sim = simulation rollout; HIL = hardware-in-the-loop; Robot = real robot actuation. A resource supports only the evidence level it measures; adversarial overlays are needed before capability or safety benchmarks become attack benchmarks}{table.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-E}}Physical Validation}{13}{subsection.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-F}}Benchmark Claims}{13}{subsection.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-G}}Adaptive and Responsible Evaluation}{13}{subsection.5.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Research Roadmap and Limits}{13}{section.6}\protected@file@percent }
+\newlabel{sec:open-problems}{{VI}{13}{Research Roadmap and Limits}{section.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-A}}Physically Grounded Attacks}{13}{subsection.6.1}\protected@file@percent }
+\citation{jang2021bcz,kalashnikov2021mtopt,lynch2022interactive,openx2023,khazatsky2024droid}
+\citation{mandlekar2021robomimic,mandlekar2023mimicgen,ghosh2024octo,bousmalis2023robocat,nvidia2025gr00tn1}
 \citation{zou2025poisonedrag,debenedetti2024agentdojo,deng2022insecurityros2,booth2017piggybacking}
 \citation{peng2026miavla,luan2026vlaleaks}
-\@writefile{lot}{\contentsline {table}{\numberline {VI}{\ignorespaces Validity of common testbeds for VLA attack claims. A benchmark supports only the evidence level it actually measures.}}{12}{table.6}\protected@file@percent }
-\newlabel{tab:benchmark-evaluation}{{VI}{12}{Validity of common testbeds for VLA attack claims. A benchmark supports only the evidence level it actually measures}{table.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-B}}HIL and Real-Robot Recovery}{12}{subsection.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-C}}Cross-Embodiment and Action-Representation Transfer}{12}{subsection.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-D}}Memory, Tool, Middleware, and HRI Attacks}{12}{subsection.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-E}}Privacy as a First-Class VLA Attack Objective}{12}{subsection.6.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-F}}Adaptive Attacks and Responsible Artifacts}{12}{subsection.6.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-B}}HIL and Real-Robot Recovery}{14}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-C}}Cross-Embodiment and Action-Representation Transfer}{14}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-D}}Memory, Tool, Middleware, and HRI Attacks}{14}{subsection.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-E}}Privacy as a First-Class VLA Attack Objective}{14}{subsection.6.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-F}}Adaptive Attacks and Responsible Artifacts}{14}{subsection.6.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-G}}Limitations of This Review}{14}{subsection.6.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Conclusion}{14}{section.7}\protected@file@percent }
+\newlabel{sec:conclusion}{{VII}{14}{Conclusion}{section.7}{}}
 \bibstyle{ieeetr}
 \bibdata{main}
 \bibcite{driess2023palme}{1}
@@ -177,136 +251,200 @@
 \bibcite{kim24openvla}{6}
 \bibcite{ghosh2024octo}{7}
 \bibcite{black2024pi0}{8}
-\bibcite{ahn2022saycan}{9}
-\bibcite{liang2023code}{10}
-\bibcite{singh2023progprompt}{11}
-\bibcite{huang2023voxposer}{12}
-\bibcite{shridhar2022cliport}{13}
-\bibcite{chi2023diffusion}{14}
-\bibcite{zhao2023act}{15}
-\bibcite{li2026vlasafety}{16}
-\bibcite{jones2025robogcg}{17}
-\bibcite{wang2025vlaadversarial}{18}
-\bibcite{yan2025vlafool}{19}
-\bibcite{wu2026saber}{20}
-\bibcite{wang2025freezevla}{21}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-G}}Limitations of This Review}{13}{subsection.6.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {VII}Conclusion}{13}{section.7}\protected@file@percent }
-\newlabel{sec:conclusion}{{VII}{13}{Conclusion}{section.7}{}}
-\@writefile{toc}{\contentsline {section}{References}{13}{section*.1}\protected@file@percent }
-\bibcite{zhou2025badvla}{22}
-\bibcite{zhou2025goba}{23}
-\bibcite{xu2025dropvla}{24}
-\bibcite{li2025attackvla}{25}
-\bibcite{xu2026silentdrift}{26}
-\bibcite{xu2025edpa}{27}
-\bibcite{lu2026patch}{28}
-\bibcite{chen2026tex3d}{29}
-\bibcite{huang2026trap}{30}
-\bibcite{puthumanaillam2026trajectory}{31}
-\bibcite{peng2026miavla}{32}
-\bibcite{luan2026vlaleaks}{33}
-\bibcite{srikanth2026qdig}{34}
-\bibcite{zhang2025advla}{35}
-\bibcite{fu2026vlahijack}{36}
-\bibcite{wang2026partialpatch}{37}
-\bibcite{altered2026thoughts}{38}
-\bibcite{teymoorianfard2026reasonbreak}{39}
-\bibcite{zhang2025badrobot}{40}
-\bibcite{robey2025robopair}{41}
-\bibcite{burbano2025chai}{42}
-\bibcite{yeke2026robojailbench}{43}
-\bibcite{huang2025annie}{44}
-\bibcite{lu2025phantom}{45}
-\bibcite{liu2025evavla}{46}
-\bibcite{liu2023libero}{47}
-\bibcite{goodfellow2015explaining}{48}
-\bibcite{brown2017adversarial}{49}
-\bibcite{cao2019lidar}{50}
-\bibcite{zou2025poisonedrag}{51}
-\bibcite{debenedetti2024agentdojo}{52}
-\bibcite{kiourti2020trojdrl}{53}
-\bibcite{deng2022insecurityros2}{54}
-\bibcite{biggio2012poisoning}{55}
-\bibcite{gu2017badnets}{56}
-\bibcite{liu2018trojaning}{57}
-\bibcite{carlini2024poisoningweb}{58}
-\bibcite{wang2021backdoorl}{59}
-\bibcite{cui2024badrl}{60}
-\bibcite{rathbun2025inception}{61}
-\bibcite{szegedy2014intriguing}{62}
-\bibcite{papernot2016limitations}{63}
-\bibcite{carlini2017towards}{64}
-\bibcite{kurakin2017physical}{65}
-\bibcite{moosavi2017universal}{66}
-\bibcite{madry2018towards}{67}
-\bibcite{athalye2018synthesizing}{68}
-\bibcite{eykholt2018robust}{69}
-\bibcite{eykholt2018detectors}{70}
-\bibcite{chen2018shapeshifter}{71}
-\bibcite{thys2019fooling}{72}
-\bibcite{xu2020tshirt}{73}
-\bibcite{xiao2019meshadv}{74}
-\bibcite{tu2020lidar}{75}
-\bibcite{sun2020robustlidar}{76}
-\bibcite{cao2021invisible}{77}
-\bibcite{carlini2016hiddenvoice}{78}
-\bibcite{zhang2017dolphinattack}{79}
-\bibcite{yuan2018commandersong}{80}
-\bibcite{sugawara2020lightcommands}{81}
-\bibcite{yin2024safeagentbench}{82}
-\bibcite{zhu2024earbench}{83}
-\bibcite{qu2025spatialvla}{84}
-\bibcite{kim2025openvlaoft}{85}
-\bibcite{khazatsky2024droid}{86}
-\bibcite{walke2023bridgedata}{87}
-\bibcite{dasari2019robonet}{88}
-\bibcite{reed2022gato}{89}
-\bibcite{greshake2023not}{90}
-\bibcite{yi2023bipia}{91}
-\bibcite{zhan2024injecagent}{92}
-\bibcite{ruan2024toolemu}{93}
-\bibcite{schick2023toolformer}{94}
-\bibcite{yao2023react}{95}
-\bibcite{patil2023gorilla}{96}
-\bibcite{qin2023toolllm}{97}
-\bibcite{yao2022webshop}{98}
-\bibcite{zhou2023webarena}{99}
-\bibcite{quigley2009ros}{100}
-\bibcite{dieber2020penetration}{101}
-\bibcite{quarta2017industrial}{102}
-\bibcite{bonaci2015surgical}{103}
-\bibcite{mayoral2020robot}{104}
-\bibcite{yaacoub2022robotics}{105}
-\bibcite{neupane2024security}{106}
-\bibcite{booth2017piggybacking}{107}
-\bibcite{postnikoff2018robot}{108}
-\bibcite{bainbridge2011benefits}{109}
-\bibcite{saunderson2021persuasive}{110}
-\bibcite{zhong2023poisoning}{111}
-\bibcite{deng2024pandora}{112}
-\bibcite{cho2024garag}{113}
-\bibcite{james2020rlbench}{114}
-\bibcite{mees2022calvin}{115}
-\bibcite{mu2021maniskill}{116}
-\bibcite{nasiriany2024robocasa}{117}
-\bibcite{jiang2026benchmarkaudit}{118}
-\bibcite{radford2021clip}{119}
-\bibcite{alayrac2022flamingo}{120}
-\bibcite{li2023blip2}{121}
-\bibcite{liu2023llava}{122}
-\bibcite{zhu2023minigpt4}{123}
-\bibcite{dai2023instructblip}{124}
-\bibcite{papernot2017practical}{125}
-\bibcite{tramer2018ensemble}{126}
-\bibcite{chen2017zoo}{127}
-\bibcite{brendel2018decision}{128}
-\bibcite{ilyas2018blackbox}{129}
-\bibcite{li2019nattack}{130}
-\bibcite{andriushchenko2020square}{131}
-\bibcite{croce2020autoattack}{132}
-\bibcite{dong2018momentum}{133}
-\bibcite{kolve2017ai2thor}{134}
-\bibcite{shridhar2020alfred}{135}
-\bibcite{savva2019habitat}{136}
-\gdef \@abspage@last{16}
+\bibcite{bousmalis2023robocat}{9}
+\bibcite{wu2023gr1}{10}
+\bibcite{li2023roboflamingo}{11}
+\bibcite{cheang2024gr2}{12}
+\bibcite{wang2025unified}{13}
+\bibcite{nvidia2025gr00tn1}{14}
+\bibcite{wang2025vlaadapter}{15}
+\bibcite{ahn2022saycan}{16}
+\bibcite{liang2023code}{17}
+\bibcite{singh2023progprompt}{18}
+\bibcite{huang2023voxposer}{19}
+\bibcite{shridhar2022cliport}{20}
+\bibcite{chi2023diffusion}{21}
+\bibcite{zhao2023act}{22}
+\bibcite{pertsch2025fast}{23}
+\bibcite{liu2024rdt}{24}
+\bibcite{reuss2024mdt}{25}
+\bibcite{qi2024visual}{26}
+\bibcite{zou2023universal}{27}
+\bibcite{huang2017adversarial}{28}
+\bibcite{pinto2017robust}{29}
+\bibcite{gleave2020adversarial}{30}
+\bibcite{li2026vlasafety}{31}
+\bibcite{sermanet2025asimov}{32}
+\bibcite{zhang2025safevla}{33}
+\bibcite{jones2025robogcg}{34}
+\bibcite{wang2025vlaadversarial}{35}
+\bibcite{yan2025vlafool}{36}
+\bibcite{wu2026saber}{37}
+\bibcite{wang2025freezevla}{38}
+\bibcite{zhou2025badvla}{39}
+\bibcite{zhou2025goba}{40}
+\@writefile{toc}{\contentsline {section}{References}{15}{section*.1}\protected@file@percent }
+\bibcite{xu2025dropvla}{41}
+\bibcite{li2025attackvla}{42}
+\bibcite{xu2026silentdrift}{43}
+\bibcite{xu2025edpa}{44}
+\bibcite{lu2026patch}{45}
+\bibcite{chen2026tex3d}{46}
+\bibcite{huang2026trap}{47}
+\bibcite{puthumanaillam2026trajectory}{48}
+\bibcite{peng2026miavla}{49}
+\bibcite{luan2026vlaleaks}{50}
+\bibcite{sapkota2025vlasurvey}{51}
+\bibcite{liu2025embodiedsurvey}{52}
+\bibcite{neupane2024security}{53}
+\bibcite{yaacoub2022robotics}{54}
+\bibcite{greshake2023not}{55}
+\bibcite{ruan2024toolemu}{56}
+\bibcite{debenedetti2024agentdojo}{57}
+\bibcite{goodfellow2015explaining}{58}
+\bibcite{brown2017adversarial}{59}
+\bibcite{athalye2018synthesizing}{60}
+\bibcite{eykholt2018robust}{61}
+\bibcite{xing2025robustsecure}{62}
+\bibcite{lynch2022interactive}{63}
+\bibcite{huang2022inner}{64}
+\bibcite{belkhale2024rth}{65}
+\bibcite{wu2023tidybot}{66}
+\bibcite{saxena2014robobrain}{67}
+\bibcite{yang2025magma}{68}
+\bibcite{qu2025spatialvla}{69}
+\bibcite{kim2025openvlaoft}{70}
+\bibcite{zeng2020transporter}{71}
+\bibcite{shridhar2022peract}{72}
+\bibcite{gervet2023act3d}{73}
+\bibcite{goyal2023rvt}{74}
+\bibcite{ze2024dp3}{75}
+\bibcite{xian2024diffuseractor}{76}
+\bibcite{lu2026h3dp}{77}
+\bibcite{shafiullah2022bet}{78}
+\bibcite{lee2024vqbet}{79}
+\bibcite{ames2017control}{80}
+\bibcite{alshiekh2018shielded}{81}
+\bibcite{achiam2017constrained}{82}
+\bibcite{dawson2023safecontrol}{83}
+\bibcite{srikanth2026qdig}{84}
+\bibcite{zhang2025advla}{85}
+\bibcite{fu2026vlahijack}{86}
+\bibcite{wang2026partialpatch}{87}
+\bibcite{zhang2025badrobot}{88}
+\bibcite{robey2025robopair}{89}
+\bibcite{burbano2025chai}{90}
+\bibcite{yeke2026robojailbench}{91}
+\bibcite{huang2025annie}{92}
+\bibcite{lu2025phantom}{93}
+\bibcite{liu2025evavla}{94}
+\bibcite{biggio2012poisoning}{95}
+\bibcite{gu2017badnets}{96}
+\bibcite{liu2018trojaning}{97}
+\bibcite{carlini2024poisoningweb}{98}
+\bibcite{kiourti2020trojdrl}{99}
+\bibcite{wang2021backdoorl}{100}
+\bibcite{cui2024badrl}{101}
+\bibcite{rathbun2025inception}{102}
+\bibcite{lin2017tactics}{103}
+\bibcite{sharif2016accessorize}{104}
+\bibcite{xie2017segdet}{105}
+\bibcite{sato2021dirtyroad}{106}
+\bibcite{szegedy2014intriguing}{107}
+\bibcite{papernot2016limitations}{108}
+\bibcite{carlini2017towards}{109}
+\bibcite{kurakin2017physical}{110}
+\bibcite{moosavi2017universal}{111}
+\bibcite{madry2018towards}{112}
+\bibcite{eykholt2018detectors}{113}
+\bibcite{chen2018shapeshifter}{114}
+\bibcite{thys2019fooling}{115}
+\bibcite{xu2020tshirt}{116}
+\bibcite{xiao2019meshadv}{117}
+\bibcite{tu2020lidar}{118}
+\bibcite{sun2020robustlidar}{119}
+\bibcite{cao2021invisible}{120}
+\bibcite{cao2019lidar}{121}
+\bibcite{carlini2016hiddenvoice}{122}
+\bibcite{zhang2017dolphinattack}{123}
+\bibcite{yuan2018commandersong}{124}
+\bibcite{sugawara2020lightcommands}{125}
+\bibcite{perez2022ignore}{126}
+\bibcite{wei2023jailbroken}{127}
+\bibcite{chao2023pair}{128}
+\bibcite{liu2024autodan}{129}
+\bibcite{mazeika2024harmbench}{130}
+\bibcite{shen2024dan}{131}
+\bibcite{mehrotra2024tap}{132}
+\bibcite{zhu2023promptbench}{133}
+\bibcite{li2023deepinception}{134}
+\bibcite{paulus2025advprompter}{135}
+\bibcite{altered2026thoughts}{136}
+\bibcite{zhao2025cotvla}{137}
+\bibcite{teymoorianfard2026reasonbreak}{138}
+\bibcite{yin2024safeagentbench}{139}
+\bibcite{zhu2024earbench}{140}
+\bibcite{gong2025figstep}{141}
+\bibcite{niu2024jailbreaking}{142}
+\bibcite{liu2024mmsafetybench}{143}
+\bibcite{li2024hades}{144}
+\bibcite{reed2022gato}{145}
+\bibcite{khazatsky2024droid}{146}
+\bibcite{walke2023bridgedata}{147}
+\bibcite{dasari2019robonet}{148}
+\bibcite{mandlekar2021robomimic}{149}
+\bibcite{mandlekar2023mimicgen}{150}
+\bibcite{zhan2024injecagent}{151}
+\bibcite{yi2023bipia}{152}
+\bibcite{schick2023toolformer}{153}
+\bibcite{yao2023react}{154}
+\bibcite{patil2023gorilla}{155}
+\bibcite{qin2023toolllm}{156}
+\bibcite{yao2022webshop}{157}
+\bibcite{zhou2023webarena}{158}
+\bibcite{quigley2009ros}{159}
+\bibcite{dieber2020penetration}{160}
+\bibcite{deng2022insecurityros2}{161}
+\bibcite{quarta2017industrial}{162}
+\bibcite{bonaci2015surgical}{163}
+\bibcite{mayoral2020robot}{164}
+\bibcite{booth2017piggybacking}{165}
+\bibcite{postnikoff2018robot}{166}
+\bibcite{bainbridge2011benefits}{167}
+\bibcite{saunderson2021persuasive}{168}
+\bibcite{zhong2023poisoning}{169}
+\bibcite{deng2024pandora}{170}
+\bibcite{zou2025poisonedrag}{171}
+\bibcite{cho2024garag}{172}
+\bibcite{liu2023libero}{173}
+\bibcite{james2020rlbench}{174}
+\bibcite{mees2022calvin}{175}
+\bibcite{mu2021maniskill}{176}
+\bibcite{nasiriany2024robocasa}{177}
+\bibcite{jiang2026benchmarkaudit}{178}
+\bibcite{robocasa365}{179}
+\bibcite{radford2021clip}{180}
+\bibcite{alayrac2022flamingo}{181}
+\bibcite{li2023blip2}{182}
+\bibcite{liu2023llava}{183}
+\bibcite{zhu2023minigpt4}{184}
+\bibcite{dai2023instructblip}{185}
+\bibcite{florence2021implicit}{186}
+\bibcite{papernot2017practical}{187}
+\bibcite{tramer2018ensemble}{188}
+\bibcite{chen2017zoo}{189}
+\bibcite{brendel2018decision}{190}
+\bibcite{ilyas2018blackbox}{191}
+\bibcite{li2019nattack}{192}
+\bibcite{andriushchenko2020square}{193}
+\bibcite{croce2020autoattack}{194}
+\bibcite{dong2018momentum}{195}
+\bibcite{kolve2017ai2thor}{196}
+\bibcite{shridhar2020alfred}{197}
+\bibcite{savva2019habitat}{198}
+\bibcite{fu2020d4rl}{199}
+\bibcite{yu2020metaworld}{200}
+\bibcite{zhu2020robosuite}{201}
+\bibcite{jang2021bcz}{202}
+\bibcite{kalashnikov2021mtopt}{203}
+\gdef \@abspage@last{19}

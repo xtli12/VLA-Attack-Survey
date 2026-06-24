@@ -1,25 +1,25 @@
 \begin{table*}[t]
 \centering
-\fontsize{6.8}{7.5}\selectfont
-\caption{Validity of common testbeds for VLA attack claims. A benchmark supports only the evidence level it actually measures.}
+\scriptsize
+\caption{Benchmark claim-boundary table for VLA attack evaluation. D = digital input; Sim = simulation rollout; HIL = hardware-in-the-loop; Robot = real robot actuation. A resource supports only the evidence level it measures; adversarial overlays are needed before capability or safety benchmarks become attack benchmarks.}
 \label{tab:benchmark-evaluation}
-\renewcommand{\arraystretch}{1.05}
-\setlength{\tabcolsep}{1.4pt}
-\begin{tabularx}{\textwidth}{@{}p{0.15\textwidth}p{0.11\textwidth}Y Y Y@{}}
+\renewcommand{\arraystretch}{1.06}
+\setlength{\tabcolsep}{2.2pt}
+\begin{tabularx}{\textwidth}{@{}P{0.15\textwidth}P{0.22\textwidth}Y Y Y@{}}
 \toprule
-\textbf{Benchmark/framework} & \textbf{Type} & \textbf{What it supports} & \textbf{Invalid claim if used alone} & \textbf{Attack overlay needed} \\
+\textbf{Resource type} & \textbf{Examples} & \textbf{Supports} & \textbf{Does not support} & \textbf{Add-on needed} \\
 \midrule
-AI2-THOR / ALFRED / Habitat \cite{kolve2017ai2thor,shridhar2020alfred,savva2019habitat} & Capability & Grounding and household/navigation planning & Physical safety or controller-level attack success & Adversarial goals, source conflicts, recovery labels. \\
-RLBench / CALVIN / LIBERO / ManiSkill \cite{james2020rlbench,mees2022calvin,liu2023libero,mu2021maniskill} & Capability & Manipulation trajectories and language-conditioned tasks & Security claims from task success alone & Targeted ASR, trajectory deviation, paired benign/adversarial tasks. \\
-RoboCasa / DROID-derived data \cite{nasiriany2024robocasa,khazatsky2024droid} & Data/testbed & Scene diversity and data provenance questions & Poisoning or sim-to-real claims without attack labels & Provenance checks, poisoned-demo splits, validation tiers. \\
-ToolEmu / AgentDojo / InjecAgent \cite{ruan2024toolemu,debenedetti2024agentdojo,zhan2024injecagent} & Red-team & Tool misuse and indirect prompt injection & Direct VLA or physical consequence claims & Robot skill permissions, physical-action proxy, latency. \\
-SafeAgentBench / EARBench \cite{yin2024safeagentbench,zhu2024earbench} & Safety & Hazard/risk-aware planning & Low-level VLA action or hardware safety & Action traces, severity labels, adaptive attacks. \\
-BadRobot / RoboPAIR / RoboJailBench \cite{zhang2025badrobot,robey2025robopair,yeke2026robojailbench} & Attack/red-team & Embodied jailbreak goals and security-utility pairs & Cross-platform VLA generality without more models & Paired benign goals, physical constraints, model transfer. \\
-RoboGCG / VLA-Fool / SABER \cite{jones2025robogcg,yan2025vlafool,wu2026saber} & Direct VLA attack & Prompt, multimodal, and black-box instruction objectives & General VLA security claims from narrow model suites & Cross-policy transfer, query budgets, physical rollouts. \\
-Patch/physical VLA attacks \cite{wang2025vlaadversarial,xu2025edpa,lu2026patch,chen2026tex3d} & Direct VLA attack & Visual embeddings, grounding, textures, trajectories & Universal physical safety claims from narrow scenes & Viewpoint, object, controller, and sim-to-real transfer. \\
-FreezeVLA / DropVLA / AttackVLA / SilentDrift \cite{wang2025freezevla,xu2025dropvla,li2025attackvla,xu2026silentdrift} & Direct VLA attack & Action freezing, primitives, chunks, backdoors & General action-security evidence across all VLA representations & Token/chunk/flow transfer and recovery metrics. \\
-CHAI / ANNIE / Eva-VLA / Phantom Menace \cite{burbano2025chai,huang2025annie,liu2025evavla,lu2025phantom} & Adjacent physical/sensor attack & Scene text, trajectory, physical variation, sensor path & Direct VLA attack claims without VLA policy validation & Threat checklist, recovery, cross-platform validation. \\
-Benchmark audits \cite{jiang2026benchmarkaudit} & Validity diagnostic & Shortcut, overfit, and statistical fragility & Attack benchmark evidence & Security splits and adversarial diagnostics. \\
+Household / navigation capability & AI2-THOR; ALFRED; Habitat \cite{kolve2017ai2thor,shridhar2020alfred,savva2019habitat} & Grounding; planning; scene interaction & Robot actuation or controller safety & Adversarial goals; recovery labels; physical proxy \\
+Manipulation capability & RLBench; CALVIN; LIBERO; ManiSkill \cite{james2020rlbench,mees2022calvin,liu2023libero,mu2021maniskill} & Sim rollouts; language-conditioned manipulation & Security claims from task success alone & Paired benign/adversarial tasks; typed ASR; trajectory metrics \\
+Data / foundation-policy resources & RoboCasa; DROID; BridgeData; RoboMimic \cite{nasiriany2024robocasa,khazatsky2024droid,walke2023bridgedata,mandlekar2021robomimic} & Data scale; diversity; provenance; transfer context & Poisoning or sim-to-real risk without attack labels & Provenance splits; poisoned-demo labels; validation tiers \\
+Tool-agent red-team & ToolEmu; AgentDojo; InjecAgent \cite{ruan2024toolemu,debenedetti2024agentdojo,zhan2024injecagent} & Source confusion; tool misuse; indirect injection & Direct VLA or physical consequence claims & Robot skill permissions; physical-action proxy; latency \\
+Safety / risk planning & SafeAgentBench; EARBench \cite{yin2024safeagentbench,zhu2024earbench} & Hazard labels; risk-aware planning & Low-level VLA action or hardware safety & Action traces; severity labels; adaptive attacks \\
+Embodied jailbreak & BadRobot; RoboPAIR; RoboJailBench \cite{zhang2025badrobot,robey2025robopair,yeke2026robojailbench} & Embodied harmful goals; security-utility pairs & Cross-platform VLA generality & Paired benign goals; model transfer; physical constraints \\
+Direct VLA instruction attacks & RoboGCG; VLA-Fool; SABER \cite{jones2025robogcg,yan2025vlafool,wu2026saber} & Prompt/multimodal objectives; black-box edits & Deployment-level risk from narrow suites & Query budgets; cross-policy transfer; Robot/HIL rollouts \\
+Direct VLA visual/physical attacks & VLA patch; EDPA; UPA-RFAS; Tex3D \cite{wang2025vlaadversarial,xu2025edpa,lu2026patch,chen2026tex3d} & Embeddings; grounding; textures; trajectories & Universal physical safety claims & Viewpoint/object variation; controller traces; sim-to-real \\
+Direct VLA action/backdoor attacks & FreezeVLA; DropVLA; AttackVLA; SilentDrift \cite{wang2025freezevla,xu2025dropvla,li2025attackvla,xu2026silentdrift} & Action freezing; primitives; chunks; triggers & All-representation action-security claims & Token/chunk/flow transfer; recovery metrics \\
+Adjacent physical/sensor tests & CHAI; ANNIE; Eva-VLA; Phantom Menace \cite{burbano2025chai,huang2025annie,liu2025evavla,lu2025phantom} & Scene text; sensor path; physical variation & Direct VLA attack evidence alone & VLA policy validation; recovery; cross-platform tests \\
+Benchmark audits & BenchmarkAudit-style checks \cite{jiang2026benchmarkaudit} & Shortcut, overfit, statistical fragility & Attack evidence by itself & Security splits; adversarial diagnostics \\
 \bottomrule
 \end{tabularx}
 \end{table*}

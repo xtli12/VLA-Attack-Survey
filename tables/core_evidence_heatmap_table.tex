@@ -1,18 +1,20 @@
 \begin{table*}[t]
 \centering
 \scriptsize
-\caption{Representative direct VLA attack mechanisms and what each mechanism currently supports. The table is qualitative: it summarizes mechanism-level evidence rather than pooling heterogeneous ASR values.}
+\caption{Attack family by target-representation evidence map. Symbols are qualitative evidence strength for direct VLA attack literature: 0 = no direct evidence in the reviewed set; + = early or narrow evidence; ++ = repeated evidence in simulation or digital rollouts; +++ = stronger evidence with multiple targets, transfer, or physical/robot validation. The table summarizes mechanism coverage rather than pooled ASR.}
 \label{tab:core-heatmaps}
-\renewcommand{\arraystretch}{1.08}
-\setlength{\tabcolsep}{3pt}
-\begin{tabularx}{\textwidth}{@{}p{0.17\textwidth}Y Y Y Y@{}}
+\renewcommand{\arraystretch}{1.1}
+\setlength{\tabcolsep}{3.2pt}
+\begin{tabularx}{\textwidth}{@{}P{0.16\textwidth}>{\centering\arraybackslash}P{0.08\textwidth}>{\centering\arraybackslash}P{0.08\textwidth}>{\centering\arraybackslash}P{0.08\textwidth}>{\centering\arraybackslash}P{0.08\textwidth}>{\centering\arraybackslash}P{0.085\textwidth}>{\centering\arraybackslash}P{0.08\textwidth}>{\centering\arraybackslash}P{0.08\textwidth}Y@{}}
 \toprule
-\textbf{Attack family} & \textbf{Representative entry} & \textbf{Changed representation} & \textbf{Robotic consequence} & \textbf{Evidence strength and caveat} \\
+\textbf{Attack family} & \textbf{Grounding / plan} & \textbf{Reasoning trace} & \textbf{Action token / chunk} & \textbf{Waypoint / trajectory} & \textbf{Diffusion / flow} & \textbf{Skill / tool call} & \textbf{Memory / privacy} & \textbf{Val.} \\
 \midrule
-Instruction/control & Prompt edit, scene text, or cross-modal instruction perturbation & Plan, source grounding, action token, or command-preserving trajectory & Task failure, action inflation, wrong-object behavior, or trajectory redirection & Direct rollout evidence is emerging; transfer, query budget, and recovery still vary across studies. \\
-Visual/physical & Digital patch, printed patch, object texture, or partial-observation physical access & Embedding, grounding, visual proprioception, action loss, or trajectory objective & Wrong-object action, targeted motion, trajectory deviation, or degraded manipulation & Strong mechanism evidence across digital, simulation, and some real-robot settings; physical generality across viewpoints, objects, and controllers remains open. \\
-Backdoor/action & Poisoned demonstration, trigger object, or supply-chain fine-tuning & Primitive, action freeze, chunk drift, waypoint, or long-horizon action sequence & Triggered release/freeze, wrong goal behavior, or gradual trajectory shift & Direct VLA studies show action representations are attackable while preserving clean utility; robustness to filtering, adaptation, and controller clipping is less mature. \\
-Reasoning/privacy & Physical/contextual reasoning perturbation or action-trace query access & CoT/entity reference, reasoning-to-action state, likelihood, attention, or temporal trajectory signature & Reasoning hijack, unsafe driving/manipulation behavior, or training-membership leakage & Expands the field beyond task-failure ASR; privacy and reasoning claims require metrics different from physical task success. \\
+Instruction/control & +++ & + & ++ & ++ & 0 & + & 0 & D/Sim; limited Robot \\
+Visual/physical & +++ & + & ++ & +++ & + & 0 & 0 & D/Sim/Robot \\
+Backdoor/action & + & 0 & +++ & ++ & + & + & + & Sim; limited Robot \\
+Reasoning attacks & + & +++ & + & ++ & 0 & 0 & 0 & D/Sim/Robot \\
+Privacy attacks & 0 & 0 & + & ++ & 0 & 0 & +++ & D/Sim \\
+Embodied-adjacent & ++ & ++ & + & + & 0 & ++ & + & D/Sim/Robot \\
 \bottomrule
 \end{tabularx}
 \end{table*}

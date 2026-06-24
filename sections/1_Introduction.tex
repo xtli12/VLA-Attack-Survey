@@ -1,16 +1,16 @@
 \section{Introduction}
 \label{sec:introduction}
 
-Vision-Language-Action (VLA) models and robot foundation models are changing the interface between perception, language, and control. Instead of a narrow module that classifies an image or emits a low-level action under a fixed task, a VLA system can use open-ended language and visual context to condition robot action, memory, tool use, and future observations. Recent VLA/RFM systems demonstrate this shift across multimodal pretraining, robot-data scaling, cross-embodiment transfer, and natural-language task specification \cite{driess2023palme,brohan2022rt1,brohan2023rt2,jiang2023vima,openx2023,kim24openvla,ghosh2024octo,black2024pi0}. Related planner and policy systems show the same pattern at different interfaces: language and vision can steer skill selection, code generation, waypoint synthesis, trajectory distributions, and action-chunk prediction \cite{ahn2022saycan,liang2023code,singh2023progprompt,huang2023voxposer,shridhar2022cliport,chi2023diffusion,zhao2023act}. For robotics, this is not only a new model family. It is a new control interface whose inputs are semantically rich and whose outputs can move robots, call tools, update memory, and alter the future observation stream.
+Vision-Language-Action (VLA) models and robot foundation models are reshaping the interface between perception, language, and control. Rather than classify an image or emit a low-level action for a fixed task, a VLA system uses open-ended language and visual context to condition robot action, memory, tool use, and future observations. Recent VLA/RFM systems show this shift in multimodal pretraining, robot-data scaling, cross-embodiment transfer, and natural-language task specification \cite{driess2023palme,brohan2022rt1,brohan2023rt2,jiang2023vima,openx2023} \cite{kim24openvla,ghosh2024octo,black2024pi0,bousmalis2023robocat,wu2023gr1} \cite{li2023roboflamingo,cheang2024gr2,wang2025unified,nvidia2025gr00tn1,wang2025vlaadapter}. Related planner and policy systems expose the same pattern at different interfaces: language and vision can steer skill selection, code generation, waypoint synthesis, trajectory distributions, and action-chunk prediction \cite{ahn2022saycan,liang2023code,singh2023progprompt,huang2023voxposer,shridhar2022cliport} \cite{chi2023diffusion,zhao2023act,pertsch2025fast,liu2024rdt,reuss2024mdt}. For robotics, this is more than a new model family. It is a control interface whose inputs are semantically rich and whose outputs can move robots, call tools, update memory, and alter the future observation stream.
 
-This interface changes what an attack means. In a VLM, an adversarial image may produce a wrong answer; in a text-only LLM, a jailbreak may produce unsafe text; in a conventional robot policy, a disturbance may reduce reward or tracking accuracy. In a VLA-enabled robot, the same kinds of interventions can enter a closed loop. A visual patch can change grounding, the changed grounding can alter an action token or waypoint, the controller can clip or smooth the command, and the robot's next observation can either recover the task or reinforce the deviation. A scene-text instruction can cross a source boundary, a poisoned demonstration can implant a trigger, a black-box prompt edit can redirect a trajectory, and an action-level backdoor can freeze or release a gripper at a critical moment. The consequence may be a wrong-object action, unsafe motion, unauthorized skill use, privacy leakage, or persistent state compromise, not just a misclassification or unsafe sentence.
+This interface changes what an attack means. In a VLM, an adversarial image may produce a wrong answer; in a text-only LLM, a jailbreak may produce unsafe text; in a conventional robot policy, a disturbance may reduce reward or tracking accuracy \cite{qi2024visual,zou2023universal,huang2017adversarial,pinto2017robust,gleave2020adversarial}. In a VLA-enabled robot, similar interventions can enter a closed loop. A visual patch can change grounding; the changed grounding can alter an action token or waypoint; the controller may clip or smooth the command; and the next observation may either recover the task or reinforce the deviation. A scene-text instruction can cross a source boundary, a poisoned demonstration can implant a trigger, a black-box prompt edit can redirect a trajectory, and an action-level backdoor can freeze or release a gripper at a critical moment. The consequence is not only a misclassification or unsafe sentence, but potentially a wrong-object action, unsafe motion, unauthorized skill use, privacy leakage, or persistent state compromise.
 
 \subsection{Related Surveys and Positioning}
 \label{subsec:positioning}
 
-Existing survey traditions do not fully capture this closed-loop attack problem. VLA/RFM surveys explain model architectures, datasets, action representations, and applications. Embodied-security and robot-cybersecurity surveys explain sensors, middleware, physical systems, and human-robot interaction. LLM-agent security surveys explain prompt injection, tool misuse, retrieval poisoning, and data leakage. The closest adjacent work is the VLA safety survey \emph{Vision-Language-Action Safety: Threats, Challenges, Evaluations, and Mechanisms} \cite{li2026vlasafety}, which covers the broader safety landscape: threats, alignment, evaluation, defense mechanisms, and deployment challenges. This paper asks a narrower attack-centered question: \emph{how do adversarial interventions propagate through VLA-controlled robots, what mechanisms have been demonstrated, and when is the evidence strong enough to support a robotics claim?}
+Existing survey traditions only partly cover this closed-loop attack problem. VLA/RFM surveys emphasize model architectures, datasets, action representations, and applications. Embodied-security and robot-cybersecurity surveys cover sensors, middleware, physical platforms, and human-robot interaction. LLM-agent security surveys address prompt injection, tool misuse, retrieval poisoning, and data leakage. The closest adjacent work is the VLA safety survey \emph{Vision-Language-Action Safety: Threats, Challenges, Evaluations, and Mechanisms} \cite{li2026vlasafety,sermanet2025asimov,zhang2025safevla}, which covers the broader safety landscape: threats, alignment, evaluation, defense mechanisms, and deployment challenges. This paper asks a narrower attack-centered question: \emph{how do adversarial interventions propagate through VLA-controlled robots, what mechanisms have been demonstrated, and when is the evidence strong enough to support a robotics claim?}
 
-The distinction is increasingly practical as the literature moves from position statements to concrete VLA attack papers. Direct evidence now includes adversarial prompt and patch attacks on VLA policies \cite{jones2025robogcg,wang2025vlaadversarial,yan2025vlafool,wu2026saber}, action freezing and action/trajectory backdoors \cite{wang2025freezevla,zhou2025badvla,zhou2025goba,xu2025dropvla,li2025attackvla,xu2026silentdrift}, transferable and model-agnostic patch attacks \cite{xu2025edpa,lu2026patch}, 3D object-texture attacks \cite{chen2026tex3d}, CoT-reasoning hijacking \cite{huang2026trap}, trajectory redirection \cite{puthumanaillam2026trajectory}, and VLA membership inference \cite{peng2026miavla,luan2026vlaleaks}. These papers are not just examples inside a safety taxonomy; they form the attack evidence that this survey compares.
+This distinction has become practical as the literature moves from position statements to concrete VLA attack papers. Direct evidence now includes adversarial prompt and patch attacks on VLA policies \cite{jones2025robogcg,wang2025vlaadversarial,yan2025vlafool,wu2026saber}, action freezing and action/trajectory backdoors \cite{wang2025freezevla,zhou2025badvla,zhou2025goba,xu2025dropvla,li2025attackvla,xu2026silentdrift}, transferable and model-agnostic patch attacks \cite{xu2025edpa,lu2026patch}, 3D object-texture attacks \cite{chen2026tex3d}, CoT-reasoning hijacking \cite{huang2026trap}, trajectory redirection \cite{puthumanaillam2026trajectory}, and VLA membership inference \cite{peng2026miavla,luan2026vlaleaks}. These papers are not merely examples within a safety taxonomy; they are the attack evidence this survey compares.
 
 \subsection{Guiding Questions}
 \label{subsec:rqs}
@@ -24,20 +24,20 @@ We use five questions to keep the survey focused on mechanisms and robotic conse
     \item \textbf{RQ5:} What evidence is strong enough for robotics conclusions, and where do physical validation, transfer, controller interaction, and recovery remain weak?
 \end{itemize}
 
-Table~\ref{tab:coverage-matrix} compares this survey against the closest adjacent survey traditions. The difference is not simply that we are ``attack-centered.'' We ask how attack mechanisms interact with VLA action representations, closed-loop execution, controller boundaries, and the strength of the available evidence.
+Table~\ref{tab:coverage-matrix} compares this survey with the closest adjacent survey traditions. The difference is not simply that we are ``attack-centered.'' The central issue is how attack mechanisms interact with VLA action representations, closed-loop execution, controller boundaries, and the strength of the available evidence.
 
 \input{tables/survey_coverage_matrix_table}
 
 \subsection{Scope and Definition}
 
-We treat a \emph{VLA attack} as an intentional intervention that changes a VLA-enabled system's perception, grounding, planning, policy decoding, execution, memory, tool use, privacy boundary, or human-robot interaction in a way that violates the intended task, authorization boundary, privacy expectation, or safety envelope. This definition separates adversarial attacks from ordinary task failure and non-adversarial robustness failure. A robot that fails because of unmodeled friction exhibits robustness risk; a robot that fails because an adversary selected a perturbation, instruction, tool response, memory entry, trigger, or physical scene configuration to induce a violation exhibits security risk.
+We treat a \emph{VLA attack} as an intentional intervention that changes a VLA-enabled system's perception, grounding, planning, policy decoding, execution, memory, tool use, privacy boundary, or human-robot interaction in a way that violates the intended task, authorization boundary, privacy expectation, or safety envelope. This separates adversarial attacks from ordinary task failure and non-adversarial robustness failure. A robot that fails because of unmodeled friction exhibits robustness risk; a robot that fails because an adversary selected a perturbation, instruction, tool response, memory entry, trigger, or physical scene configuration to induce a violation exhibits security risk.
 
 \subsection{Evidence Use}
 \label{subsec:evidence-use}
 
-We use a compact evidence review to calibrate claims, while organizing the survey around attack mechanisms and robotic consequences. Searches were last updated on 16 June 2026 and covered major robotics, machine learning, computer vision, security, and NLP venues, together with arXiv/OpenReview and linked project pages.
+We use a compact evidence review to calibrate claims, while organizing the survey around attack mechanisms and robotic consequences. Searches were last updated on 16 June 2026 and covered major robotics, machine learning, computer vision, security, and NLP venues, along with arXiv/OpenReview and linked project pages.
 
-The survey distinguishes direct VLA evidence from embodied-adjacent and contextual work. \emph{Direct VLA evidence} requires a VLA target and a VLA-relevant outcome, such as changed action, trajectory, reasoning-to-action behavior, triggered policy behavior, or training-data membership leakage. \emph{Embodied-adjacent evidence} motivates risks around embodied planners, robot policies, sensing paths, middleware, and HRI, but still requires VLA-specific validation before it can support a VLA vulnerability claim. \emph{Contextual evidence} explains substrates, benchmarks, adversarial methods, robot-security mechanisms, or action representations. Supplementary materials provide the search templates and evidence appendix. The main text uses this evidence base to support mechanism-level conclusions, not to pool heterogeneous ASR values.
+The survey distinguishes direct VLA evidence from embodied-adjacent and contextual work. \emph{Direct VLA evidence} requires a VLA target and a VLA-relevant outcome, such as changed action, trajectory, reasoning-to-action behavior, triggered policy behavior, or training-data membership leakage. \emph{Embodied-adjacent evidence} motivates risks around embodied planners, robot policies, sensing paths, middleware, and HRI, but it still requires VLA-specific validation before it can support a VLA vulnerability claim. \emph{Contextual evidence} explains substrates, benchmarks, adversarial methods, robot-security mechanisms, or action representations. Supplementary materials provide the search templates and evidence appendix. The main text uses this evidence base to support mechanism-level conclusions, not to pool heterogeneous ASR values.
 
 \subsection{Contributions}
 
@@ -51,3 +51,44 @@ This paper discusses attacks at a responsible academic level and does not provid
     \item We compare the strength and limits of current evidence, separating direct VLA attacks from embodied-adjacent attacks and contextual references without letting background work inflate attack claims.
     \item We propose evaluation principles for VLA attacks that connect typed ASR, benign utility, transfer, query budget, physical validation, closed-loop recovery, and consequence severity.
 \end{itemize}
+
+\subsection{Survey Overview}
+
+Fig.~\ref{fig:survey-overview} provides an overview of the survey. It links the VLA system loop, attack entry surfaces, target representations, consequences, and evidence levels; the following sections unpack each layer. Section~\ref{sec:taxonomy} develops the closed-loop attack model, Section~\ref{sec:evidence-synthesis} synthesizes attack mechanisms, Section~\ref{sec:cross-study} compares evidence, Section~\ref{sec:evaluation-principles} gives evaluation principles, and Section~\ref{sec:open-problems} summarizes open problems.
+
+\begin{figure*}[t]
+\centering
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+    font=\scriptsize,
+    loop/.style={draw, rounded corners, align=center, text width=2.85cm, minimum height=0.9cm, inner sep=3pt, fill=blue!6},
+    band/.style={draw, rounded corners, align=left, text width=17.4cm, minimum height=0.75cm, inner sep=5pt},
+    arr/.style={-{Latex[length=1.8mm]}, thick},
+    softarr/.style={-{Latex[length=1.8mm]}, thick, gray!70}
+]
+\node[anchor=east, font=\bfseries] at (-1.35,0) {VLA system loop};
+\node[loop] (obs) at (0,0) {Observation / language / memory / tools};
+\node[loop] (reason) at (3.65,0) {Grounding / planning / reasoning};
+\node[loop] (action) at (7.3,0) {Action representation};
+\node[loop] (ctrl) at (10.95,0) {Controller / execution};
+\node[loop] (feed) at (14.6,0) {Feedback / recovery};
+\draw[arr] (obs) -- (reason);
+\draw[arr] (reason) -- (action);
+\draw[arr] (action) -- (ctrl);
+\draw[arr] (ctrl) -- (feed);
+\draw[arr, gray!70] (feed.north) to[bend left=28] node[above, font=\scriptsize] {future observations and state} (obs.north);
+
+\node[band, fill=red!6] (entry) at (7.3,-1.35) {\textbf{Attack entry surfaces:} vision; language; data/backdoor; memory/retrieval; tools/API; middleware; human/environment};
+\node[band, fill=yellow!15] (target) at (7.3,-2.45) {\textbf{Target representations:} grounding; plan; reasoning trace; action token; action chunk; waypoint; trajectory; skill call; memory entry};
+\node[band, fill=red!8] (cons) at (7.3,-3.55) {\textbf{Consequences:} task failure; wrong-object action; unsafe motion; unauthorized skill use; privacy leakage; persistence; recovery failure};
+\node[band, fill=green!8] (eval) at (7.3,-4.65) {\textbf{Evidence and evaluation:} direct VLA / embodied-adjacent / contextual evidence; digital input $\rightarrow$ simulation $\rightarrow$ HIL $\rightarrow$ real robot; typed ASR / controller-aware metrics / recovery};
+\draw[softarr] (action.south) -- (entry.north);
+\draw[softarr] (entry.south) -- (target.north);
+\draw[softarr] (target.south) -- (cons.north);
+\draw[softarr] (cons.south) -- (eval.north);
+\end{tikzpicture}
+}
+\caption{VLA attack survey overview. The figure summarizes the scope of the survey by linking the VLA system loop to attack entry surfaces, target representations, consequences, and evidence/evaluation levels.}
+\label{fig:survey-overview}
+\end{figure*}

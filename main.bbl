@@ -50,6 +50,44 @@ K.~Black, N.~Brown, D.~Driess, A.~Esmail, M.~Equi, C.~Finn, N.~Fusai, L.~Groom,
   A.~Walling, H.~Wang, and U.~Zhilinsky, ``{pi0}: A vision-language-action flow
   model for general robot control,'' 2024.
 
+\bibitem{bousmalis2023robocat}
+K.~Bousmalis, G.~Vezzani, D.~Rao, C.~Devin, A.~X. Lee, M.~Bauza, T.~Davchev,
+  Y.~Zhou, A.~Gupta, A.~Raju, {\em et~al.}, ``{RoboCat}: A self-improving
+  generalist agent for robotic manipulation,'' in {\em Transactions on Machine
+  Learning Research}, 2023.
+
+\bibitem{wu2023gr1}
+H.~Wu, Y.~Jing, C.~Cheang, G.~Chen, J.~Xu, X.~Li, M.~Liu, H.~Li, and T.~Kong,
+  ``Unleashing large-scale video generative pre-training for visual robot
+  manipulation,'' in {\em International Conference on Learning
+  Representations}, 2024.
+
+\bibitem{li2023roboflamingo}
+X.~Li, M.~Liu, H.~Zhang, C.~Yu, J.~Xu, H.~Wu, C.~Cheang, Y.~Jing, W.~Zhang,
+  H.~Liu, H.~Li, and T.~Kong, ``Vision-language foundation models as effective
+  robot imitators,'' in {\em International Conference on Learning
+  Representations}, 2024.
+
+\bibitem{cheang2024gr2}
+C.-L. Cheang, G.~Chen, Y.~Jing, T.~Kong, H.~Li, Y.~Li, Y.~Liu, H.~Wu, J.~Xu,
+  Y.~Yang, M.~Zhu, and H.~Zhang, ``{GR-2}: A generative video-language-action
+  model with web-scale knowledge for robot manipulation,'' 2024.
+
+\bibitem{wang2025unified}
+Y.~Wang, X.~Li, W.~Wang, J.~Zhang, Y.~Li, Y.~Chen, X.~Wang, and Z.~Zhang,
+  ``Unified vision-language-action model,'' 2025.
+
+\bibitem{nvidia2025gr00tn1}
+{NVIDIA}, J.~Bjorck, F.~Casta{\~n}eda, N.~Cherniadev, X.~Da, R.~Ding, L.~Fan,
+  Y.~Fang, D.~Fox, F.~Hu, {\em et~al.}, ``{GR00T N1}: An open foundation model
+  for generalist humanoid robots,'' 2025.
+
+\bibitem{wang2025vlaadapter}
+Y.~Wang, P.~Ding, L.~Li, C.~Cui, Z.~Ge, X.~Tong, W.~Song, H.~Zhao, W.~Zhao,
+  P.~Hou, S.~Huang, Y.~Tang, W.~Wang, R.~Zhang, J.~Liu, and D.~Wang,
+  ``{VLA-Adapter}: An effective paradigm for tiny-scale vision-language-action
+  model,'' 2025.
+
 \bibitem{ahn2022saycan}
 M.~Ahn, A.~Brohan, N.~Brown, Y.~Chebotar, O.~Cortes, B.~David, C.~Finn,
   K.~Gopalakrishnan, K.~Hausman, A.~Herzog, {\em et~al.}, ``Do as i can, not as
@@ -88,10 +126,58 @@ T.~Z. Zhao, V.~Kumar, S.~Levine, and C.~Finn, ``Learning fine-grained bimanual
   manipulation with low-cost hardware,'' in {\em Proceedings of Robotics:
   Science and Systems}, 2023.
 
+\bibitem{pertsch2025fast}
+K.~Pertsch, K.~Stachowicz, B.~Ichter, D.~Driess, S.~Nair, Q.~Vuong, O.~Mees,
+  C.~Finn, and S.~Levine, ``{FAST}: Efficient action tokenization for
+  vision-language-action models,'' 2025.
+
+\bibitem{liu2024rdt}
+S.~Liu, L.~Wu, B.~Li, H.~Tan, H.~Chen, Z.~Wang, K.~Xu, H.~Su, and J.~Zhu,
+  ``{RDT-1B}: A diffusion foundation model for bimanual manipulation,'' 2024.
+
+\bibitem{reuss2024mdt}
+M.~Reuss, {\"O}.~E. Ya{\u{g}}murlu, F.~Wenzel, and R.~Lioutikov, ``Multimodal
+  diffusion transformer: Learning versatile behavior from multimodal goals,''
+  in {\em Proceedings of Robotics: Science and Systems}, 2024.
+
+\bibitem{qi2024visual}
+X.~Qi, K.~Huang, A.~Panda, P.~Henderson, M.~Wang, and P.~Mittal, ``Visual
+  adversarial examples jailbreak aligned large language models,'' in {\em
+  Proceedings of the AAAI Conference on Artificial Intelligence}, vol.~38,
+  pp.~21527--21536, 2024.
+
+\bibitem{zou2023universal}
+A.~Zou, Z.~Wang, N.~Carlini, M.~Nasr, J.~Z. Kolter, and M.~Fredrikson,
+  ``Universal and transferable adversarial attacks on aligned language
+  models,'' 2023.
+
+\bibitem{huang2017adversarial}
+S.~Huang, N.~Papernot, I.~Goodfellow, Y.~Duan, and P.~Abbeel, ``Adversarial
+  attacks on neural network policies,'' 2017.
+
+\bibitem{pinto2017robust}
+L.~Pinto, J.~Davidson, R.~Sukthankar, and A.~Gupta, ``Robust adversarial
+  reinforcement learning,'' in {\em Proceedings of the 34th International
+  Conference on Machine Learning}, pp.~2817--2826, 2017.
+
+\bibitem{gleave2020adversarial}
+A.~Gleave, M.~Dennis, C.~Wild, N.~Kant, S.~Levine, and S.~Russell,
+  ``Adversarial policies: Attacking deep reinforcement learning,'' in {\em
+  International Conference on Learning Representations}, 2020.
+
 \bibitem{li2026vlasafety}
 Q.~Li, B.~Yin, W.~Huang, R.~Liu, B.~Zou, R.~Yu, J.~Ye, W.~Yu, and X.~Wang,
   ``Vision-language-action safety: Threats, challenges, evaluations, and
   mechanisms,'' 2026.
+
+\bibitem{sermanet2025asimov}
+P.~Sermanet, A.~Majumdar, A.~Irpan, D.~Kalashnikov, and V.~Sindhwani,
+  ``Generating robot constitutions and benchmarks for semantic safety,'' 2025.
+
+\bibitem{zhang2025safevla}
+B.~Zhang, Y.~Zhang, J.~Ji, Y.~Lei, J.~Dai, Y.~Chen, and Y.~Yang, ``{SafeVLA}:
+  Towards safety alignment of vision-language-action model via constrained
+  learning,'' 2025.
 
 \bibitem{jones2025robogcg}
 E.~K. Jones, A.~Robey, A.~Zou, Z.~Ravichandran, G.~J. Pappas, H.~Hassani,
@@ -176,6 +262,179 @@ Y.~Peng, M.~Li, K.~Xia, R.~Zhang, and A.~Houmansadr, ``Membership inference
 X.~Luan, J.~Liu, X.~Li, Y.~Bi, R.~Wu, Z.~Lei, and D.~Wang, ``{VLALeaks}:
   Membership inference attacks against vision-language-action models,'' 2026.
 
+\bibitem{sapkota2025vlasurvey}
+R.~Sapkota, Y.~Cao, K.~I. Roumeliotis, and M.~Karkee, ``Vision-language-action
+  models: Concepts, progress, applications and challenges,'' 2025.
+
+\bibitem{liu2025embodiedsurvey}
+Y.~Liu, W.~Chen, Y.~Bai, J.~Luo, X.~Song, K.~Jiang, Z.~Li, G.~Zhao, J.~Lin,
+  G.~Li, W.~Gao, and L.~Lin, ``Aligning cyber space with physical world: A
+  comprehensive survey on embodied {AI},'' {\em IEEE/ASME Transactions on
+  Mechatronics}, vol.~30, pp.~7253--7274, 2025.
+
+\bibitem{neupane2024security}
+S.~Neupane, S.~Mitra, I.~A. Fernandez, S.~Saha, S.~Mittal, J.~Chen, N.~Pillai,
+  and S.~Rahimi, ``Security considerations in {AI}-robotics: A survey of
+  current methods, challenges, and opportunities,'' {\em IEEE Access}, vol.~12,
+  pp.~22072--22097, 2024.
+
+\bibitem{yaacoub2022robotics}
+J.-P.~A. Yaacoub, H.~N. Noura, O.~Salman, and A.~Chehab, ``Robotics cyber
+  security: Vulnerabilities, attacks, countermeasures, and recommendations,''
+  {\em International Journal of Information Security}, vol.~21, pp.~115--158,
+  2022.
+
+\bibitem{greshake2023not}
+S.~Abdelnabi, K.~Greshake, S.~Mishra, C.~Endres, T.~Holz, and M.~Fritz, ``Not
+  what you've signed up for: Compromising real-world {LLM}-integrated
+  applications with indirect prompt injection,'' in {\em Proceedings of the
+  16th ACM Workshop on Artificial Intelligence and Security}, pp.~79--90, ACM,
+  2023.
+
+\bibitem{ruan2024toolemu}
+Y.~Ruan, H.~Dong, A.~Wang, S.~Pitis, Y.~Zhou, J.~Ba, Y.~Dubois, C.~J. Maddison,
+  and T.~Hashimoto, ``Identifying the risks of {LM} agents with an
+  {LM}-emulated sandbox,'' in {\em The Twelfth International Conference on
+  Learning Representations}, 2024.
+
+\bibitem{debenedetti2024agentdojo}
+E.~Debenedetti, J.~Zhang, M.~Balunovic, L.~Beurer-Kellner, M.~Fischer, and
+  F.~Tram{\`e}r, ``Agentdojo: A dynamic environment to evaluate prompt
+  injection attacks and defenses for {LLM} agents,'' in {\em Advances in Neural
+  Information Processing Systems Datasets and Benchmarks Track}, 2024.
+
+\bibitem{goodfellow2015explaining}
+I.~J. Goodfellow, J.~Shlens, and C.~Szegedy, ``Explaining and harnessing
+  adversarial examples,'' in {\em International Conference on Learning
+  Representations}, 2015.
+
+\bibitem{brown2017adversarial}
+T.~B. Brown, D.~Man{\'e}, A.~Roy, M.~Abadi, and J.~Gilmer, ``Adversarial
+  patch,'' in {\em NeurIPS Workshop on Machine Learning and Computer Security},
+  2017.
+
+\bibitem{athalye2018synthesizing}
+A.~Athalye, L.~Engstrom, A.~Ilyas, and K.~Kwok, ``Synthesizing robust
+  adversarial examples,'' in {\em Proceedings of the 35th International
+  Conference on Machine Learning}, pp.~284--293, 2018.
+
+\bibitem{eykholt2018robust}
+K.~Eykholt, I.~Evtimov, E.~Fernandes, B.~Li, A.~Rahmati, C.~Xiao, A.~Prakash,
+  T.~Kohno, and D.~Song, ``Robust physical-world attacks on deep learning
+  visual classification,'' in {\em Proceedings of the IEEE Conference on
+  Computer Vision and Pattern Recognition}, pp.~1625--1634, 2018.
+
+\bibitem{xing2025robustsecure}
+W.~Xing, M.~Li, M.~Li, and M.~Han, ``Towards robust and secure embodied {AI}: A
+  survey on vulnerabilities and attacks,'' 2025.
+
+\bibitem{lynch2022interactive}
+C.~Lynch, M.~Khansari, T.~Xiao, V.~Kumar, J.~Tompson, S.~Levine, and
+  P.~Sermanet, ``Interactive language: Talking to robots in real time,'' 2022.
+
+\bibitem{huang2022inner}
+W.~Huang, F.~Xia, T.~Xiao, H.~Chan, J.~Liang, P.~Florence, A.~Zeng, J.~Tompson,
+  I.~Mordatch, Y.~Chebotar, P.~Sermanet, T.~Jackson, N.~Brown, L.~Luu,
+  S.~Levine, K.~Hausman, and B.~Ichter, ``Inner monologue: Embodied reasoning
+  through planning with language models,'' in {\em Proceedings of the 6th
+  Conference on Robot Learning}, pp.~1769--1782, 2023.
+
+\bibitem{belkhale2024rth}
+S.~Belkhale, T.~Ding, T.~Xiao, P.~Sermanet, Q.~Vuong, J.~Tompson, Y.~Chebotar,
+  D.~Dwibedi, and D.~Sadigh, ``{RT-H}: Action hierarchies using language,'' in
+  {\em Proceedings of Robotics: Science and Systems}, 2024.
+
+\bibitem{wu2023tidybot}
+J.~Wu, R.~Antonova, A.~Kan, M.~Lepert, A.~Zeng, S.~Song, J.~Bohg,
+  S.~Rusinkiewicz, and T.~Funkhouser, ``{TidyBot}: Personalized robot
+  assistance with large language models,'' {\em Autonomous Robots}, vol.~47,
+  no.~8, pp.~1087--1102, 2023.
+
+\bibitem{saxena2014robobrain}
+A.~Saxena, A.~Jain, O.~Sener, A.~Jami, D.~K. Misra, and H.~S. Koppula,
+  ``{RoboBrain}: Large-scale knowledge engine for robots,'' 2014.
+
+\bibitem{yang2025magma}
+J.~Yang, R.~Tan, Q.~Wu, R.~Zheng, B.~Peng, Y.~Liang, Y.~Gu, M.~Cai, S.~Ye,
+  J.~Jang, Y.~Deng, L.~Liden, and J.~Gao, ``Magma: A foundation model for
+  multimodal {AI} agents,'' 2025.
+
+\bibitem{qu2025spatialvla}
+D.~Qu, H.~Song, Q.~Chen, Y.~Yao, X.~Ye, Y.~Ding, Z.~Wang, J.~Gu, B.~Zhao,
+  D.~Wang, {\em et~al.}, ``{SpatialVLA}: Exploring spatial representations for
+  vision-language-action models,'' {\em arXiv preprint arXiv:2501.15830}, 2025.
+\newblock Accepted to RSS 2025.
+
+\bibitem{kim2025openvlaoft}
+M.~J. Kim, C.~Finn, and P.~Liang, ``Fine-tuning vision-language-action models:
+  Optimizing speed and success,'' {\em arXiv preprint arXiv:2502.19645}, 2025.
+
+\bibitem{zeng2020transporter}
+A.~Zeng, P.~Florence, J.~Tompson, S.~Welker, J.~Chien, M.~Attarian,
+  T.~Armstrong, I.~Krasin, D.~Duong, V.~Sindhwani, and J.~Lee, ``Transporter
+  networks: Rearranging the visual world for robotic manipulation,'' in {\em
+  Proceedings of the 4th Conference on Robot Learning}, 2020.
+
+\bibitem{shridhar2022peract}
+M.~Shridhar, L.~Manuelli, and D.~Fox, ``Perceiver-actor: A multi-task
+  transformer for robotic manipulation,'' in {\em Proceedings of the 6th
+  Conference on Robot Learning}, 2022.
+
+\bibitem{gervet2023act3d}
+T.~Gervet, Z.~Xian, N.~Gkanatsios, and K.~Fragkiadaki, ``{Act3D}: 3d feature
+  field transformers for multi-task robotic manipulation,'' in {\em Proceedings
+  of the 7th Conference on Robot Learning}, pp.~3949--3965, 2023.
+
+\bibitem{goyal2023rvt}
+A.~Goyal, J.~Xu, Y.~Guo, V.~Blukis, Y.-W. Chao, and D.~Fox, ``{RVT}: Robotic
+  view transformer for 3d object manipulation,'' in {\em Proceedings of the 7th
+  Conference on Robot Learning}, pp.~694--710, 2023.
+
+\bibitem{ze2024dp3}
+Y.~Ze, G.~Zhang, K.~Zhang, C.~Hu, M.~Wang, and H.~Xu, ``3d diffusion policy:
+  Generalizable visuomotor policy learning via simple 3d representations,'' in
+  {\em Proceedings of Robotics: Science and Systems}, 2024.
+
+\bibitem{xian2024diffuseractor}
+Z.~Xian, N.~Gkanatsios, T.~Gervet, T.-W. Ke, and K.~Fragkiadaki, ``3d diffuser
+  actor: Policy diffusion with 3d scene representations,'' 2024.
+
+\bibitem{lu2026h3dp}
+Y.~Lu, Y.~Tian, Z.~Yuan, X.~Wang, P.~Hua, Z.~Xue, and H.~Xu, ``{H$^3$DP}:
+  Triply-hierarchical diffusion policy for visuomotor learning,'' in {\em
+  International Conference on Learning Representations}, 2026.
+
+\bibitem{shafiullah2022bet}
+N.~M. Shafiullah, Z.~Cui, A.~Altanzaya, and L.~Pinto, ``Behavior transformers:
+  Cloning $k$ modes with one stone,'' in {\em Advances in Neural Information
+  Processing Systems}, 2022.
+
+\bibitem{lee2024vqbet}
+S.~Lee, Y.~Wang, H.~Etukuru, H.~J. Kim, N.~M.~M. Shafiullah, and L.~Pinto,
+  ``Behavior generation with latent actions,'' in {\em Proceedings of the 41st
+  International Conference on Machine Learning}, pp.~26991--27008, 2024.
+
+\bibitem{ames2017control}
+A.~D. Ames, X.~Xu, J.~W. Grizzle, and P.~Tabuada, ``Control barrier function
+  based quadratic programs for safety critical systems,'' {\em IEEE
+  Transactions on Automatic Control}, vol.~62, no.~8, pp.~3861--3876, 2017.
+
+\bibitem{alshiekh2018shielded}
+M.~Alshiekh, R.~Bloem, R.~Ehlers, B.~K{\"o}nighofer, S.~Niekum, and U.~Topcu,
+  ``Safe reinforcement learning via shielding,'' in {\em Proceedings of the
+  AAAI Conference on Artificial Intelligence}, 2018.
+
+\bibitem{achiam2017constrained}
+J.~Achiam, D.~Held, A.~Tamar, and P.~Abbeel, ``Constrained policy
+  optimization,'' in {\em Proceedings of the 34th International Conference on
+  Machine Learning}, pp.~22--31, 2017.
+
+\bibitem{dawson2023safecontrol}
+C.~Dawson, S.~Gao, and C.~Fan, ``Safe control with learned certificates: A
+  survey of neural lyapunov, barrier, and contraction methods for robotics and
+  control,'' {\em IEEE Transactions on Robotics}, vol.~39, no.~3,
+  pp.~1749--1767, 2023.
+
 \bibitem{srikanth2026qdig}
 S.~Srikanth, F.~Liang, Y.-C. Hsu, V.~Bhatt, S.~Zhao, H.~Chen, B.~Tjanaka,
   M.~Hwang, A.~Saran, D.~Seita, A.~Tabrez, and S.~Nikolaidis, ``Red-teaming
@@ -197,16 +456,6 @@ X.~Wang, M.~Han, T.~Hao, Y.~Yang, Y.-B. Zhao, and K.~Tang, ``Partially
   observable adversarial patch attacks on vision-language-action models in
   robotics,'' {\em IEEE Robotics and Automation Letters}, 2026.
 \newblock arXiv:2606.03556.
-
-\bibitem{altered2026thoughts}
-T.~D. Trinh, N.~Akhtar, and B.~Azam, ``Altered thoughts, altered actions:
-  Probing chain-of-thought vulnerabilities in {VLA} robotic manipulation,''
-  2026.
-
-\bibitem{teymoorianfard2026reasonbreak}
-M.~Teymoorianfard, J.-P. Monteuuis, J.~Petit, and A.~Houmansadr,
-  ``{ReasonBreak}: Probing vulnerabilities in reasoning-enabled
-  vision-language-action models for autonomous driving,'' 2026.
 
 \bibitem{zhang2025badrobot}
 H.~Zhang, C.~Zhu, X.~Wang, Z.~Zhou, C.~Yin, M.~Li, L.~Xue, Y.~Wang, S.~Hu,
@@ -243,48 +492,6 @@ H.~Liu, J.~Long, J.~Wu, J.~Hou, H.~Tang, T.~Jiang, W.~Zhou, and W.~Yao,
   ``{Eva-VLA}: Evaluating vision-language-action models' robustness under
   real-world physical variations,'' 2025.
 
-\bibitem{liu2023libero}
-B.~Liu, Y.~Zhu, C.~Gao, Y.~Feng, Q.~Liu, Y.~Zhu, and P.~Stone, ``{LIBERO}:
-  Benchmarking knowledge transfer for lifelong robot learning,'' in {\em
-  Advances in Neural Information Processing Systems}, 2023.
-
-\bibitem{goodfellow2015explaining}
-I.~J. Goodfellow, J.~Shlens, and C.~Szegedy, ``Explaining and harnessing
-  adversarial examples,'' in {\em International Conference on Learning
-  Representations}, 2015.
-
-\bibitem{brown2017adversarial}
-T.~B. Brown, D.~Man{\'e}, A.~Roy, M.~Abadi, and J.~Gilmer, ``Adversarial
-  patch,'' in {\em NeurIPS Workshop on Machine Learning and Computer Security},
-  2017.
-
-\bibitem{cao2019lidar}
-Y.~Cao, C.~Xiao, D.~Yang, J.~Fang, R.~Yang, M.~Liu, and B.~Li, ``Adversarial
-  sensor attack on {LiDAR}-based perception in autonomous driving,'' in {\em
-  Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications
-  Security}, pp.~2267--2281, 2019.
-
-\bibitem{zou2025poisonedrag}
-W.~Zou, R.~Geng, B.~Wang, and J.~Jia, ``{PoisonedRAG}: Knowledge corruption
-  attacks to retrieval-augmented generation of large language models,'' in {\em
-  Proceedings of the 34th USENIX Security Symposium}, 2025.
-
-\bibitem{debenedetti2024agentdojo}
-E.~Debenedetti, J.~Zhang, M.~Balunovic, L.~Beurer-Kellner, M.~Fischer, and
-  F.~Tram{\`e}r, ``Agentdojo: A dynamic environment to evaluate prompt
-  injection attacks and defenses for {LLM} agents,'' in {\em Advances in Neural
-  Information Processing Systems Datasets and Benchmarks Track}, 2024.
-
-\bibitem{kiourti2020trojdrl}
-P.~Kiourti, K.~Wardega, S.~Jha, and W.~Li, ``{TrojDRL}: Evaluation of backdoor
-  attacks on deep reinforcement learning,'' in {\em Proceedings of the 57th
-  ACM/IEEE Design Automation Conference}, pp.~1--6, 2020.
-
-\bibitem{deng2022insecurityros2}
-G.~Deng, G.~Xu, Y.~Zhou, T.~Zhang, and Y.~Liu, ``On the (in)security of secure
-  {ROS2},'' in {\em Proceedings of the 2022 ACM SIGSAC Conference on Computer
-  and Communications Security}, 2022.
-
 \bibitem{biggio2012poisoning}
 B.~Biggio, B.~Nelson, and P.~Laskov, ``Poisoning attacks against support vector
   machines,'' in {\em Proceedings of the 29th International Conference on
@@ -306,6 +513,11 @@ N.~Carlini, M.~Jagielski, C.~A. Choquette-Choo, D.~Paleka, W.~Pearce,
   training datasets is practical,'' in {\em IEEE Symposium on Security and
   Privacy}, 2024.
 
+\bibitem{kiourti2020trojdrl}
+P.~Kiourti, K.~Wardega, S.~Jha, and W.~Li, ``{TrojDRL}: Evaluation of backdoor
+  attacks on deep reinforcement learning,'' in {\em Proceedings of the 57th
+  ACM/IEEE Design Automation Conference}, pp.~1--6, 2020.
+
 \bibitem{wang2021backdoorl}
 L.~Wang, Z.~Javed, X.~Wu, W.~Guo, X.~Xing, and D.~Song, ``{BACKDOORL}: Backdoor
   attack against competitive reinforcement learning,'' in {\em Proceedings of
@@ -321,6 +533,29 @@ J.~Cui, Y.~Han, Y.~Ma, J.~Jiao, and J.~Zhang, ``{BadRL}: Sparse targeted
 E.~Rathbun, A.~Oprea, and C.~Amato, ``Adversarial inception backdoor attacks
   against reinforcement learning,'' in {\em Proceedings of the 42nd
   International Conference on Machine Learning}, pp.~51273--51296, PMLR, 2025.
+
+\bibitem{lin2017tactics}
+Y.-C. Lin, Z.-W. Hong, Y.-H. Liao, M.-L. Shih, M.-Y. Liu, and M.~Sun, ``Tactics
+  of adversarial attack on deep reinforcement learning agents,'' in {\em
+  Proceedings of the 26th International Joint Conference on Artificial
+  Intelligence}, pp.~3756--3762, 2017.
+
+\bibitem{sharif2016accessorize}
+M.~Sharif, S.~Bhagavatula, L.~Bauer, and M.~K. Reiter, ``Accessorize to a
+  crime: Real and stealthy attacks on state-of-the-art face recognition,'' in
+  {\em Proceedings of the 2016 ACM SIGSAC Conference on Computer and
+  Communications Security}, pp.~1528--1540, 2016.
+
+\bibitem{xie2017segdet}
+C.~Xie, J.~Wang, Z.~Zhang, Y.~Zhou, L.~Xie, and A.~Yuille, ``Adversarial
+  examples for semantic segmentation and object detection,'' in {\em
+  Proceedings of the IEEE International Conference on Computer Vision}, 2017.
+
+\bibitem{sato2021dirtyroad}
+T.~Sato, J.~Shen, N.~Wang, Y.~Jia, X.~Lin, and Q.~A. Chen, ``Dirty road can
+  attack: Security of deep learning based automated lane centering under
+  physical-world attack,'' in {\em 30th USENIX Security Symposium},
+  pp.~3309--3326, 2021.
 
 \bibitem{szegedy2014intriguing}
 C.~Szegedy, W.~Zaremba, I.~Sutskever, J.~Bruna, D.~Erhan, I.~J. Goodfellow, and
@@ -351,17 +586,6 @@ S.-M. Moosavi-Dezfooli, A.~Fawzi, O.~Fawzi, and P.~Frossard, ``Universal
 A.~Madry, A.~Makelov, L.~Schmidt, D.~Tsipras, and A.~Vladu, ``Towards deep
   learning models resistant to adversarial attacks,'' in {\em International
   Conference on Learning Representations}, 2018.
-
-\bibitem{athalye2018synthesizing}
-A.~Athalye, L.~Engstrom, A.~Ilyas, and K.~Kwok, ``Synthesizing robust
-  adversarial examples,'' in {\em Proceedings of the 35th International
-  Conference on Machine Learning}, pp.~284--293, 2018.
-
-\bibitem{eykholt2018robust}
-K.~Eykholt, I.~Evtimov, E.~Fernandes, B.~Li, A.~Rahmati, C.~Xiao, A.~Prakash,
-  T.~Kohno, and D.~Song, ``Robust physical-world attacks on deep learning
-  visual classification,'' in {\em Proceedings of the IEEE Conference on
-  Computer Vision and Pattern Recognition}, pp.~1625--1634, 2018.
 
 \bibitem{eykholt2018detectors}
 K.~Eykholt, I.~Evtimov, E.~Fernandes, B.~Li, A.~Rahmati, F.~Tram{\`e}r,
@@ -408,6 +632,12 @@ Y.~Cao, N.~Wang, C.~Xiao, D.~Yang, J.~Fang, R.~Yang, Q.~A. Chen, M.~Liu, and
   fusion based perception in autonomous driving under physical-world attacks,''
   in {\em IEEE Symposium on Security and Privacy}, pp.~176--194, 2021.
 
+\bibitem{cao2019lidar}
+Y.~Cao, C.~Xiao, D.~Yang, J.~Fang, R.~Yang, M.~Liu, and B.~Li, ``Adversarial
+  sensor attack on {LiDAR}-based perception in autonomous driving,'' in {\em
+  Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications
+  Security}, pp.~2267--2281, 2019.
+
 \bibitem{carlini2016hiddenvoice}
 N.~Carlini, P.~Mishra, T.~Vaidya, Y.~Zhang, M.~Sherr, C.~Shields, D.~Wagner,
   and W.~Zhou, ``Hidden voice commands,'' in {\em 25th USENIX Security
@@ -429,6 +659,74 @@ T.~Sugawara, B.~Cyr, S.~Rampazzi, D.~Genkin, and K.~Fu, ``Light commands:
   Laser-based audio injection attacks on voice-controllable systems,'' in {\em
   29th USENIX Security Symposium}, pp.~2631--2648, 2020.
 
+\bibitem{perez2022ignore}
+F.~Perez and I.~Ribeiro, ``Ignore previous prompt: Attack techniques for
+  language models,'' 2022.
+
+\bibitem{wei2023jailbroken}
+A.~Wei, N.~Haghtalab, and J.~Steinhardt, ``Jailbroken: How does {LLM} safety
+  training fail?,'' in {\em Advances in Neural Information Processing Systems},
+  2023.
+
+\bibitem{chao2023pair}
+P.~Chao, A.~Robey, E.~Dobriban, H.~Hassani, G.~J. Pappas, and E.~Wong,
+  ``Jailbreaking black box large language models in twenty queries,'' 2023.
+
+\bibitem{liu2024autodan}
+X.~Liu, N.~Xu, M.~Chen, and C.~Xiao, ``{AutoDAN}: Generating stealthy jailbreak
+  prompts on aligned large language models,'' in {\em International Conference
+  on Learning Representations}, 2024.
+
+\bibitem{mazeika2024harmbench}
+M.~Mazeika, L.~Phan, X.~Yin, A.~Zou, Z.~Wang, N.~Mu, E.~Sakhaee, N.~Li,
+  S.~Basart, B.~Li, D.~Forsyth, and D.~Hendrycks, ``{HarmBench}: A standardized
+  evaluation framework for automated red teaming and robust refusal,'' in {\em
+  Proceedings of the 41st International Conference on Machine Learning}, PMLR,
+  2024.
+
+\bibitem{shen2024dan}
+X.~Shen, Z.~Chen, M.~Backes, Y.~Shen, and Y.~Zhang, ``{``Do Anything Now''}:
+  Characterizing and evaluating in-the-wild jailbreak prompts on large language
+  models,'' in {\em Proceedings of the 2024 ACM SIGSAC Conference on Computer
+  and Communications Security}, 2024.
+
+\bibitem{mehrotra2024tap}
+A.~Mehrotra, M.~Zampetakis, P.~Kassianik, B.~Nelson, H.~Anderson, Y.~Singer,
+  and A.~Karbasi, ``Tree of attacks: Jailbreaking black-box {LLM}s
+  automatically,'' in {\em Advances in Neural Information Processing Systems},
+  2024.
+
+\bibitem{zhu2023promptbench}
+K.~Zhu, J.~Wang, J.~Zhou, Z.~Wang, H.~Chen, Y.~Wang, L.~Yang, W.~Ye, N.~Z.
+  Gong, Y.~Zhang, and X.~Xie, ``{PromptBench}: Towards evaluating the
+  robustness of large language models on adversarial prompts,'' 2023.
+
+\bibitem{li2023deepinception}
+X.~Li, Z.~Zhou, J.~Zhu, J.~Yao, T.~Liu, and B.~Han, ``{DeepInception}:
+  Hypnotize large language model to be jailbreaker,'' 2023.
+
+\bibitem{paulus2025advprompter}
+A.~Paulus, A.~Zharmagambetov, C.~Guo, B.~Amos, and Y.~Tian, ``{AdvPrompter}:
+  Fast adaptive adversarial prompting for {LLM}s,'' in {\em Proceedings of the
+  42nd International Conference on Machine Learning}, 2025.
+
+\bibitem{altered2026thoughts}
+T.~D. Trinh, N.~Akhtar, and B.~Azam, ``Altered thoughts, altered actions:
+  Probing chain-of-thought vulnerabilities in {VLA} robotic manipulation,''
+  2026.
+
+\bibitem{zhao2025cotvla}
+Q.~Zhao, Y.~Lu, M.~J. Kim, Z.~Fu, Z.~Zhang, Y.~Wu, Z.~Li, Q.~Ma, S.~Han,
+  C.~Finn, A.~Handa, T.-Y. Lin, G.~Wetzstein, M.-Y. Liu, and D.~Xiang,
+  ``{CoT-VLA}: Visual chain-of-thought reasoning for vision-language-action
+  models,'' in {\em Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition}, pp.~1702--1713, 2025.
+
+\bibitem{teymoorianfard2026reasonbreak}
+M.~Teymoorianfard, J.-P. Monteuuis, J.~Petit, and A.~Houmansadr,
+  ``{ReasonBreak}: Probing vulnerabilities in reasoning-enabled
+  vision-language-action models for autonomous driving,'' 2026.
+
 \bibitem{yin2024safeagentbench}
 S.~Yin, X.~Pang, Y.~Ding, M.~Chen, Y.~Bi, Y.~Xiong, W.~Huang, S.~Chen,
   Z.~Xiang, and J.~Shao, ``Safeagentbench: A benchmark for safe task planning
@@ -439,15 +737,31 @@ Z.~Zhu, B.~Wu, Z.~Zhang, L.~Han, Q.~Liu, and B.~Wu, ``{EARBench}: Towards
   evaluating physical risk awareness for task planning of foundation
   model-based embodied {AI} agents,'' 2024.
 
-\bibitem{qu2025spatialvla}
-D.~Qu, H.~Song, Q.~Chen, Y.~Yao, X.~Ye, Y.~Ding, Z.~Wang, J.~Gu, B.~Zhao,
-  D.~Wang, {\em et~al.}, ``{SpatialVLA}: Exploring spatial representations for
-  vision-language-action models,'' {\em arXiv preprint arXiv:2501.15830}, 2025.
-\newblock Accepted to RSS 2025.
+\bibitem{gong2025figstep}
+Y.~Gong, D.~Ran, J.~Liu, C.~Wang, T.~Cong, A.~Wang, S.~Duan, and X.~Wang,
+  ``{FigStep}: Jailbreaking large vision-language models via typographic visual
+  prompts,'' in {\em Proceedings of the AAAI Conference on Artificial
+  Intelligence}, vol.~39, pp.~23951--23959, 2025.
 
-\bibitem{kim2025openvlaoft}
-M.~J. Kim, C.~Finn, and P.~Liang, ``Fine-tuning vision-language-action models:
-  Optimizing speed and success,'' {\em arXiv preprint arXiv:2502.19645}, 2025.
+\bibitem{niu2024jailbreaking}
+Z.~Niu, H.~Ren, X.~Gao, G.~Hua, and R.~Jin, ``Jailbreaking attack against
+  multimodal large language model,'' 2024.
+
+\bibitem{liu2024mmsafetybench}
+X.~Liu, Y.~Zhu, J.~Gu, Y.~Lan, C.~Yang, and Y.~Qiao, ``{MM-SafetyBench}: A
+  benchmark for safety evaluation of multimodal large language models,'' in
+  {\em Computer Vision -- ECCV 2024}, pp.~386--403, Springer, 2024.
+
+\bibitem{li2024hades}
+Y.~Li, H.~Guo, K.~Zhou, W.~X. Zhao, and J.-R. Wen, ``Images are achilles' heel
+  of alignment: Exploiting visual vulnerabilities for jailbreaking multimodal
+  large language models,'' in {\em Computer Vision -- ECCV 2024}, Springer,
+  2024.
+
+\bibitem{reed2022gato}
+S.~Reed, K.~Zolna, E.~Parisotto, S.~G. Colmenarejo, A.~Novikov, G.~Barth-Maron,
+  M.~Gimenez, Y.~Sulsky, J.~Kay, J.~T. Springenberg, {\em et~al.}, ``A
+  generalist agent,'' in {\em Transactions on Machine Learning Research}, 2022.
 
 \bibitem{khazatsky2024droid}
 A.~Khazatsky, K.~Pertsch, S.~Nair, A.~Balakrishna, S.~Dasari, S.~Karamcheti,
@@ -465,22 +779,17 @@ S.~Dasari, F.~Ebert, S.~Tian, S.~Nair, B.~Bucher, K.~Schmeckpeper, S.~Singh,
   S.~Levine, and C.~Finn, ``{RoboNet}: Large-scale multi-robot learning,'' in
   {\em Conference on Robot Learning}, 2019.
 
-\bibitem{reed2022gato}
-S.~Reed, K.~Zolna, E.~Parisotto, S.~G. Colmenarejo, A.~Novikov, G.~Barth-Maron,
-  M.~Gimenez, Y.~Sulsky, J.~Kay, J.~T. Springenberg, {\em et~al.}, ``A
-  generalist agent,'' in {\em Transactions on Machine Learning Research}, 2022.
+\bibitem{mandlekar2021robomimic}
+A.~Mandlekar, D.~Xu, J.~Wong, S.~Nasiriany, C.~Wang, R.~Kulkarni, L.~Fei-Fei,
+  S.~Savarese, Y.~Zhu, and R.~Mart{\'i}n-Mart{\'i}n, ``What matters in learning
+  from offline human demonstrations for robot manipulation,'' in {\em
+  Proceedings of the 5th Conference on Robot Learning}, 2021.
 
-\bibitem{greshake2023not}
-S.~Abdelnabi, K.~Greshake, S.~Mishra, C.~Endres, T.~Holz, and M.~Fritz, ``Not
-  what you've signed up for: Compromising real-world {LLM}-integrated
-  applications with indirect prompt injection,'' in {\em Proceedings of the
-  16th ACM Workshop on Artificial Intelligence and Security}, pp.~79--90, ACM,
-  2023.
-
-\bibitem{yi2023bipia}
-J.~Yi, Y.~Xie, B.~Zhu, K.~Hines, E.~Kiciman, G.~Sun, X.~Xie, and F.~Wu,
-  ``Benchmarking and defending against indirect prompt injection attacks on
-  large language models,'' 2023.
+\bibitem{mandlekar2023mimicgen}
+A.~Mandlekar, S.~Nasiriany, B.~Wen, I.~Akinola, Y.~Narang, L.~Fan, Y.~Zhu, and
+  D.~Fox, ``{MimicGen}: A data generation system for scalable robot learning
+  using human demonstrations,'' in {\em Proceedings of the 7th Conference on
+  Robot Learning}, 2023.
 
 \bibitem{zhan2024injecagent}
 Q.~Zhan, Z.~Fang, Z.~Li, L.~Li, and D.~Kang, ``{InjecAgent}: Benchmarking
@@ -488,11 +797,10 @@ Q.~Zhan, Z.~Fang, Z.~Li, L.~Li, and D.~Kang, ``{InjecAgent}: Benchmarking
   in {\em Findings of the Association for Computational Linguistics: ACL 2024},
   2024.
 
-\bibitem{ruan2024toolemu}
-Y.~Ruan, H.~Dong, A.~Wang, S.~Pitis, Y.~Zhou, J.~Ba, Y.~Dubois, C.~J. Maddison,
-  and T.~Hashimoto, ``Identifying the risks of {LM} agents with an
-  {LM}-emulated sandbox,'' in {\em The Twelfth International Conference on
-  Learning Representations}, 2024.
+\bibitem{yi2023bipia}
+J.~Yi, Y.~Xie, B.~Zhu, K.~Hines, E.~Kiciman, G.~Sun, X.~Xie, and F.~Wu,
+  ``Benchmarking and defending against indirect prompt injection attacks on
+  large language models,'' 2023.
 
 \bibitem{schick2023toolformer}
 T.~Schick, J.~Dwivedi-Yu, R.~Dess{\`i}, R.~Raileanu, M.~Lomeli, L.~Zettlemoyer,
@@ -536,6 +844,11 @@ B.~Dieber, R.~White, S.~Taurer, B.~Breiling, G.~Caiazza, H.~Christensen, and
   A.~Cortesi, ``Penetration testing {ROS},'' in {\em Robot Operating System
   ({ROS}): The Complete Reference (Volume 4)}, pp.~183--225, Springer, 2020.
 
+\bibitem{deng2022insecurityros2}
+G.~Deng, G.~Xu, Y.~Zhou, T.~Zhang, and Y.~Liu, ``On the (in)security of secure
+  {ROS2},'' in {\em Proceedings of the 2022 ACM SIGSAC Conference on Computer
+  and Communications Security}, 2022.
+
 \bibitem{quarta2017industrial}
 D.~Quarta, M.~Pogliani, M.~Polino, F.~Maggi, A.~M. Zanchettin, and S.~Zanero,
   ``An experimental security analysis of an industrial robot controller,'' in
@@ -551,18 +864,6 @@ T.~Bonaci, J.~Herron, T.~Yusuf, J.~Yan, T.~Kohno, and H.~J. Chizeck, ``To make
 V.~Mayoral-Vilches, U.~A. Carbajo, E.~Gil-Uriarte, {\em et~al.}, ``Robot
   cybersecurity, a review,'' {\em International Journal of Cyber Forensics and
   Advanced Threat Investigations}, 2020.
-
-\bibitem{yaacoub2022robotics}
-J.-P.~A. Yaacoub, H.~N. Noura, O.~Salman, and A.~Chehab, ``Robotics cyber
-  security: Vulnerabilities, attacks, countermeasures, and recommendations,''
-  {\em International Journal of Information Security}, vol.~21, pp.~115--158,
-  2022.
-
-\bibitem{neupane2024security}
-S.~Neupane, S.~Mitra, I.~A. Fernandez, S.~Saha, S.~Mittal, J.~Chen, N.~Pillai,
-  and S.~Rahimi, ``Security considerations in {AI}-robotics: A survey of
-  current methods, challenges, and opportunities,'' {\em IEEE Access}, vol.~12,
-  pp.~22072--22097, 2024.
 
 \bibitem{booth2017piggybacking}
 S.~Booth, J.~Tompkin, K.~Z. Gajos, J.~Waldo, H.~Pfister, and R.~Nagpal,
@@ -594,11 +895,21 @@ Z.~Zhong, Z.~Huang, A.~Wettig, and D.~Chen, ``Poisoning retrieval corpora by
 G.~Deng, Y.~Liu, K.~Wang, Y.~Li, T.~Zhang, and Y.~Liu, ``{PANDORA}: Jailbreak
   {GPT}s by retrieval augmented generation poisoning,'' 2024.
 
+\bibitem{zou2025poisonedrag}
+W.~Zou, R.~Geng, B.~Wang, and J.~Jia, ``{PoisonedRAG}: Knowledge corruption
+  attacks to retrieval-augmented generation of large language models,'' in {\em
+  Proceedings of the 34th USENIX Security Symposium}, 2025.
+
 \bibitem{cho2024garag}
 S.~Cho, S.~Jeong, J.~Seo, T.~Hwang, and J.~C. Park, ``Typos that broke the
   {RAG}'s back: Genetic attack on {RAG} pipeline by simulating documents in the
   wild via low-level perturbations,'' in {\em Findings of the Association for
   Computational Linguistics: EMNLP 2024}, 2024.
+
+\bibitem{liu2023libero}
+B.~Liu, Y.~Zhu, C.~Gao, Y.~Feng, Q.~Liu, Y.~Zhu, and P.~Stone, ``{LIBERO}:
+  Benchmarking knowledge transfer for lifelong robot learning,'' in {\em
+  Advances in Neural Information Processing Systems}, 2023.
 
 \bibitem{james2020rlbench}
 S.~James, Z.~Ma, D.~R. Arrojo, and A.~J. Davison, ``{RLBench}: The robot
@@ -626,6 +937,12 @@ S.~Nasiriany, A.~Maddukuri, L.~Zhang, A.~Parikh, A.~Lo, A.~Joshi, A.~Mandlekar,
 \bibitem{jiang2026benchmarkaudit}
 T.~Jiang, X.~Tan, S.~Wheeler, L.~Sun, T.~W. Ayalew, and M.~Walter, ``What are
   we actually benchmarking in robot manipulation?,'' 2026.
+
+\bibitem{robocasa365}
+S.~Nasiriany, S.~Nasiriany, A.~Maddukuri, and Y.~Zhu, ``{RoboCasa365}: A
+  large-scale simulation framework for training and benchmarking generalist
+  robots,'' in {\em International Conference on Learning Representations},
+  2026.
 
 \bibitem{radford2021clip}
 A.~Radford, J.~W. Kim, C.~Hallacy, A.~Ramesh, G.~Goh, S.~Agarwal, G.~Sastry,
@@ -658,6 +975,11 @@ W.~Dai, J.~Li, D.~Li, A.~M.~H. Tiong, J.~Zhao, W.~Wang, B.~Li, P.~Fung, and
   S.~Hoi, ``{InstructBLIP}: Towards general-purpose vision-language models with
   instruction tuning,'' in {\em Advances in Neural Information Processing
   Systems}, 2023.
+
+\bibitem{florence2021implicit}
+P.~Florence, C.~Lynch, A.~Zeng, O.~Ramirez, A.~Wahid, L.~Downs, A.~Wong,
+  J.~Lee, I.~Mordatch, and J.~Tompson, ``Implicit behavioral cloning,'' in {\em
+  Proceedings of the 5th Conference on Robot Learning}, pp.~158--168, 2022.
 
 \bibitem{papernot2017practical}
 N.~Papernot, P.~McDaniel, I.~Goodfellow, S.~Jha, Z.~B. Celik, and A.~Swami,
@@ -724,5 +1046,32 @@ M.~Savva, A.~Kadian, O.~Maksymets, Y.~Zhao, E.~Wijmans, B.~Jain, J.~Straub,
   J.~Liu, V.~Koltun, J.~Malik, {\em et~al.}, ``Habitat: A platform for embodied
   {AI} research,'' in {\em Proceedings of the IEEE/CVF International Conference
   on Computer Vision}, pp.~9339--9347, 2019.
+
+\bibitem{fu2020d4rl}
+J.~Fu, A.~Kumar, O.~Nachum, G.~Tucker, and S.~Levine, ``{D4RL}: Datasets for
+  deep data-driven reinforcement learning,'' in {\em Advances in Neural
+  Information Processing Systems Datasets and Benchmarks Workshop}, 2020.
+
+\bibitem{yu2020metaworld}
+T.~Yu, D.~Quillen, Z.~He, R.~Julian, K.~Hausman, C.~Finn, and S.~Levine,
+  ``{Meta-World}: A benchmark and evaluation for multi-task and meta
+  reinforcement learning,'' in {\em Conference on Robot Learning}, 2020.
+
+\bibitem{zhu2020robosuite}
+Y.~Zhu, J.~Wong, A.~Mandlekar, R.~Mart{\'i}n-Mart{\'i}n, A.~Joshi,
+  S.~Nasiriany, and Y.~Zhu, ``{robosuite}: A modular simulation framework and
+  benchmark for robot learning,'' in {\em arXiv preprint arXiv:2009.12293},
+  2020.
+
+\bibitem{jang2021bcz}
+E.~Jang, A.~Irpan, M.~Khansari, D.~Kappler, F.~Ebert, C.~Lynch, S.~Levine, and
+  C.~Finn, ``{BC-Z}: Zero-shot task generalization with robotic imitation
+  learning,'' in {\em Proceedings of the 5th Conference on Robot Learning},
+  pp.~991--1002, 2022.
+
+\bibitem{kalashnikov2021mtopt}
+D.~Kalashnikov, J.~Varley, Y.~Chebotar, B.~Swanson, R.~Jonschkowski, C.~Finn,
+  S.~Levine, and K.~Hausman, ``{MT-Opt}: Continuous multi-task robotic
+  reinforcement learning at scale,'' 2021.
 
 \end{thebibliography}

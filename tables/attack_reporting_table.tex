@@ -1,25 +1,26 @@
 \begin{table*}[t]
 \centering
 \scriptsize
-\caption{Minimum details needed to interpret VLA attack claims. The table keeps the focus on what was attacked, how the attacker operated, how success was measured, and what supports physical or embodied relevance.}
+\caption{Checklist for reporting VLA attack claims. D = digital input; Sim = simulation rollout; HIL = hardware-in-the-loop; Robot = real robot actuation; F = task failure; T = targeted behavior; S = safety violation; P = privacy leakage; A = authorization misuse.}
 \label{tab:attack-reporting}
-\renewcommand{\arraystretch}{1.12}
-\begin{tabularx}{\textwidth}{@{}p{0.16\textwidth}Y Y Y@{}}
+\renewcommand{\arraystretch}{1.08}
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{@{}P{0.18\textwidth}Y Y@{}}
 \toprule
-\textbf{Claim element} & \textbf{What to specify} & \textbf{Why it changes interpretation} & \textbf{Common failure mode} \\
+\textbf{Item} & \textbf{Must report} & \textbf{Why it matters} \\
 \midrule
-Threat model & Knowledge level, access channel, privilege level, timing, query budget, physical placement, tool privileges, training or inference access & Makes ASR comparable across white-box, black-box, physical, human-mediated, and supply-chain settings & ASR without query budget, access channel, or privilege boundary. \\
-Evidence stratum & Direct VLA, embodied-adjacent, or contextual evidence & Prevents adjacent LLM-agent, sensor, or robot-security results from being overclaimed as VLA-validated attacks & Calling a VLM jailbreak or ROS exploit a VLA attack without testing a VLA policy. \\
-Targeted component & Perception, grounding, planner, action decoder, skill API, controller, memory, simulator, human interface & Identifies the intermediate representation or decision changed by the attack & Calling all failures ``jailbreaks'' without locating the attacked stage. \\
-Attack objective & Untargeted failure, targeted action, unsafe action, freezing, goal hijack, privacy leak, unauthorized tool use, persistence & Separates task degradation from security-relevant consequences & Treating any lower task success as attack success. \\
-ASR denominator & Frame, prompt, episode, triggered episode, trajectory, query, physical trial, or membership candidate & Determines whether success rates can be compared or aggregated & Pooling gripper-release ASR with task-failure ASR or MIA AUC. \\
-Validation tier & Digital input-only, real-sensor input, simulation rollout, HIL, real-robot actuation, human-proximate & Prevents simulator, sensor-only, or image-level results from being overclaimed & Describing a photographed patch as real-robot actuation. \\
-Transferability & Across prompts, models, action representations, embodiments, sensors, environments, and controllers & Determines whether the attack is substrate-specific or system-level & One model and one scene treated as general VLA risk. \\
-Stealth and cost & Perturbation visibility, physical plausibility, attack duration, number of interventions, compute and queries & Connects attack success to deployability and detectability & Ignoring that the attack requires conspicuous or repeated intervention. \\
-Persistence and recovery & Whether the effect survives new observations, correction, memory reset, user intervention, or safe stop & Captures closed-loop and multi-session attacks & Ending evaluation at the first wrong action. \\
-Robot-control trace & Action representation, chunk horizon, controller frequency, safety filter, recovery policy, pre/post-controller traces & Connects model-level attack success to robotics evidence & Only decoded actions are shown when the controller clips or rejects them. \\
-Consequence severity & Safe stop, task failure, wrong-object action, safety-envelope violation, privacy/authorization violation, human-proximate harm & Distinguishes robustness failure from security impact & Collapsing all failed episodes into a single ASR. \\
-Defense awareness & Whether attacks are adaptive to filters, prompt hierarchy, tool permissions, shields, monitors, or human approval & Prevents evaluation from measuring only obsolete non-adaptive attacks & Evaluating a defense only against attacks designed before the defense. \\
+Threat model & Knowledge; access; privilege; timing; query/physical budget & Makes ASR comparable across white-box, black-box, physical, and supply-chain settings. \\
+Evidence stratum & Direct VLA; embodied-adjacent; contextual & Prevents adjacent sensor, LLM-agent, or ROS results from being overclaimed as VLA attacks. \\
+Target component & Perception; grounding; planner; action head; controller; memory; tool/API & Locates which stage or interface the attack actually changes. \\
+Target representation & Embedding; plan; reasoning trace; token; chunk; waypoint; trajectory; skill call; memory entry & Links attack mechanism to measurable VLA objects. \\
+Objective type & F; T; S; P; A; persistence; recovery failure & Separates task degradation from security-relevant consequences. \\
+Denominator & Frame; prompt; episode; triggered episode; trajectory; query; physical trial; membership candidate & Defines what ASR/AUC/TPR values actually count. \\
+Validation tier & D; real sensor; Sim; HIL; Robot; human-proximate & Bounds whether the claim supports model, rollout, or deployment conclusions. \\
+Transfer axes & Prompt; model; benchmark; action representation; embodiment; sensor; controller & Distinguishes local evidence from broader VLA risk. \\
+Stealth and cost & Visibility; plausibility; duration; interventions; compute; queries & Connects attack success to deployability and detectability. \\
+Recovery behavior & Replan; safe stop; user correction; memory reset; session boundary & Captures closed-loop and multi-session risk. \\
+Controller trace & Chunk horizon; control frequency; safety filter; pre/post-controller action & Shows whether the model-level deviation crosses the controller boundary. \\
+Severity & Safe stop; wrong object; unsafe motion; privacy/authorization breach; human proximity & Prevents all failed episodes from collapsing into one ASR. \\
 \bottomrule
 \end{tabularx}
 \end{table*}

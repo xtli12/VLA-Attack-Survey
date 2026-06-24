@@ -1,18 +1,70 @@
 \section{Closed-Loop Propagation of VLA Attacks}
 \label{sec:taxonomy}
 
-\subsection{Closed-Loop VLA System}
+\subsection{VLA Systems as Semantic-to-Physical Loops}
 
-A VLA-enabled robot should be read as a closed-loop state transition system, not as a single prompt-to-action function. Let $x_t$ denote the physical state, $o_t=O(x_t,\eta_t)$ the observation produced by sensors and preprocessing noise $\eta_t$, $m_t$ the memory/tool/human context, and $u_t$ the command emitted by the VLA or its planner. A low-level controller $K$ maps $u_t$ and robot state to actuation, while a recovery or safety mechanism $R$ may stop, replan, filter, or ask for help:
-\begin{align}
-    u_t &= \pi_\theta(o_{\le t}, g, m_t), \nonumber\\
-    a_t &= K(u_t, x_t, R_t), \nonumber\\
-    x_{t+1} &= F(x_t, a_t, w_t), \quad m_{t+1}=U(m_t,o_t,u_t,a_t).
-    \label{eq:closed-loop-vla}
-\end{align}
-The safety envelope is a set $\mathcal{S}$ over physical state, controller state, tool authorization, privacy state, and human proximity. An attack is relevant when an intervention $\delta$ changes one of these transitions or contexts so that the rollout violates a task, authorization, privacy, or safety predicate. This view gives the survey its central question: where does the adversary enter, which representation changes first, how does that change cross the controller boundary, and does feedback or recovery stop it?
+Vision-Language-Action (VLA) models extend multimodal foundation models from interpretation to embodied control. Given scene observations, a language goal, and often a short interaction history, they produce robot-relevant actions or action-conditioned decisions. Their defining feature is not simply that they accept images and text. It is that semantic understanding is coupled to behavior: object names, spatial relations, affordances, task constraints, and user intent are converted into motions, skill calls, or trajectories that change the world. VLA systems therefore continue the lines of vision-language modeling and robot imitation learning, while making failures more consequential than errors in captioning or static recognition \cite{driess2023palme,brohan2023rt2,kim24openvla,ghosh2024octo,black2024pi0} \cite{sapkota2025vlasurvey,liu2025embodiedsurvey,xing2025robustsecure}.
 
-Figure~\ref{fig:vla-pipeline} is the organizing framework for the rest of the survey. It separates where the adversary enters from what the attack changes, marks the controller boundary, and summarizes the propagation chain
+This control role separates VLA systems from adjacent model classes. A VLM may ground objects, answer questions, or describe a scene, but its output need not be executable. An LLM agent may call software tools, search memory, or follow a procedure, but it may have no direct contact with robot dynamics. A conventional robot policy controls motion, but it is usually conditioned on a narrow task representation rather than open-ended language and web-scale semantics. A VLA system sits at the intersection: it binds perception and language to actions inside a feedback loop, so an error in grounding, reasoning, or instruction interpretation can become a changed grasp, path, tool invocation, or recovery decision.
+
+A typical VLA pipeline runs from context to control. The robot observes the world through cameras, proprioception, and other sensors; receives a language goal from a user or task manager; and conditions on recent history, memory, retrieved context, or prior actions when available. A multimodal backbone maps this context into representations for object grounding, spatial reasoning, affordance estimation, or task decomposition. A planner, reasoner, or policy head then chooses an action representation: a token, an action chunk, a waypoint, a trajectory, a sampled action sequence, or a skill/API call. Finally, a controller, motion planner, or runtime executor turns that representation into actuation, after which the new physical state produces the next observation. Fig.~\ref{fig:vla-system-loop} summarizes this system view. For this survey, the key point is that the pipeline is not a one-way perception module followed by a separate robot controller. It is a semantic-to-physical loop \cite{lynch2022interactive,huang2022inner,belkhale2024rth,wu2023tidybot,saxena2014robobrain}.
+
+\begin{figure*}[t]
+\centering
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+    font=\scriptsize,
+    node distance=0.42cm and 0.55cm,
+    box/.style={draw, rounded corners, align=center, text width=2.55cm, minimum height=1.0cm, inner sep=4pt, fill=blue!6},
+    exec/.style={draw, rounded corners, align=center, text width=2.55cm, minimum height=1.0cm, inner sep=4pt, fill=green!8},
+    ctx/.style={draw, rounded corners, align=center, text width=2.55cm, minimum height=1.0cm, inner sep=4pt, fill=gray!8},
+    arr/.style={-{Latex[length=1.8mm]}, thick},
+    ret/.style={-{Latex[length=1.8mm]}, thick, gray!75}
+]
+\node[ctx] (context) at (0,0) {Observations / language\\history / memory / tools};
+\node[box] (backbone) at (3.25,0) {Multimodal\\backbone};
+\node[box] (reason) at (6.5,0) {Grounding / planning\\reasoning};
+\node[box] (action) at (9.75,0) {Action\\representation};
+\node[exec] (controller) at (13.0,0) {Controller /\\execution};
+\node[ctx] (feedback) at (6.5,-1.65) {Feedback and recovery\\future observations / memory updates};
+\draw[arr] (context) -- (backbone);
+\draw[arr] (backbone) -- (reason);
+\draw[arr] (reason) -- (action);
+\draw[arr] (action) -- node[above, font=\scriptsize] {controller boundary} (controller);
+\draw[ret] (controller.south) |- (feedback.east);
+\draw[ret] (feedback.west) -| (context.south);
+\node[align=center, font=\scriptsize\itshape, text width=12.6cm] at (6.5,-2.55)
+{A VLA system couples semantic context to executable behavior; actions change the future observations, memory, tool state, and recovery choices that condition later decisions.};
+\end{tikzpicture}
+}
+\caption{VLA system loop used as background for the attack analysis. The figure abstracts the deployed robot stack from multimodal context through grounding/planning, action representation, controller execution, and feedback/recovery.}
+\label{fig:vla-system-loop}
+\end{figure*}
+
+\subsection{Action Representations and Attack Surfaces}
+
+VLA architectures differ most visibly in how they represent the step from semantic context to executable behavior. End-to-end policies map observations and language directly to actions or action distributions, including generalist policies trained across large robot datasets \cite{brohan2022rt1,brohan2023rt2,kim24openvla,ghosh2024octo,bousmalis2023robocat} \cite{wu2023gr1,li2023roboflamingo,cheang2024gr2,wang2025unified,nvidia2025gr00tn1}. Planner-skill systems use a VLM or LLM to select skills, synthesize code, build value maps, or rank affordances while lower-level policies execute the selected behavior \cite{ahn2022saycan,liang2023code,singh2023progprompt,huang2023voxposer,shridhar2022cliport} \cite{huang2022inner,wu2023tidybot,belkhale2024rth,yang2025magma}. Action-token models discretize motor commands and inherit the behavior of autoregressive decoding and detokenization \cite{brohan2022rt1,brohan2023rt2,kim24openvla,qu2025spatialvla,pertsch2025fast}. Chunked policies emit several future actions per inference step \cite{zhao2023act,kim2025openvlaoft,pertsch2025fast,liu2024rdt}. Waypoint and trajectory policies expose geometric targets and path-level objectives \cite{zeng2020transporter,shridhar2022peract,gervet2023act3d,goyal2023rvt,shridhar2022cliport}. Diffusion and flow policies generate conditional action sequences through sampling or velocity fields rather than a single deterministic output \cite{chi2023diffusion,black2024pi0,ze2024dp3,xian2024diffuseractor,liu2024rdt} \cite{reuss2024mdt,lu2026h3dp}. Skill/API agents make the action more symbolic by selecting tools, services, robot skills, or arguments that execute outside the model.
+
+These representations are not merely implementation details; they define attack targets and evaluation signals. An action-token attack may be measured by changed token probability, wrong gripper state, or an autoregressive error that propagates into later commands \cite{shafiullah2022bet,lee2024vqbet,pertsch2025fast}. A chunk-level attack may be small at each step but consequential because feedback is delayed until the chunk is partly executed \cite{zhao2023act,kim2025openvlaoft,xu2026silentdrift}. A waypoint attack can be evaluated by wrong-object grounding, endpoint displacement, or unsafe intermediate poses; a trajectory attack can target curvature, timing, clearance, or path redirection. Diffusion and flow policies expose the conditional distribution, denoising path, velocity field, seed, or guidance mechanism, so the relevant object may be a sampled trajectory rather than a single decoded action. Skill/API calls shift the concern toward authorization, source confusion, and argument integrity. This is why later sections treat ``action'' as a family of control-relevant representations rather than one uniform output type.
+
+Because these representations sit inside a deployed loop, attacks can enter through perception, language, memory, retrieved context, training data, tool output, controller interfaces, the physical environment, or human interaction. The key question is how an intervention moves from a semantic change, such as altered grounding or planning, to a control change, such as a token, chunk, waypoint, trajectory, diffusion sample, or skill call. The closed-loop model below gives the compact formal view used throughout the survey.
+
+\subsection{Closed-Loop Attack Model}
+
+With this background in view, a VLA-enabled robot is better read as a closed-loop state transition system than as a single prompt-to-action function. Let $x_t$ denote the physical state, $o_t=O(x_t,\eta_t)$ the observation produced by sensors and preprocessing noise $\eta_t$, $m_t$ the memory/tool/human context, and $u_t$ the command emitted by the VLA or its planner. A low-level controller $K$ maps $u_t$ and robot state to actuation, while a recovery or safety mechanism $R$ may stop, replan, filter, or ask for help \cite{ames2017control,alshiekh2018shielded,achiam2017constrained,dawson2023safecontrol}. We use the following compact state-update view:
+\begin{equation}
+\begin{aligned}
+    u_t &= \pi_\theta(o_{\le t}, g, m_t),\\
+    a_t &= K(u_t, x_t, R_t),\\
+    x_{t+1} &= F(x_t, a_t, w_t),\\
+    m_{t+1} &= U(m_t, o_t, u_t, a_t).
+\end{aligned}
+\label{eq:closed-loop-vla}
+\end{equation}
+The safety envelope is a set $\mathcal{S}$ over physical state, controller state, tool authorization, privacy state, and human proximity. An attack is relevant when an intervention $\delta$ changes one of these transitions or contexts so that the rollout violates a task, authorization, privacy, or safety predicate. This view gives the survey its central question: where does the adversary enter, which representation changes first, how does the change cross the controller boundary, and does feedback or recovery stop it?
+
+At this level, adversarial propagation can be summarized as
 \begin{align}
 \delta &\rightarrow \Delta o_t \rightarrow \Delta z_t
 \rightarrow \Delta u_t \rightarrow \Delta a_t \nonumber\\
@@ -20,20 +72,20 @@ Figure~\ref{fig:vla-pipeline} is the organizing framework for the rest of the su
 \rightarrow \text{recovery or violation}
 \label{eq:attack-propagation}
 \end{align}
-The same perturbation can stop at the observation, change an embedding or grounding representation, alter a plan, shift an action token, corrupt a chunk, redirect a trajectory, be clipped by a controller, or only become visible after the next observation. This is why a VLA attack claim is not settled at the model-output boundary; the robot-level claim depends on execution, feedback, recovery, and the resulting physical or system consequence.
+Fig.~\ref{fig:survey-overview} situates this propagation chain within the broader survey scope: entry surfaces, target representations, consequences, and evidence levels. The same perturbation can stop at the observation, change an embedding or grounding representation, alter a plan, shift an action token, corrupt a chunk, redirect a trajectory, be clipped by a controller, or appear only after the next observation. A VLA attack claim is therefore not settled at the model-output boundary; the robot-level claim depends on execution, feedback, recovery, and the resulting physical or system consequence.
 
 \subsection{Attack Map}
 
-The attack map has four intuitive stages. First, the attack enters through a channel: vision, language, memory, tool output, middleware, training data, physical environment, or human interaction. Second, it changes a target representation: grounding, plan, reasoning trace, action token, action chunk, waypoint, trajectory, velocity field, controller state, memory entry, or tool call. Third, the changed representation reaches a robot or system consequence: task failure, wrong-object action, unsafe motion, unauthorized skill use, privacy leakage, or persistent state compromise. Fourth, the validation setting determines what the claim can support: digital input, real-sensor input, simulation rollout, hardware-in-the-loop, real-robot actuation, or human-proximate study.
+The attack map has four intuitive stages. First, the attack enters through a channel: vision, language, memory, tool output, middleware, training data, physical environment, or human interaction. Second, it changes a target representation: grounding, plan, reasoning trace, action token, action chunk, waypoint, trajectory, velocity field, controller state, memory entry, or tool call. Third, the changed representation reaches a robot or system consequence, such as task failure, wrong-object action, unsafe motion, unauthorized skill use, privacy leakage, or persistent state compromise. Fourth, the validation setting determines what the claim can support: digital input, real-sensor input, simulation rollout, hardware-in-the-loop, real-robot actuation, or human-proximate study.
 
-Table~\ref{tab:taxonomy-overview} keeps these stages orthogonal because common labels hide different mechanisms. ``Physical attack'' describes an access channel, not the target: a physical patch may attack visual embeddings, grounding, visual proprioception, or a trajectory objective. ``Jailbreak'' describes a family resemblance, not a consequence: a prompt attack may cause task failure, targeted motion, unauthorized tool use, or no robot-level effect. ``Backdoor'' describes timing and training access, but the robotic target may be a gripper primitive, an action chunk, a waypoint, or a long-horizon trajectory.
+Table~\ref{tab:taxonomy-overview} keeps these stages orthogonal because familiar labels often hide different mechanisms. ``Physical attack'' describes an access channel, not the target: a physical patch may attack visual embeddings, grounding, visual proprioception, or a trajectory objective. ``Jailbreak'' describes a family resemblance, not a consequence: a prompt attack may cause task failure, targeted motion, unauthorized tool use, or no robot-level effect. ``Backdoor'' describes timing and training access, but the robotic target may be a gripper primitive, an action chunk, a waypoint, or a long-horizon trajectory.
 
 \input{tables/taxonomy_table}
 
 \subsection{Typed Attack Success}
 \label{subsec:attack-success}
 
-Because VLA safety papers do not yet use a uniform definition of attack success, a survey needs a typed definition. Let $\tau^0(c)$ be the benign rollout from an initial condition and task context $c=(x_0,g,m_0)$, and let $\tau^\delta(c)$ be the rollout under an adversarial intervention $\delta$ that satisfies the declared knowledge, access, privilege, budget, and physical constraints. A VLA attack is successful for objective type $O$ and consequence class $C$ when
+Because VLA safety papers do not yet use a uniform definition of attack success, the survey needs a typed definition. Let $\tau^0(c)$ be the benign rollout from an initial condition and task context $c=(x_0,g,m_0)$, and let $\tau^\delta(c)$ be the rollout under an adversarial intervention $\delta$ that satisfies the declared knowledge, access, privilege, budget, and physical constraints. A VLA attack is successful for objective type $O$ and consequence class $C$ when
 \begin{align}
     \mathrm{Succ}_{O,C}(\tau^\delta,\tau^0)
     &= \mathbf{1}\{ \phi_{O,C}(\tau^\delta)=1 \nonumber\\
@@ -45,52 +97,16 @@ where $\phi_{O,C}$ is a typed violation predicate and $\Delta(\mathcal{A})$ is t
 
 The predicate $\phi_{O,C}$ must be typed. A \emph{task-failure attack} succeeds when the benign task would complete but the attacked rollout fails. A \emph{targeted behavior attack} succeeds when the robot reaches an attacker-specified object, action primitive, waypoint, trajectory, skill, or tool call. A \emph{safety attack} succeeds when the rollout violates a safety envelope, contact margin, force/velocity/workspace bound, or human-proximity constraint. An \emph{authorization attack} succeeds when the system executes an unauthorized command, skill, tool, or privilege transition. A \emph{privacy attack} succeeds when membership, trajectory, user, or scene information is inferred above a stated threshold. A \emph{persistence attack} succeeds when the adversarial effect survives replanning, feedback, memory update, fine-tuning, or a session boundary. A \emph{recovery-failure attack} succeeds when the system has an opportunity to stop, replan, ask for help, or invoke a recovery policy but still reaches the violation predicate.
 
-This definition makes ASR meaningful only when five items are stated together: the violation predicate, the denominator, the attacker assumptions, the validation tier, and the benign or clean baseline. Without these items, ASR values from different VLA papers should be treated as local evidence rather than comparable field-level rates.
-
-\begin{figure*}[t]
-\centering
-\scriptsize
-\begin{tikzpicture}[
-    node distance=0.45cm and 0.55cm,
-    box/.style={draw, rounded corners, align=center, minimum height=0.95cm, text width=2.15cm, fill=gray!8},
-    atk/.style={draw, rounded corners, align=center, text width=2.2cm, fill=red!8},
-    arr/.style={-{Latex[length=2mm]}, thick}
-]
-\node[box] (obs) {Entry point\\observation / source};
-\node[atk, left=of obs, text width=1.9cm] (adv) {Adversary\\and attack\\operator $\delta$};
-\node[box, right=of obs] (latent) {Changed\\representation\\$z_t$};
-\node[box, right=of latent] (cmd) {Command / action\\$u_t$};
-\node[box, right=of cmd] (ctrl) {Controller\\$K(u_t,x_t)$};
-\node[box, right=of ctrl] (exec) {Physical state\\$x_{t+1}$};
-\node[box, below=of cmd, text width=2.6cm] (rec) {Feedback and recovery\\memory / tools / human};
-\node[box, below=of exec, text width=2.25cm, fill=green!8] (safe) {Recovery or\\violation\\$\mathcal{S}$};
-\draw[arr] (obs) -- (latent);
-\draw[arr] (latent) -- (cmd);
-\draw[arr] (cmd) -- (ctrl);
-\draw[arr] (ctrl) -- (exec);
-\draw[arr] (exec.south) -- (safe.north);
-\draw[arr] (exec.south) |- (rec.east);
-\draw[arr] (rec.west) -| (latent.south);
-\draw[arr] (rec.north) -- (cmd.south);
-\draw[arr, red!70] (adv) -- node[above, sloped] {entry} (obs);
-\draw[arr, red!70] (adv.north) .. controls +(0,1.3) and +(0,1.3) .. node[above] {language / tool / data / physical entries} (cmd.north);
-\draw[arr, red!70] (adv.south) .. controls +(0,-1.1) and +(-1.3,-0.8) .. node[below] {middleware / recovery / memory entries} (rec.west);
-\draw[arr, red!70, dashed] (latent.north) to[bend left=20] node[above] {$\Delta z_t$} (cmd.north);
-\draw[arr, red!70, dashed] (cmd.north) to[bend left=20] node[above] {$\Delta u_t$} (ctrl.north);
-\draw[arr, red!70, dashed] (ctrl.north) to[bend left=20] node[above] {$\Delta a_t$} (exec.north);
-\end{tikzpicture}
-\caption{Core closed-loop view used throughout the survey. The figure separates adversarial entry surfaces from representation impact, marks the controller boundary between model command and physical actuation, and shows how feedback either supports recovery or carries the system toward a robot/system violation.}
-\label{fig:vla-pipeline}
-\end{figure*}
+This definition makes ASR meaningful only when five items are stated together: the violation predicate, the denominator, the attacker assumptions, the validation tier, and the benign or clean baseline. Without them, ASR values from different VLA papers should be treated as local evidence rather than comparable field-level rates.
 
 \subsection{Attacker Assumptions}
 
-We assume the deployer has an intended task, authorized users, authorized tools and skills, and a safety envelope for people, property, data, and robot hardware. The attacker seeks to violate one or more of these constraints while preserving enough surface plausibility that the system continues acting, logs the event as normal, or stores corrupted context for future sessions.
+We assume the deployer has an intended task, authorized users, authorized tools and skills, and a safety envelope for people, property, data, and robot hardware. The attacker seeks to violate one or more of these constraints while preserving enough surface plausibility for the system to keep acting, log the event as normal, or store corrupted context for future sessions.
 
-Attacker capability has three independent dimensions. \emph{Knowledge level} describes what the attacker knows about weights, gradients, architecture, prompts, action heads, or controllers: white-box, gray-box, black-box, transfer-only, or unknown. \emph{Access channel} describes how the intervention is delivered: digital, physical, human-mediated, supply-chain, or hybrid. \emph{Privilege level} describes the role or boundary involved: user, bystander, operator, data contributor, model provider, tool/API, middleware, or no privilege. Keeping these dimensions separate prevents a common confusion: ``black-box'' and ``physical'' are not alternatives. A physical patch can be optimized with white-box gradients, transferred in a black-box setting, or deployed by a bystander with no digital privileges.
+Attacker capability has three independent dimensions. \emph{Knowledge level} describes what the attacker knows about weights, gradients, architecture, prompts, action heads, or controllers: white-box, gray-box, black-box, transfer-only, or unknown. \emph{Access channel} describes how the intervention is delivered: digital, physical, human-mediated, supply-chain, or hybrid. \emph{Privilege level} describes the role or boundary involved: user, bystander, operator, data contributor, model provider, tool/API, middleware, or no privilege. Keeping these dimensions separate avoids a common confusion: ``black-box'' and ``physical'' are not alternatives. A physical patch can be optimized with white-box gradients, transferred in a black-box setting, or deployed by a bystander with no digital privileges.
 
 \subsection{Reading the Map Through Examples}
 
-The map is easiest to read through examples. In a scene-text hijacking scenario, the attacker does not need to rewrite the user's goal; the robot sees an instruction-like phrase in the environment, the phrase changes source grounding or plan selection, and the downstream consequence may be wrong-object manipulation or unauthorized skill use. In a patch scenario, the entry is visual, but the relevant question is whether the perturbation merely changes an embedding or whether it reaches an action token, waypoint, or physical trajectory \cite{wang2025vlaadversarial,xu2025edpa,lu2026patch}. In a poisoned-demonstration scenario, the attack enters before deployment, hides behind clean utility, and later activates as a gripper primitive, action freeze, or chunk-level drift \cite{wang2025freezevla,xu2025dropvla,xu2026silentdrift}. In a trajectory-redirection scenario, the language may remain close to the user's instruction while the physical path bends toward a different endpoint \cite{puthumanaillam2026trajectory}. In a membership-inference scenario, the consequence is not motion failure at all; action likelihoods or temporal action traces leak whether a demonstration or trajectory was in the training set \cite{peng2026miavla,luan2026vlaleaks}.
+The map is easiest to read through examples. In a scene-text hijacking scenario, the attacker need not rewrite the user's goal: the robot sees an instruction-like phrase in the environment, the phrase changes source grounding or plan selection, and the downstream consequence may be wrong-object manipulation or unauthorized skill use. In a patch scenario, the entry is visual, but the relevant question is whether the perturbation merely changes an embedding or whether it reaches an action token, waypoint, or physical trajectory \cite{wang2025vlaadversarial,xu2025edpa,lu2026patch}. In a poisoned-demonstration scenario, the attack enters before deployment, hides behind clean utility, and later activates as a gripper primitive, action freeze, or chunk-level drift \cite{wang2025freezevla,xu2025dropvla,xu2026silentdrift}. In a trajectory-redirection scenario, the language may remain close to the user's instruction while the physical path bends toward a different endpoint \cite{puthumanaillam2026trajectory}. In a membership-inference scenario, the consequence is not motion failure at all; action likelihoods or temporal traces leak whether a demonstration or trajectory was in the training set \cite{peng2026miavla,luan2026vlaleaks}.
 
-This separation also prevents overclaiming. A VLM jailbreak with no robot action is contextual evidence for source confusion, not direct evidence of VLA unsafe action. A ROS2 middleware exploit is embodied-adjacent evidence for tool/middleware compromise, not a VLA policy attack unless the VLA system consumes or emits the compromised message. A physical LiDAR or camera attack can be strong sensor evidence but remains contextual for VLA action unless a VLA-controlled robot rollout is measured.
+This separation also prevents overclaiming. A VLM jailbreak with no robot action is contextual evidence for source confusion, not direct evidence of unsafe VLA action. A ROS2 middleware exploit is embodied-adjacent evidence for tool or middleware compromise, not a VLA policy attack unless the VLA system consumes or emits the compromised message. A physical LiDAR or camera attack can be strong sensor evidence, but it remains contextual for VLA action unless a VLA-controlled robot rollout is measured.
