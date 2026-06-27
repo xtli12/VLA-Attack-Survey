@@ -94,7 +94,7 @@ h3 {
 h1 {
   color: var(--ink);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(3.2rem, 8vw, 7.7rem);
+  font-size: clamp(2.6rem, 6.4vw, 6.1rem);
   letter-spacing: -0.075em;
   max-width: 980px;
 }
