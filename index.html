@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Attacks on Vision-Language-Action Robotic Systems</title>
+  <meta name="description" content="Project page for the survey Attacks on Vision-Language-Action Robotic Systems: Mechanisms, Evaluation, and Open Problems.">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav" aria-label="Primary">
+      <a href="#abstract">Abstract</a>
+      <a href="#framework">Framework</a>
+      <a href="#papers">Papers</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#citation">Citation</a>
+    </nav>
+    <div class="hero-inner">
+      <p class="eyebrow">Survey and living resource</p>
+      <h1>Attacks on Vision-Language-Action Robotic Systems</h1>
+      <p class="subtitle">Mechanisms, Evaluation, and Open Problems</p>
+      <p class="lead">
+        A curated project page for research on adversarial interventions that propagate from multimodal perception and language into robot actions, tools, memory, privacy boundaries, and closed-loop recovery.
+      </p>
+      <div class="actions">
+        <a class="button primary" href="main.pdf">Read the paper</a>
+        <a class="button" href="tables/vla_attack_evidence_database_v2026-06-16.csv">Download evidence database</a>
+        <a class="button" href="figure_mockups/index.html">View figure mockups</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="abstract" class="section">
+      <div class="section-heading">
+        <p class="kicker">Abstract</p>
+        <h2>Why VLA attacks require a robotics view</h2>
+      </div>
+      <p>
+        With the rapid advancement of Vision-Language-Action (VLA) models, ensuring the security of embodied intelligent systems has emerged as a critical area of research. This survey provides a comprehensive analysis of VLA safety, exploring the unique vulnerabilities that arise when multimodal reasoning is directly coupled with physical execution. We introduce a unified, mechanism-driven framework that integrates the entire attack lifecycle, offering a holistic perspective on how adversarial interventions manipulate perception, planning, and control. Through a systematic analysis of VLA architectures, we establish a classification framework that distinguishes direct embodied threats from traditional digital attacks, providing standardized criteria for evaluating attack success in closed-loop environments. We identify critical limitations in existing research regarding physical evaluations, privacy metrics, and adaptive safeguards, and we outline future directions to strengthen VLA robustness.
+      </p>
+    </section>
+
+    <section class="section grid-section" id="framework">
+      <div class="section-heading">
+        <p class="kicker">Framework</p>
+        <h2>From semantic intervention to physical consequence</h2>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <span class="card-number">01</span>
+          <h3>Entry Surfaces</h3>
+          <p>Vision, language, training data, memory, retrieval, tools, middleware, physical context, and human interaction.</p>
+        </article>
+        <article class="card">
+          <span class="card-number">02</span>
+          <h3>Target Representations</h3>
+          <p>Grounding, plans, reasoning traces, action tokens, chunks, waypoints, trajectories, controller messages, memory entries, and tool calls.</p>
+        </article>
+        <article class="card">
+          <span class="card-number">03</span>
+          <h3>Consequences</h3>
+          <p>Task failure, targeted behavior, unsafe motion, unauthorized skill use, privacy leakage, persistence, and recovery failure.</p>
+        </article>
+        <article class="card">
+          <span class="card-number">04</span>
+          <h3>Evidence Levels</h3>
+          <p>Digital input, real-sensor input, simulation rollout, hardware-in-the-loop, real-robot actuation, and human-proximate validation.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section stats" id="evidence">
+      <div class="section-heading">
+        <p class="kicker">Evidence Corpus</p>
+        <h2>Calibrating claims rather than pooling incomparable scores</h2>
+      </div>
+      <div class="stat-grid">
+        <div class="stat">
+          <strong>85</strong>
+          <span>Total evidence records</span>
+        </div>
+        <div class="stat">
+          <strong>23</strong>
+          <span>Direct VLA attack records</span>
+        </div>
+        <div class="stat">
+          <strong>28</strong>
+          <span>Embodied-adjacent records</span>
+        </div>
+        <div class="stat">
+          <strong>34</strong>
+          <span>Analogical and contextual records</span>
+        </div>
+      </div>
+      <p>
+        The evidence appendix separates direct VLA evidence from embodied-adjacent and analogical work. A record is direct only when the target is a VLA model, VLA-controlled robot, VLA training channel, or VLA privacy channel, and the measured outcome concerns actions, trajectories, reasoning-to-action behavior, triggered policy behavior, or training-data membership.
+      </p>
+    </section>
+
+    <section class="section" id="papers">
+      <div class="section-heading">
+        <p class="kicker">Awesome Papers</p>
+        <h2>Direct VLA attack evidence</h2>
+      </div>
+      <div class="paper-groups">
+        <article class="paper-group">
+          <h3>Visual and Physical Attacks</h3>
+          <ul>
+            <li><strong>Wang-ICCV-patch</strong> <span>2025, visual-physical attack on action trajectories, real-robot actuation</span></li>
+            <li><strong>EDPA</strong> <span>2025, visual patch attack on embedding alignment, simulation rollout</span></li>
+            <li><strong>ADVLA</strong> <span>2025, sparse visual perturbation on projected features, digital-input setting</span></li>
+            <li><strong>UPA-RFAS</strong> <span>2026, transferable physical patch, real-robot actuation</span></li>
+            <li><strong>VLA-Hijack</strong> <span>2026, transferable patch targeting visual-proprioceptive behavior</span></li>
+            <li><strong>Tex3D</strong> <span>2026, 3D object texture attack on trajectories, real-robot actuation</span></li>
+            <li><strong>Partial-Patch</strong> <span>2026, partial-observation patch affecting grounding and trajectories</span></li>
+          </ul>
+        </article>
+        <article class="paper-group">
+          <h3>Instruction, Reasoning, and Trajectory Control</h3>
+          <ul>
+            <li><strong>RoboGCG</strong> <span>2025, prompt optimization for action-token control</span></li>
+            <li><strong>VLA-Fool</strong> <span>2025, multimodal attack on cross-modal alignment</span></li>
+            <li><strong>TRAP</strong> <span>2026, physical reasoning patch for plan-to-action hijacking</span></li>
+            <li><strong>Altered-Thoughts</strong> <span>2026, reasoning trace corruption in DeepThinkVLA</span></li>
+            <li><strong>SABER</strong> <span>2026, black-box language attack on plan-action sequences</span></li>
+            <li><strong>Q-DIG</strong> <span>2026, red-team instruction generation with real-robot actuation</span></li>
+            <li><strong>Trajectory-Redirection</strong> <span>2026, language-driven redirection toward attacker-specified outcomes</span></li>
+            <li><strong>ReasonBreak</strong> <span>2026, reasoning attack in autonomous-driving VLA simulation</span></li>
+          </ul>
+        </article>
+        <article class="paper-group">
+          <h3>Backdoors, Availability, and Privacy</h3>
+          <ul>
+            <li><strong>FreezeVLA</strong> <span>2025, action-sequence availability attack</span></li>
+            <li><strong>BadVLA</strong> <span>2025, training-time backdoor on embedding-action behavior</span></li>
+            <li><strong>GoBA</strong> <span>2025, physical-object goal backdoor, real-robot actuation</span></li>
+            <li><strong>DropVLA-TabVLA</strong> <span>2025, action primitive and chunk backdoor, real-robot actuation</span></li>
+            <li><strong>AttackVLA-BackdoorVLA</strong> <span>2025, unified attack benchmark with physical trials</span></li>
+            <li><strong>SilentDrift</strong> <span>2026, chunk-level backdoor and trajectory drift</span></li>
+            <li><strong>VLA-MIA</strong> <span>2026, membership inference from action outputs</span></li>
+            <li><strong>VLALeaks</strong> <span>2026, membership features from attention and action traces</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section resources">
+      <div class="section-heading">
+        <p class="kicker">Resources</p>
+        <h2>Files included with the survey</h2>
+      </div>
+      <div class="resource-grid">
+        <a href="tables/vla_attack_evidence_database_v2026-06-16.csv">Evidence database</a>
+        <a href="tables/direct_vla_coding_audit_v2026-06-16.csv">Direct VLA coding audit</a>
+        <a href="tables/direct_vla_validation_flags_v2026-06-16.csv">Validation flags</a>
+        <a href="tables/vla_attack_corpus_source_v2026-06-16.csv">Corpus source map</a>
+        <a href="tables/README_vla_attack_evidence_database.md">Evidence documentation</a>
+        <a href="figure_mockups/index.html">Interactive figure mockups</a>
+      </div>
+    </section>
+
+    <section class="section" id="citation">
+      <div class="section-heading">
+        <p class="kicker">Citation</p>
+        <h2>How to cite</h2>
+      </div>
+      <pre><code>@article{VLAAttackSurvey,
+  title={Attacks on Vision-Language-Action Robotic Systems: Mechanisms, Evaluation, and Open Problems},
+  author={Anonymous},
+  journal={arXiv preprint arXiv:2509.03883},
+  year={2025}
+}</code></pre>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Maintained as a living resource for research on VLA attack mechanisms, evidence, and evaluation.</p>
+  </footer>
+</body>
+</html>
